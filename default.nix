@@ -6,7 +6,7 @@ let
   }) {};
 
   iPython = jupyter.kernels.iPythonWith {
-    name = "test";
+    name = "agriculture";
     packages = p: with p; [ numpy pandas ];
   };
 
