@@ -1,0 +1,3500 @@
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342440      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342446      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587342449      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587342425     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342470      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342471      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587342425     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587342485      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587342503      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342497      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342515      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342515      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342425     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342535      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342533      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342542      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342546      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342549      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342549      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342553      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587342553      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342595      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342595      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342594      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342597      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342597      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342597      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342668      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342668      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342668      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342678      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342678      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342636      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1             True       2  ...     net     True            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342695      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342695      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342702      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342692      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342709      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342714      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342715      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342722      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342722      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342718      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342725      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342725      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342731      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342736      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342737      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342766      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342769      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342888      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342904      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342933      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342934      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587342938      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342938      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342946      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587342949      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342948      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342953      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0      True
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587342970      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1338516164      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343016      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343017      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343044      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343044      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587343047     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343057      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343061     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343055      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587343068      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343075      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343104      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343105      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343108      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587343113      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343128      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343128      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343130      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343131      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343129      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343181      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587343187      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343192      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343197      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343208      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343209      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587343233      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343252      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343261      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343264      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343271      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343274      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343274      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343273      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343280      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343290      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343288      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343292      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343292      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343298      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343301      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343304      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343303      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343318      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343318      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343337      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343341      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...     net     True   1587343360      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343362      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343407      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343412      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343413      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587343435      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343457      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343459      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343496      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343499      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343510      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343516      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343517      True
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,004520.00,3454.646503,N,11352.733423,E,...  ...    app
+
+[1 rows x 4 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343536      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343544      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343556      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343559      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343561      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343567      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587343572      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343584      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343585      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587343572      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343586      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343586      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343591     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343572      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343644      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343645      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343668      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343684      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343685      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343694      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587343710      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343710      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343714      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343714      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343730      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587343742      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343748      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343749      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343752      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343752      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343757      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343757      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       0  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343765      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343762      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343792      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343797      True
+
+[1 rows x 12 columns]
+   rtkauth  rtkfix  csq        reason  ... rtcmsrc rtkconn  lastrtcmtime  rtcmexist
+0    False       1   24  rtkFixChange  ...           False             0      False
+
+[1 rows x 9 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343808      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005013.00,3454.648035,N,11352.734680,E,...  ...    app
+
+[1 rows x 4 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343808      True
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005019.00,3454.647413,N,11352.734324,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005019.00,3454.647413,N,11352.734324,E,...  ...    app
+
+[1 rows x 4 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343820      True
+
+[1 rows x 12 columns]
+   rtkauth  rtkfix  csq  ...  rtkconn lastrtcmtime rtcmexist
+0    False       1   24  ...    False            0     False
+
+[1 rows x 10 columns]
+   rtkauth  rtkfix  csq  ...  rtkconn lastrtcmtime rtcmexist
+0     True       1   24  ...     True            0     False
+
+[1 rows x 10 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587343824      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005033.00,3454.647477,N,11352.734517,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005033.00,3454.647477,N,11352.734517,E,...  ...    app
+
+[1 rows x 4 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343829      True
+
+[1 rows x 12 columns]
+   rtkauth  rtkfix  csq  ...  rtkconn lastrtcmtime rtcmexist
+0     True       2   22  ...     True   1587343830      True
+
+[1 rows x 10 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005039.00,3454.647477,N,11352.734515,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,005039.00,3454.647477,N,11352.734515,E,...  ...    app
+
+[1 rows x 4 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343841      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343848      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343848      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343851      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343853      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343857      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343858      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343869      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343892      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343893      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343890      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343897      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343898      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343909      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343912      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343922      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343922      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343923      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587343925      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343926      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587343924      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343929      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343931      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343942      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587343944      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343944      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343941      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587343952      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587343894      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587343894     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343961      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343894     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587343970      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587343973      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587343988      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344021      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344021      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344057      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344057      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344071      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344071      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344073      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344075      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344098      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344098      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       0  ...     True    1587344101      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587344116      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344133      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344133      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344137     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344147      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587344137     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344165      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344165      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344163      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344166      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344171      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344171      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344172      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344172      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587344171      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344179      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344181      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344180      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True    1587344191      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344195      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344196      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       1  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       1  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587344181     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344217      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587344181     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344181     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344234      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344239      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344239      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344271      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344296      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344327      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1338516044      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344338      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344339      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344344      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344344      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344340      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344365      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344376      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344375      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344373      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344381      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344130      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344403      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344403      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344407      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344408      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344413      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344413      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344414      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344415      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344420      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344421      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344433      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344444      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344449      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344449      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587344456      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       1  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       1  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344497      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       2  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010206.00,3318.607202,N,11748.227770,E,...  ...    app
+
+[1 rows x 4 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344536      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344546      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344549      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344557      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587344561      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344567      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587344572      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344581      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344607      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344609      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344649      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587344618      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...    False    1587344618     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344618     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344684      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344685      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344719      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010537.00,3318.632956,N,11748.274109,E,...  ...    app
+
+[1 rows x 4 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344740      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344740      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010552.00,3454.595688,N,11352.735374,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010553.00,3454.595688,N,11352.735374,E,...  ...    app
+
+[1 rows x 4 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010558.00,3454.595686,N,11352.735379,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010559.00,3454.595686,N,11352.735381,E,...  ...    app
+
+[1 rows x 4 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344758      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344759      True
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010604.00,3454.595687,N,11352.735382,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010604.00,3454.595687,N,11352.735382,E,...  ...    app
+
+[1 rows x 4 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010604.00,3454.595687,N,11352.735382,E,...  ...    app
+
+[1 rows x 4 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344767      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344767      True
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010610.00,3454.595687,N,11352.735379,E,...  ...    app
+
+[1 rows x 4 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       2  ...     net     True   1587344775      True
+
+[1 rows x 12 columns]
+                                                 gga  ...  type1
+0  $GNGGA,010617.00,3318.634078,N,11748.275411,E,...  ...    app
+
+[1 rows x 4 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344786      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344786      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344756      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344790      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344797      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344806      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344823      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344840      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       1  ...     net     True   1587344846      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344846      True
+
+[1 rows x 12 columns]
+   rtkauth  rtkfix  csq        reason  ... rtcmsrc rtkconn  lastrtcmtime  rtcmexist
+0    False       1   19  rtkFixChange  ...           False             0      False
+
+[1 rows x 9 columns]
+   rtkauth  rtkfix  csq  ...  rtkconn lastrtcmtime rtcmexist
+0    False       1   23  ...    False            0     False
+
+[1 rows x 10 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       1  ...     net     True   1587344879      True
+
+[1 rows x 12 columns]
+   rtkauth  rtkfix  csq  ...  rtkconn lastrtcmtime rtcmexist
+0     True       1   23  ...     True            0     False
+
+[1 rows x 10 columns]
+   rtkauth  rtkfix  csq  ...  rtkconn lastrtcmtime rtcmexist
+0     True       2   19  ...     True   1587344900      True
+
+[1 rows x 10 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344902      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344819      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       1  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       1  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       1  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344919      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344925      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       0  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       0  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344947      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344959      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344959      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344962      True
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       1  ...           False            0     False
+
+[1 rows x 11 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B    False       1  ...            False            0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906B     True       1  ...             True            0      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...     net     True   1587344966      True
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...           False            0     False
+
+[1 rows x 11 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482    False       2  ...            False            0     False
+
+[1 rows x 12 columns]
+   app  rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1      482     True       2  ...             True            0      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       2  ...     True    1587344966      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0     True       1  ...     True             0     False
+
+[1 rows x 12 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       2  ...     net     True   1587344975      True
+
+[1 rows x 12 columns]
+   rtkauth  rtkfix  csq        reason  ... rtcmsrc rtkconn  lastrtcmtime  rtcmexist
+0    False       1   18  rtkFixChange  ...           False             0      False
+
+[1 rows x 9 columns]
+   app rtktype  rtkauth  rtkfix  ... rtcmsrc  rtkconn lastrtcmtime rtcmexist
+0    1    906A     True       1  ...     net     True   1587344982      True
+
+[1 rows x 12 columns]
+   testmode  rtkauth  rtkfix  ...  rtkconn  lastrtcmtime rtcmexist
+0         0    False       1  ...    False             0     False
+
+[1 rows x 12 columns]

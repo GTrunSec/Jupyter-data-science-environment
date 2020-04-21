@@ -29,6 +29,6 @@ in
   name = "analysis-arg";
   buildInputs = [jupyterEnvironment ];
   shellHook = ''
-    #jupyter-lab
+    jupyter-lab
   '';
   }
