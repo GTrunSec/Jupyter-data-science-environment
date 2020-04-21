@@ -11,7 +11,7 @@ let
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./python.nix {};
     name = "agriculture";
-    packages = p: with p; [ numpy pandas matplotlib editdistance];
+    packages = p: with p; [ numpy pandas matplotlib editdistance ];
 
   };
 
@@ -29,6 +29,6 @@ in
   name = "analysis-arg";
   buildInputs = [jupyterEnvironment ];
   shellHook = ''
-    jupyter-lab
+    #jupyter-lab
   '';
   }
