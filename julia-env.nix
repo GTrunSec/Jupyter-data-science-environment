@@ -20,6 +20,6 @@ mkShell {
   echo "Update Julia packages"
   julia -e 'using Pkg; Pkg.update()' \
   && julia -e 'using Pkg; Pkg.add("IJulia")' \
-  && julia -e 'using IJulia; installkernel"Julia_8_threads", env=Dict("JULIA_NUM_THREADS"=>"8"))'
+  && julia -e 'using IJulia; installkernel("Julia_8_threads", env=Dict("JULIA_NUM_THREADS"=>"8"))'
   '';
 }
