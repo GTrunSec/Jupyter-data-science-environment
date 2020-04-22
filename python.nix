@@ -1,6 +1,6 @@
 { python3, pkgs }:
 let
-my-overlay = pkgs.fetchFromGitHub {
+  my-overlay = pkgs.fetchFromGitHub {
     owner = "GTrunSec";
     repo = "nixpkgs-overlays";
     rev = "ba257528be9850df04a7dba6e9e4d7988beecd0b";
