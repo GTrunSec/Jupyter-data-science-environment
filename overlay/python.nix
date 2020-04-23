@@ -5,9 +5,18 @@ let
     jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "jupyterlab";
-        version = "2.0.2";
-        sha256 = "116nkn33xka6gdcvra7abcqfwdzgbs86c9ay7x877p0fbyyvp8bk";
+        version = "2.1.0";
+        sha256 = "10fwpgsi996nk2hcva14k8x6znczxgfmydvfsfrs1fpmmfmrl8wc";
       };
+      propagatedBuildInputs = [
+        (pythonPackages.jupyterlab_server.overridePythonAttrs (_:{
+          src = pythonPackages.fetchPypi {
+            pname = "jupyterlab_server";
+            version = "1.1.0";
+            sha256 = "0cqpyy4jr3023c47ij08djkpx526gmz8fab45mcnws0glhp7xhms";
+          };
+        }))
+        pythonPackages.notebook ];
     });
 
     nbconvert = pythonPackages.nbconvert.overridePythonAttrs (_:{

@@ -64,10 +64,8 @@ let
        directory = jupyter.mkDirectoryWith {
          extensions = [
            "@jupyter-widgets/jupyterlab-manager@2.0"
-           #"jupyterlab-ihaskell@0.0.7" https://github.com/gibiansky/IHaskell/pull/1151
         ];
        };
-
     };
 in
   pkgs.mkShell rec {
@@ -76,7 +74,7 @@ in
                   pkgs.python3Packages.ipywidgets
                 ];
   shellHook = ''
+  jupyter nbextension install --py widgetsnbextension --user
   jupyter nbextension enable --py widgetsnbextension
-  jupyter-lab
     '';
   }
