@@ -44,17 +44,17 @@ let
                             matrix
                             hmatrix
                             monad-bayes
-                            # hvega
-                            # statistics
-                            # vector
-                            # ihaskell-hvega
-                            # aeson
-                            # aeson-pretty
-                            # formatting
-                            # foldl
-                            # histogram-fill
-                            # funflow
-                            # JuicyPixels
+                            hvega
+                            statistics
+                            vector
+                            ihaskell-hvega
+                            aeson
+                            aeson-pretty
+                            formatting
+                            foldl
+                            histogram-fill
+                            #funflow osx failed
+                            JuicyPixels
                           ] ;
   };
 
