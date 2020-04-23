@@ -3,7 +3,11 @@ let
   packageOverrides = selfPythonPackages: pythonPackages: {
 
     jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
-      doCheck = false;
+      src = pythonPackages.fetchPypi {
+        pname = "jupyterlab";
+        version = "2.0.2";
+        sha256 = "116nkn33xka6gdcvra7abcqfwdzgbs86c9ay7x877p0fbyyvp8bk";
+      };
     });
 
     nbconvert = pythonPackages.nbconvert.overridePythonAttrs (_:{

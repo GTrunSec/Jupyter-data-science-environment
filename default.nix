@@ -29,8 +29,8 @@ let
       kernels = [ iPython ];
        directory = jupyter.mkDirectoryWith {
          extensions = [
-           # "ihaskell_jupyterlab@0.0.7"
            "@jupyter-widgets/jupyterlab-manager@2.0"
+           #"jupyterlab-ihaskell@0.0.7" https://github.com/gibiansky/IHaskell/pull/1151
         ];
        };
     };
@@ -42,6 +42,7 @@ in
                   pkgs.nodejs-13_x
                 ];
   shellHook = ''
-
+  jupyter nbextension enable --py widgetsnbextension
+  jupyter-lab
     '';
   }
