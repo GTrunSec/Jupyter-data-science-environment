@@ -1,18 +1,22 @@
-{ pkgs ? import <nixpkgs> {} }:
-
 let
-
-  jupyter = import (builtins.fetchGit {
+   jupyterLib = builtins.fetchGit {
     url = https://github.com/tweag/jupyterWith;
-    rev = "7a6716f0c0a5538691a2f71a9f12b066bce7d55c";
-  }) {};
+    rev = "70f1dddd6446ab0155a5b0ff659153b397419a2d";
+  };
 
+  overlays = [
+    # Only necessary for Haskell kernel
+    (import ./overlay/python.nix)
+  ];
+
+  pkgs = import <nixpkgs> { inherit overlays; };
+
+  jupyter = import jupyterLib {pkgs=pkgs;};
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./python.nix {};
+    python3 = pkgs.callPackage ./overlay/own-python.nix {};
     name = "agriculture";
-    packages = p: with p; [ numpy pandas matplotlib editdistance ];
-
+    packages = p: with p; [ numpy pandas matplotlib editdistance ipywidgets ];
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
@@ -23,12 +27,21 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython ];
+       directory = jupyter.mkDirectoryWith {
+         extensions = [
+           # "ihaskell_jupyterlab@0.0.7"
+           "@jupyter-widgets/jupyterlab-manager@2.0"
+        ];
+       };
     };
 in
   pkgs.mkShell rec {
   name = "analysis-arg";
-  buildInputs = [jupyterEnvironment ];
+  buildInputs = [ jupyterEnvironment
+                  pkgs.python3Packages.ipywidgets
+                  pkgs.nodejs-13_x
+                ];
   shellHook = ''
-      jupyter-lab
+
     '';
   }
