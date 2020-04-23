@@ -19,8 +19,9 @@ let
      haskellOverlay
      hasktorchOverlay
   ];
+  nixpkgsPath = jupyterLib + "/nix";
 
-  pkgs = import <nixpkgs> { inherit overlays; };
+  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
 
@@ -35,14 +36,14 @@ let
     haskellPackages = pkgs.haskell.packages.ghc865;
     packages = p: with p; [ hvega
                             formatting
-                            # libtorch-ffi_cpu
-                            # inline-c
-                            # inline-c-cpp
-                            # hasktorch-examples_cpu
-                            # hasktorch_cpu
-                            # matrix
-                            # hmatrix
-                            # monad-bayes
+                            libtorch-ffi_cpu
+                            inline-c
+                            inline-c-cpp
+                            hasktorch-examples_cpu
+                            hasktorch_cpu
+                            matrix
+                            hmatrix
+                            monad-bayes
                             # hvega
                             # statistics
                             # vector
@@ -60,7 +61,7 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython ];
+      kernels = [ iPython iHaskell ];
        directory = jupyter.mkDirectoryWith {
          extensions = [
            "@jupyter-widgets/jupyterlab-manager@2.0"
