@@ -24,15 +24,7 @@ let
     packages = p: with p; [ hvega formatting ] ;
   };
 
-   my-pkgs = pkgs.fetchFromGitHub {
-    owner = "hardenedlinux";
-    repo = "NSM-data-analysis";
-    rev = "1bc6bc22c63c034d272150a26d74b149cc677ab8";
-    sha256 = "18yrwg6xyhwmf02l6j7rcmqyckfqg0xy3nx4lcf6lbhc16mfncnf";
-  };
 
-  juliaEnv = (import "${my-pkgs}/pkgs/julia-non-cuda.nix" {});
- 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython ];
@@ -52,10 +44,7 @@ in
                   juliaEnv
                 ];
   shellHook = ''
-  export JULIA_PKGDIR=$(realpath ./.julia_pkgs)
-  export JULIA_DEPOT_PATH=$(realpath ./.julia_pkgs)
-  export JULIA_NUM_THREADS=8
   jupyter nbextension enable --py widgetsnbextension
-  jupyter-lab
+  jupyter
     '';
   }
