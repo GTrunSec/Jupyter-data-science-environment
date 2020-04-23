@@ -9,17 +9,21 @@ let
     sha256 = "18yrwg6xyhwmf02l6j7rcmqyckfqg0xy3nx4lcf6lbhc16mfncnf";
   };
 
-  julia = (import "${my-pkgs}/pkgs/julia-non-cuda.nix" {});
-
+  juliaEnv = (import "${my-pkgs}/pkgs/julia-non-cuda.nix" {});
+  pwd_dir = builtins.getEnv "PWD";
 in
 
 mkShell {
   name = "julia";
-  buildInputs = [ julia ];
+  buildInputs = [ juliaEnv ];
   shellHook = ''
+  export JULIA_PKGDIR=$(realpath ./.julia_pkgs)
+  export JULIA_DEPOT_PATH=$(realpath ./.julia_pkgs)
+  export JULIA_NUM_THREADS=8
   echo "Update Julia packages"
-  julia -e 'using Pkg; Pkg.update()' \
-  && julia -e 'using Pkg; Pkg.add("IJulia")' \
-  && julia -e 'using IJulia; installkernel("Julia_8_threads", env=Dict("JULIA_NUM_THREADS"=>"8"))'
+   ${juliaEnv}/bin/julia -e 'using Pkg; Pkg.add("IJulia")' \
+   && ${juliaEnv}/bin/julia -e 'using Pkg; Pkg.add("Flux"); using Flux' \
+   && ${juliaEnv}/bin/julia -e 'using Pkg; using Flux'\
+   && ${juliaEnv}/bin/julia -e 'using IJulia; installkernel("Julia_8_threads", env=Dict("JULIA_DEPOT_PATH"=>"${pwd_dir}/.julia_pkgs","JULIA_PKGDIR"=>"${pwd_dir}/.julia_pkgs","JULIA_NUM_THREADS"=>"8"))'
   '';
 }
