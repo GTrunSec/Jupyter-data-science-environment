@@ -36,7 +36,7 @@ let
         pythonPackages.traitlets
         pythonPackages.notebook
         pythonPackages.tornado
-        ];
+      ];
     };
 
     jupyter_nbextensions_configurator = pythonPackages.buildPythonPackage rec {
@@ -51,7 +51,7 @@ let
       propagatedBuildInputs = [
         selfPythonPackages.jupyter_contrib_core
         pythonPackages.pyyaml
-        ];
+      ];
 
       doCheck = false;  # too much
     };

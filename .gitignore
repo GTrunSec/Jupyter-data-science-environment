@@ -3,3 +3,4 @@
 *.log
 tmp/
 .julia_pkgs
+jupyterlab

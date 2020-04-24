@@ -65,7 +65,7 @@ let
       ihaskell-rlangqq = callDisplayPackage "rlangqq";
       ihaskell-static-canvas = callDisplayPackage "static-canvas";
       ihaskell-widgets = callDisplayPackage "widgets";
-
+      ihaskell-inline-r = callDisplayPackage "R-inline-r";
       # Marked as broken in this version of Nixpkgs.
       chell = hspkgs.callHackage "chell" "0.4.0.2" {};
       patience = hspkgs.callHackage "patience" "0.1.1" {};
@@ -78,9 +78,12 @@ let
       zeromq4-haskell = dontCheck hspkgs.zeromq4-haskell;
       funflow = dontCheck hspkgs.funflow;
 
+      i-inline-c = hspkgs.callHackage "inline-c" "0.8.0.1" {};
+      i-inline-r = hspkgs.callHackage "inline-r" "0.10.2" {};
       # Haddocks not building.
       ghc-lib-parser = dontHaddock hspkgs.ghc-lib-parser;
 
+      inline-r = pkgs.haskell.lib.addBuildDepends self.i-inline-r [self.i-inline-c];
       # Missing dependency.
       aeson = pkgs.haskell.lib.addBuildDepends hspkgs.aeson [ self.contravariant ];
 
