@@ -12,7 +12,7 @@ let
 
    hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
    haskellOverlay = import ./overlay/haskell-overlay.nix;
-
+   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
    overlays = [
     # Only necessary for Haskell kernel
      (import ./overlay/python.nix)
@@ -67,23 +67,21 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell ];
-       directory = jupyter.mkDirectoryWith {
-         extensions = [
-           "@jupyter-widgets/jupyterlab-manager@2.0"
-           #"jupyterlab-ihaskell@0.0.7" https://github.com/gibiansky/IHaskell/pull/1151
-           "${ihaskell_labextension}"
-         ];
-       };
-
+      directory = ./jupyterlab;
     };
 in
-  pkgs.mkShell rec {
+pkgs.mkShell rec {
   name = "analysis-arg";
   buildInputs = [ jupyterEnvironment
+                  env.generateDirectory
                   pkgs.python3Packages.ipywidgets
-                ];
-  shellHook = ''
+              ];
+  shellHook= ''
+  jupyter nbextension install --py widgetsnbextension --user
   jupyter nbextension enable --py widgetsnbextension
-  jupyter-lab
+  if [! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
+    ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
+  fi
+  jupyt-lab
     '';
   }
