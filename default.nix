@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/tweag/jupyterWith;
-    rev = "70f1dddd6446ab0155a5b0ff659153b397419a2d";
+    rev = "7a6716f0c0a5538691a2f71a9f12b066bce7d55c";
   };
 
   haskTorchSrc = builtins.fetchGit {
@@ -12,27 +12,35 @@ let
 
   hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
   haskellOverlay = import ./overlay/haskell-overlay.nix;
-
+  ROverlay = import ./overlay/R-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python.nix)
     haskellOverlay
     hasktorchOverlay
+    ROverlay
   ];
 
-  pkgs = import <nixpkgs> { inherit overlays; };
+  nixpkgsPath = jupyterLib + "/nix";
+  
+  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
+  jupyter = import jupyterLib {pkgs=pkgs;};
+  
   ihaskell_labextension = pkgs.fetchurl {
     url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
     sha256 = "0i17yd3b9cgfkjxmv9rdv3s31aip6hxph5x70s04l9xidlvsp603";
   };
 
-  jupyter = import jupyterLib {pkgs=pkgs;};
-
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix {};
     name = "agriculture";
     packages = p: with p; [ numpy pandas matplotlib editdistance ipywidgets ];
+  };
+
+  IRkernel = jupyter.kernels.iRWith {
+    name = "IRkernel";
+    packages = p: with p; [ devtools ];
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
@@ -66,7 +74,7 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython ];
+      kernels = [ iPython iHaskell IRkernel ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
           "@jupyter-widgets/jupyterlab-manager@2.0"

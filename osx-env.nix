@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/tweag/jupyterWith;
-    rev = "70f1dddd6446ab0155a5b0ff659153b397419a2d";
+    rev = "7a6716f0c0a5538691a2f71a9f12b066bce7d55c";
   };
 
   haskTorchSrc = builtins.fetchGit {
