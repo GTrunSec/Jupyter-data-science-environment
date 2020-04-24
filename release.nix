@@ -74,13 +74,11 @@ let
       };
     };
 in
-pkgs.mkShell rec {
-  name = "analysis-arg";
-  buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
-                ];
-  shellHook = ''
-  jupyter nbextension install --py widgetsnbextension --user
-  jupyter nbextension enable --py widgetsnbextension
-    '';
+{
+  Jupyter-data-science-environment = pkgs.buildEnv {
+    name = "Jupyter-data-science-environment";
+    paths = [ jupyterEnvironment
+              pkgs.python3Packages.ipywidgets
+            ];
+  };
 }
