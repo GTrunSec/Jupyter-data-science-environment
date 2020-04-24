@@ -19,11 +19,16 @@ let
      haskellOverlay
      hasktorchOverlay
   ];
-  nixpkgsPath = jupyterLib + "/nix";
+   nixpkgsPath = jupyterLib + "/nix";
 
   pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
+
+  ihaskell_labextension = pkgs.fetchurl {
+    url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
+    sha256 = "0i17yd3b9cgfkjxmv9rdv3s31aip6hxph5x70s04l9xidlvsp603";
+  };
 
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix {};
@@ -66,7 +71,8 @@ let
          extensions = [
            "@jupyter-widgets/jupyterlab-manager@2.0"
            #"jupyterlab-ihaskell@0.0.7" https://github.com/gibiansky/IHaskell/pull/1151
-        ];
+           "${ihaskell_labextension}"
+         ];
        };
 
     };
@@ -78,6 +84,6 @@ in
                 ];
   shellHook = ''
   jupyter nbextension enable --py widgetsnbextension
-  jupyter-lab
+  #jupyter-lab
     '';
   }

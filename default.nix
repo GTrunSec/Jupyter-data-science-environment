@@ -20,7 +20,12 @@ let
      hasktorchOverlay
   ];
 
-  pkgs = import <nixpkgs> { inherit overlays; };
+   pkgs = import <nixpkgs> { inherit overlays; };
+
+   ihaskell_labextension = pkgs.fetchurl {
+     url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
+     sha256 = "0i17yd3b9cgfkjxmv9rdv3s31aip6hxph5x70s04l9xidlvsp603";
+   };
 
   jupyter = import jupyterLib {pkgs=pkgs;};
 
@@ -64,6 +69,7 @@ let
        directory = jupyter.mkDirectoryWith {
          extensions = [
            "@jupyter-widgets/jupyterlab-manager@2.0"
+           "${ihaskell_labextension}"
         ];
        };
     };
