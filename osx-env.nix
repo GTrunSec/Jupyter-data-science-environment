@@ -84,6 +84,6 @@ in
                 ];
   shellHook = ''
   jupyter nbextension enable --py widgetsnbextension
-  #jupyter-lab
+  jupyter-lab
     '';
   }
