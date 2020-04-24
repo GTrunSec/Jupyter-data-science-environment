@@ -14,7 +14,7 @@ let
     ROverlay
   ];
 
-  pkgs = import <jupyterLib/nix> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
+  pkgs = import <jupyterLib-nix> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
   jupyter = import <jupyterLib> {pkgs=pkgs;};
   
