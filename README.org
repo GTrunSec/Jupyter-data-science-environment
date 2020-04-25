@@ -13,6 +13,26 @@
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
+* Quickly run
+- Linux
+
+
+#+begin_src sh :async t :exports both :results output
+nix-shell default.nix --option build-use-sandbox false
+#+end_src
+
+- Macos
+
+
+#+begin_src sh :async t :exports both :results output
+nix-shell osx-env.nix --option build-use-sandbox false
+#+end_src
+
+** Use Cachix
+#+begin_src sh :async t :exports both :results output
+cachix use nsm-data-analysis
+#+end_src
+
 * Julia Env
 #+begin_src sh :async t :exports both :results output
 nix-shell julia-env.nix --command "exit"
