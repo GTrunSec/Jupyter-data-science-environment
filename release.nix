@@ -11,7 +11,7 @@ let
     (import ./overlay/python.nix)
     haskellOverlay
     hasktorchOverlay
-    ROverlay
+    #ROverlay
   ];
 
   pkgs = import <jupyterLib-nix> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
@@ -26,12 +26,12 @@ let
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix {};
     name = "agriculture";
-    packages = p: with p; [ numpy pandas matplotlib editdistance ipywidgets ];
+    packages = import ./overlay/python-list.nix {inherit pkgs;};
   };
 
-  IRkernel = jupyter.kernels.iRWith {
-    name = "IRkernel";
-    packages = p: with p; [ devtools ];
+    IRkernel = jupyter.kernels.iRWith {
+      name = "IRkernel";
+      packages = import ./overlay/R-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
@@ -66,12 +66,6 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel ];
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0"
-          #"${ihaskell_labextension}" does not work
-        ];
-      };
     };
 in
 {

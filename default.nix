@@ -18,7 +18,7 @@ let
     (import ./overlay/python.nix)
     haskellOverlay
     hasktorchOverlay
-    ROverlay
+    #ROverlay
   ];
 
   nixpkgsPath = jupyterLib + "/nix";
@@ -35,13 +35,13 @@ let
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix {};
     name = "agriculture";
-    packages = p: with p; [ numpy pandas matplotlib editdistance ipywidgets ];
+    packages = import ./overlay/python-list.nix {inherit pkgs;};
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel";
-    packages = p: with p; [ devtools ];
-  };
+    packages = import ./overlay/R-list.nix {inherit pkgs;};
+   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
