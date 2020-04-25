@@ -9,6 +9,7 @@
                                                  uuid
                                                  htmlwidgets
                                                  IRdisplay
+                                                 purrr cmaes cubature
                                                  (let
                                                    llr = buildRPackage {      name = "llr";
                                                                               src = pkgs.fetchFromGitHub {

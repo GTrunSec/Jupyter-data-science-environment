@@ -35,29 +35,7 @@ let
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
     haskellPackages = pkgs.haskell.packages.ghc865;
-    packages = p: with p; [ hvega
-                            formatting
-                            inline-r
-                            libtorch-ffi_cpu
-                            inline-c
-                            inline-c-cpp
-                            hasktorch-examples_cpu
-                            hasktorch_cpu
-                            matrix
-                            hmatrix
-                            monad-bayes
-                            hvega
-                            statistics
-                            vector
-                            ihaskell-hvega
-                            aeson
-                            aeson-pretty
-                            formatting
-                            foldl
-                            histogram-fill
-                            funflow
-                            JuicyPixels
-                          ] ;
+    packages = import ./overlay/haskell-list.nix {inherit pkgs;};
   };
 
 
