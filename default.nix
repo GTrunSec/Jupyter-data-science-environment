@@ -65,7 +65,7 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.ipywidgets
                 ];
   shellHook = ''
-  jupyter nbextension install --py widgetsnbextension --user
-  jupyter nbextension enable --py widgetsnbextension
+    ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
+    ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
     '';
 }

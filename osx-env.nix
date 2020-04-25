@@ -80,8 +80,8 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.ipywidgets
                 ];
   shellHook= ''
-  jupyter nbextension install --py widgetsnbextension --user
-  jupyter nbextension enable --py widgetsnbextension
+    ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
+    ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
   if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
     ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
   fi
