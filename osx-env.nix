@@ -35,7 +35,7 @@ let
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix {};
     name = "agriculture";
-    packages = p: with p; [ numpy pandas matplotlib editdistance ipywidgets ];
+    packages = import ./overlay/python-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {

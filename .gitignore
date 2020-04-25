@@ -4,3 +4,4 @@
 tmp/
 .julia_pkgs
 jupyterlab
+3rdParty
