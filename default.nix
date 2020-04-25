@@ -12,13 +12,11 @@ let
 
   hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
   haskellOverlay = import ./overlay/haskell-overlay.nix;
-  ROverlay = import ./overlay/R-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python.nix)
     haskellOverlay
     hasktorchOverlay
-    #ROverlay
   ];
 
   nixpkgsPath = jupyterLib + "/nix";
