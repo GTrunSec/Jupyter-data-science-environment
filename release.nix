@@ -1,9 +1,9 @@
 let
   jupyterLib = import <jupyterLib>;
+    my-overlay = import <my-overlay>;
+      haskTorchSrc = import <haskTorchSrc>;
+        hasktorchOverlay = (import <haskTorchSrc/nix/shared.nix> { compiler = "ghc865"; }).overlayShared;
 
-  haskTorchSrc = import <haskTorchSrc>;
-
-  hasktorchOverlay = (import <haskTorchSrc/nix/shared.nix> { compiler = "ghc865"; }).overlayShared;
   haskellOverlay = import ./overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
@@ -15,7 +15,7 @@ let
   pkgs = import <jupyterLib-nix> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
   jupyter = import <jupyterLib> {pkgs=pkgs;};
-  
+  voila =  pkgs.callPackage (<my-overlay> + "/pkgs/python/voila") {};
   ihaskell_labextension = pkgs.fetchurl {
     url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
     sha256 = "0i17yd3b9cgfkjxmv9rdv3s31aip6hxph5x70s04l9xidlvsp603";
@@ -49,6 +49,7 @@ in
     name = "Jupyter-data-science-environment";
     paths = [ jupyterEnvironment
               pkgs.python3Packages.ipywidgets
+              voila
             ];
   };
 }

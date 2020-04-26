@@ -20,8 +20,11 @@ let
   ];
 
   nixpkgsPath = jupyterLib + "/nix";
+
   
-  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
+  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
+  
+  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
   
@@ -31,7 +34,7 @@ let
   };
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlay/own-python.nix {};
+    python3 = pkgs.callPackage ./overlay/own-python.nix { inherit pkgs;};
     name = "agriculture";
     packages = import ./overlay/python-list.nix {inherit pkgs;};
   };
@@ -51,22 +54,41 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel ];
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0"
-          #"${ihaskell_labextension}" does not work
-        ];
-      };
+      directory = ./jupyterlab;
+      # directory = jupyter.mkDirectoryWith {
+        # extensions = [
+        #   "@jupyter-widgets/jupyterlab-manager@2.0"
+        #   #"${ihaskell_labextension}" does not work
+        # ];
+     # };
     };
+  my-overlay = pkgs.fetchFromGitHub {
+    owner = "hardenedlinux";
+    repo = "NSM-data-analysis";
+    rev = "576e588e3b1e4f2738f4b7e2ca55c59e8be7d689";
+    sha256 = "118h2hi5ib9rfbk3kclvi273zf4zqw1igxxi846amj8096wkcfbv";
+  };
+
+  voila =  pkgs.callPackage (my-overlay + "/pkgs/python/voila") {};
 in
 pkgs.mkShell rec {
   name = "analysis-arg";
   buildInputs = [ jupyterEnvironment
                   pkgs.python3Packages.ipywidgets
+                  env.generateDirectory
+                  voila
                 ];
+
   shellHook = ''
     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-    ${jupyterEnvironment}/bin/jupyter-lab
+  if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
+    ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
+       if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
+       ${env.generateDirectory}/bin/generate-directory "@jupyter-widgets/jupyterlab-manager@2.0"
+     fi
+     exit
+  fi
+    #${jupyterEnvironment}/bin/jupyter-lab
     '';
 }
