@@ -51,6 +51,13 @@ let
     packages = import ./overlay/haskell-list.nix {inherit pkgs;};
   };
 
+  r-libs-site = pkgs.runCommand "r-libs-site" {
+    buildInputs = with pkgs; [ R
+                                  rPackages.ggplot2 rPackages.dplyr rPackages.xts rPackages.purrr rPackages.cmaes rPackages.cubature
+                                  rPackages.reshape2
+                                ];
+  } ''echo $R_LIBS_SITE > $out'';
+
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
@@ -73,7 +80,7 @@ pkgs.mkShell rec {
   
   shellHook = ''
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
-    ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
+     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
   #     if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
   #   ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
   #      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
@@ -81,6 +88,7 @@ pkgs.mkShell rec {
   #    fi
   #    exit
   # fi
+    export R_LIBS_SITE=${builtins.readFile r-libs-site}
     #${jupyterEnvironment}/bin/jupyter-lab
     '';
 }
