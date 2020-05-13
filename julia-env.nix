@@ -49,9 +49,7 @@ let
     arpack
     gfortran.cc
   ];
-in
-
-mkShell {
+in mkShell {
   name = "julia";
   buildInputs = [ juliaEnv ];
   shellHook = ''
