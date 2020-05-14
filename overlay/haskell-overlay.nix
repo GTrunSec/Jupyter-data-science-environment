@@ -78,8 +78,8 @@ let
       zeromq4-haskell = dontCheck hspkgs.zeromq4-haskell;
       funflow = dontCheck hspkgs.funflow;
 
-      i-inline-c = hspkgs.callHackage "inline-c" "0.7.0.1" {};
-      i-inline-r = hspkgs.callHackage "inline-r" "0.10.1" {};
+      i-inline-c = hspkgs.callHackage "inline-c" "0.8.0.1" {};
+      i-inline-r = hspkgs.callHackage "inline-r" "0.10.2" {};
       # Haddocks not building.
       ghc-lib-parser = dontHaddock hspkgs.ghc-lib-parser;
 
