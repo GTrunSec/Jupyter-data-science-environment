@@ -40,12 +40,13 @@ let
     packages = import ./overlay/R-list.nix {inherit pkgs;};
    };
 
+  nixpkgs  = import ../master-jupyter/kernels/ihaskell/ownpkgs.nix { };
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
-    haskellPackages = pkgs.haskell.packages.ghc865<;
+    haskellPackages = pkgs.haskell.packages.ghc865;
     packages = import ./overlay/haskell-list.nix {inherit pkgs;};
     Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
-                           reshape2
+                             reshape2
                           ];
     inline-r = true;
   };
