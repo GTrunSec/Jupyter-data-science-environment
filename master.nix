@@ -40,7 +40,7 @@ let
     packages = import ./overlay/R-list.nix {inherit pkgs;};
    };
 
-  nixpkgs  = import ../master-jupyter/kernels/ihaskell/ownpkgs.nix { };
+
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc865;

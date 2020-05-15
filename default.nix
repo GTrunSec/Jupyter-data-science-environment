@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "a86535e13bbe211b7e6d7c6614c489861fb5afe5";
+    rev = "8df01f073116b8b88c7a2d659c075401e187121b";
     ref = "current";
   };
 
@@ -36,7 +36,7 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix { inherit pkgs;};
-    name = "Python-data-Env";
+    name = "Python-data-env";
     packages = import ./overlay/python-list.nix {inherit pkgs;};
     ignoreCollisions = true;
   };
@@ -50,15 +50,11 @@ let
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc865;
     packages = import ./overlay/haskell-list.nix {inherit pkgs;};
+    Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
+                             reshape2
+                           ];
+    inline-r = true;
   };
-
-  r-libs-site = pkgs.runCommand "r-libs-site" {
-    buildInputs = with pkgs; [ R
-                                  rPackages.ggplot2 rPackages.dplyr rPackages.xts rPackages.purrr rPackages.cmaes rPackages.cubature
-                                  rPackages.reshape2
-                                ];
-  } ''echo $R_LIBS_SITE > $out'';
-
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
@@ -89,7 +85,6 @@ pkgs.mkShell rec {
   #    fi
   #    exit
   # fi
-    export R_LIBS_SITE=${builtins.readFile r-libs-site}
     #${jupyterEnvironment}/bin/jupyter-lab
     '';
 }
