@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "b3fddce1ceb66394c2f0abf5a570b6acd705b093";
+    rev = "8df01f073116b8b88c7a2d659c075401e187121b";
     ref = "current";
   };
 
@@ -20,10 +20,12 @@ let
     hasktorchOverlay
   ];
 
+  nixpkgsPath = jupyterLib + "/nix";
 
+  
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
   
-  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
+  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
   
@@ -34,7 +36,7 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/own-python.nix { inherit pkgs;};
-    name = "Python-data-env";
+    name = "Python-data-Env";
     packages = import ./overlay/python-list.nix {inherit pkgs;};
     ignoreCollisions = true;
   };
@@ -50,48 +52,31 @@ let
     packages = import ./overlay/haskell-list.nix {inherit pkgs;};
     Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
                              reshape2
-                           ];
+                           ];    
     inline-r = true;
   };
 
-
-  iJulia = jupyter.kernels.iJuliaWith {
-    name =  "Julia-test";
-    directory = "./.julia_pkgs";
-    NUM_THREADS = 8;
-    cuda = true;
-    extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
-      gzip
-      zlib
-    ];
-  };
-
+  voila =  pkgs.callPackage "/home/gtrun/project/hardenedlinux-zeek-script/NSM-data-analysis/pkgs/python/voila" {};
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia ];
+      kernels = [ iPython iHaskell IRkernel ];
       #directory = ./jupyterlab;
+      extraJupyterPath = pkgs:
+      "${voila}/bin";
+      directory = jupyter.mkDirectoryWith {
+        extensions = [
+          "@jupyter-widgets/jupyterlab-manager@2.0"
+          #"${ihaskell_labextension}" does not work
+        ];
+     };
     };
 in
-pkgs.mkShell rec {
+pkgs.buildEnv rec {
   name = "Jupyter-data-Env";
-  buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
-                  env.generateDirectory
-                  iJulia.InstalliJulia
-                  iJulia.julia_wrapped
-                  iJulia.Install_JuliaCUDA
-                ];
-  
-  shellHook = ''
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-  #     if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
-  #   ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-  #      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
-  #      ${env.generateDirectory}/bin/generate-directory "@jupyter-widgets/jupyterlab-manager@2.0"
-  #    fi
-  #    exit
-  # fi
-    #${jupyterEnvironment}/bin/jupyter-lab
-    '';
+  buildInputs = [pkgs.makeWrapper];
+  paths = [ jupyterEnvironment
+            pkgs.python3Packages.ipywidgets
+            env.generateDirectory
+            voila
+          ];
 }
