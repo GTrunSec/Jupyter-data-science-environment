@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "55ff9de1869fae663132f86cf4d91a3c58ac3b46";
+    rev = "6fcde5cbe1bcca1eccf80721996c61f3d50bc3e8";
     ref = "current";
   };
 
@@ -23,7 +23,7 @@ let
 
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
   
-  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
+  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
   
@@ -55,20 +55,14 @@ let
   };
 
 
-  cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
-
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-test";
     directory = "./.julia_pkgs";
     nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
-    cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
     NUM_THREADS = 8;
-    cuda = true;
-    cudaVersion = cudapkgs.cudatoolkit_10_2;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
-      cudapkgs.cudatoolkit_10_2
     ];
   };
 

@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "8df01f073116b8b88c7a2d659c075401e187121b";
+    rev = "6fcde5cbe1bcca1eccf80721996c61f3d50bc3e8";
     ref = "current";
   };
 
@@ -20,12 +20,11 @@ let
     hasktorchOverlay
   ];
 
-  nixpkgsPath = jupyterLib + "/nix";
 
   
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
-  
-  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
+
+  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
   
@@ -56,20 +55,27 @@ let
     inline-r = true;
   };
 
-  voila =  pkgs.callPackage "/home/gtrun/project/hardenedlinux-zeek-script/NSM-data-analysis/pkgs/python/voila" {};
+  cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
+
+  iJulia = jupyter.kernels.iJuliaWith {
+    name =  "Julia-test";
+    directory = "./.julia_pkgs";
+    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
+    extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
+      gzip
+      zlib
+    ];
+  };
+
+
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel ];
-      #directory = ./jupyterlab;
-      extraJupyterPath = pkgs:
-      "${voila}/bin";
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0"
-          #"${ihaskell_labextension}" does not work
-        ];
-     };
+      kernels = [ iPython iHaskell IRkernel iJulia ];
+      directory = ./jupyterlab;
+      extraPackages = p: [p.python3Packages.jupyterlab_git];
+      extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages";
     };
+
 in
 pkgs.buildEnv rec {
   name = "Jupyter-data-Env";
@@ -77,6 +83,10 @@ pkgs.buildEnv rec {
   paths = [ jupyterEnvironment
             pkgs.python3Packages.ipywidgets
             env.generateDirectory
-            voila
+            pkgs.python3Packages.jupyterlab_git
+            env.generateDirectory
+            iJulia.InstalliJulia
+            iJulia.julia_wrapped
+            iJulia.Install_JuliaCUDA
           ];
 }
