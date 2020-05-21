@@ -1,7 +1,7 @@
 _: pkgs:
 let
   packageOverrides = selfPythonPackages: pythonPackages: {
-
+    jupyterlab_git =  pkgs.callPackage ./pkgs/jupyterlab-git {};
     jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "jupyterlab";
