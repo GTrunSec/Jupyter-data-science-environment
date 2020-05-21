@@ -75,7 +75,7 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia ];
-      #directory = ./jupyterlab;
+      directory = ./jupyterlab;
     };
 in
 pkgs.mkShell rec {
@@ -94,7 +94,8 @@ pkgs.mkShell rec {
   #     if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
   #   ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
   #      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
-  #      ${env.generateDirectory}/bin/generate-directory "@jupyter-widgets/jupyterlab-manager@2.0"
+  #      ${env.generateDirectory}/bin/generate-directory "@jupyter-widgets/jupyterlab-manager@2.0
+  #      ${env.generateDirectory}/bin/generate-directory "@jupyterlab/git"
   #    fi
   #    exit
   # fi
