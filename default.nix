@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "b3fddce1ceb66394c2f0abf5a570b6acd705b093";
+    rev = "55ff9de1869fae663132f86cf4d91a3c58ac3b46";
     ref = "current";
   };
 
@@ -55,14 +55,20 @@ let
   };
 
 
+  cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
+
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-test";
     directory = "./.julia_pkgs";
+    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
+    cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
     NUM_THREADS = 8;
     cuda = true;
+    cudaVersion = cudapkgs.cudatoolkit_10_2;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
+      cudapkgs.cudatoolkit_10_2
     ];
   };
 
