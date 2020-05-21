@@ -5,7 +5,7 @@
                                                 graphviz pillow elasticsearch requests sqlalchemy
                                                 qtconsole
                                                 own-pydicom
-                                                (own-geoip2.overridePythonAttrs (oldAttrs: { 
+                                                (own-geoip2.overridePythonAttrs (oldAttrs: {
                                                       propagatedBuildInputs = with pythonPackages; [ requests
                                                                                                      (pythonPackages.maxminddb.overridePythonAttrs ( oldAttrs:{
                                                                                                            src = pythonPackages.fetchPypi {

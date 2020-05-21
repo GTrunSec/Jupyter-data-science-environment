@@ -4,7 +4,6 @@ let
     url = "https://github.com/hardenedlinux/NSM-data-analysis";
     rev = "07a94f1f8a154e0aa4e9f9675014d663e91a73de";
   };
-  nixpkgs =  import <nixpkgs> {};
 in
 python3.override {
   packageOverrides = self: super: rec {
