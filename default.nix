@@ -70,8 +70,8 @@ let
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia ];
       directory = ./jupyterlab;
-      extraPackages = p: [p.python3Packages.jupyterlab_git];
-      extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages";
+      extraPackages = p: with p;[ python3Packages.jupyterlab_git python3Packages.jupyter_lsp python3Packages.python-language-server ];
+      extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages:${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
     };
 
 in
@@ -80,6 +80,7 @@ pkgs.mkShell rec {
   buildInputs = [ jupyterEnvironment
                   pkgs.python3Packages.ipywidgets
                   pkgs.python3Packages.jupyterlab_git
+                  pkgs.python3Packages.python-language-server
                   env.generateDirectory
                   iJulia.InstalliJulia
                   iJulia.julia_wrapped
@@ -90,6 +91,7 @@ pkgs.mkShell rec {
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
+      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
   #     if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
   #   ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
   #      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then

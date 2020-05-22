@@ -8,7 +8,6 @@ in
 python3.override {
   packageOverrides = self: super: rec {
     editdistance =  self.callPackage "${my-overlay}/pkgs/python/editdistance" {};
-    jupyterlab_git =  self.callPackage ./pkgs/jupyterlab-git {};
     own-pydicom =  self.callPackage (<nixpkgs> + "/pkgs/development/python-modules/pydicom") { };
     own-geoip2 =  self.callPackage (<nixpkgs> + "/pkgs/development/python-modules/geoip2") { };
   };
