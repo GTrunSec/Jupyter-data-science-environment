@@ -15,8 +15,8 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "notebook";
-    python3 = pkgs.callPackage ./overlay/own-python.nix { inherit pkgs;};
-    packages = import ./overlay/python-list.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ../overlay/own-python.nix { inherit pkgs;};
+    packages = import ../overlay/python-list.nix { inherit pkgs;};
 
     ##for geoip2 package
     ignoreCollisions = true;

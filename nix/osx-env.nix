@@ -11,7 +11,7 @@ let
   };
 
   hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
-  haskellOverlay = import ./overlay/haskell-overlay.nix;
+  haskellOverlay = import ../overlay/haskell-overlay.nix;
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
   overlays = [
     # Only necessary for Haskell kernel
@@ -21,9 +21,7 @@ let
   ];
 
 
-  nixpkgsPath = jupyterLib + "/nix";
-
-  pkgs = import nixpkgsPath { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
+  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
 
@@ -33,9 +31,9 @@ let
   };
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlay/own-python.nix {};
+    python3 = pkgs.callPackage ../overlay/own-python.nix {};
     name = "agriculture";
-    packages = import ./overlay/python-list.nix {inherit pkgs;};
+    packages = import ../overlay/python-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
