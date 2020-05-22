@@ -56,10 +56,11 @@ let
 
 
   cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
-
+  currentDir = builtins.getEnv "PWD";
+  
   iJulia = jupyter.kernels.iJuliaWith {
-    name =  "Julia-test";
-    directory = "./.julia_pkgs";
+    name = "Julia-data-env";
+    directory = currentDir + "/.julia_pkgs";
     nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
     cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
     NUM_THREADS = 8;
