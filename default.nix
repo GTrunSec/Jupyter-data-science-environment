@@ -81,6 +81,7 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.ipywidgets
                   pkgs.python3Packages.jupyterlab_git
                   pkgs.python3Packages.python-language-server
+                  pkgs.python3Packages.jupyter_lsp
                   env.generateDirectory
                   iJulia.InstalliJulia
                   iJulia.julia_wrapped
