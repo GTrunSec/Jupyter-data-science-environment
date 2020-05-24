@@ -6,3 +6,6 @@ tmp/
 .julia_pkgs
 jupyterlab
 3rdParty
+.virtual_documents
+zeek
+jupyter-stylesheet

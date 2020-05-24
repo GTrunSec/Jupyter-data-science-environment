@@ -26,7 +26,7 @@ nix-shell default.nix
 #+end_src
 - For Jupyter lab extensions `directory` to build jupyterlab after you installed extensions.
 #+begin_src sh :async t :exports both :results output
-./result/bin/jupyter-lab --ip 10.220.170.112 --app-dir=./jupyterlab
+jupyter-lab --ip <IPadress or localhost> --app-dir=./jupyterlab
 #+end_src
 
 - Macos
@@ -39,3 +39,8 @@ nix-shell ./nix/osx-env.nix
 cachix use nsm-data-analysis
 #+end_src
 
+* Julia
+runCommand `Install_iJulia ` to initializing the `JULIA_PKGDIR`
+#+begin_src sh :async t :exports both :results output
+Instance_ijulia
+#+end_src
