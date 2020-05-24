@@ -7,8 +7,8 @@ let
     jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "jupyterlab";
-        version = "2.1.0";
-        sha256 = "10fwpgsi996nk2hcva14k8x6znczxgfmydvfsfrs1fpmmfmrl8wc";
+        version = "2.1.2";
+        sha256 = "015iyhc877sc3npjn8mnpfvzxd1vh73k8lv1h3izip7nfkb2j31q";
       };
       propagatedBuildInputs = [
         (pythonPackages.jupyterlab_server.overridePythonAttrs (_:{
