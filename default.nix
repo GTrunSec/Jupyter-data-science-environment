@@ -1,7 +1,7 @@
-let
+ let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "6fcde5cbe1bcca1eccf80721996c61f3d50bc3e8";
+    rev = "6cd6c89be3f7c6bfd7cf212be82bba613f48f6e5";
     ref = "current";
   };
 
@@ -66,9 +66,13 @@ let
     ];
   };
 
+  iNix = jupyter.kernels.iNixKernel {
+    name = "nix-kernel";
+  };
+
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia ];
+      kernels = [ iPython iHaskell IRkernel iJulia iNix ];
       directory = ./jupyterlab;
       extraPackages = p: with p;[ python3Packages.jupyterlab_git python3Packages.jupyter_lsp python3Packages.python-language-server ];
       extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages:${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
