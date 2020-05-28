@@ -1,27 +1,27 @@
 let
-  jupyterLib = import ../master-jupyter {};
+  jupyterLib = import ../../jupyterWith {};
 
-    haskTorchSrc = builtins.fetchGit {
+  haskTorchSrc = builtins.fetchGit {
     url = https://github.com/hasktorch/hasktorch;
-    rev = "7e017756fd9861218bf2f804d1f7eaa4d618eb01";
+    rev = "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b";
     ref = "master";
   };
 
-  hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
-  haskellOverlay = import ./overlay/haskell-overlay.nix;
+  hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc883"; }).overlayShared;
+  haskellOverlay = import ../overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlay/python.nix)
+    (import ../overlay/python.nix)
     haskellOverlay
     hasktorchOverlay
   ];
 
 
-  env = import ../master-jupyter/lib/directory.nix { inherit pkgs;};
+  env = import ../../jupyterWith/lib/directory.nix { inherit pkgs;};
   
-  pkgs = import ../master-jupyter/nix { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
+  pkgs = import ../../jupyterWith/nix/nixpkgs.nix { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
 
-  jupyter = import ../master-jupyter {pkgs=pkgs;};
+  jupyter = import ../../jupyterWith {pkgs=pkgs;};
   
   ihaskell_labextension = pkgs.fetchurl {
     url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
@@ -29,38 +29,33 @@ let
   };
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlay/own-python.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ../overlay/own-python.nix { inherit pkgs;};
     name = "Python-data-Env";
-    packages = import ./overlay/python-list.nix {inherit pkgs;};
+    packages = import ../overlay/python-list.nix {inherit pkgs;};
     ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlay/R-list.nix {inherit pkgs;};
+    packages = import ../overlay/R-list.nix {inherit pkgs;};
    };
-
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
-    haskellPackages = pkgs.haskell.packages.ghc865;
-    packages = import ./overlay/haskell-list.nix {inherit pkgs;};
+    haskellPackages = pkgs.haskell.packages.ghc883;
+    packages = import ../overlay/haskell-list.nix {inherit pkgs;};
     Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
                              reshape2
-                          ];
+                           ];
     inline-r = true;
   };
+
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel ];
-      #directory = ./jupyterlab;
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0"
-          #"${ihaskell_labextension}" does not work
-        ];
-     };
+      directory = ./jupyterlab;
+      #extraPackages = p: [(iHaskell.runtimePackage.r-libs-site){}];
     };
 in
 pkgs.mkShell rec {
