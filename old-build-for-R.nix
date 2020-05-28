@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "6fcde5cbe1bcca1eccf80721996c61f3d50bc3e8";
+    rev = "da7d92c3277f370c7439ff54beec8d632f0c9f82";
     ref = "current";
   };
 
@@ -12,7 +12,7 @@ let
   };
 
   hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
-  haskellOverlay = import ./overlay/haskell-overlay.nix;
+  haskellOverlay = import ./overlay/old-haskell.nix;
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python.nix)
@@ -24,8 +24,8 @@ let
   
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
 
-  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
-
+  #pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
+  pkgs = (import ./nix/old-nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
   jupyter = import jupyterLib {pkgs=pkgs;};
   
   ihaskell_labextension = pkgs.fetchurl {
