@@ -1,17 +1,17 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "6cd6c89be3f7c6bfd7cf212be82bba613f48f6e5";
+    rev = "da7d92c3277f370c7439ff54beec8d632f0c9f82";
     ref = "current";
   };
 
   haskTorchSrc = builtins.fetchGit {
     url = https://github.com/hasktorch/hasktorch;
-    rev = "7e017756fd9861218bf2f804d1f7eaa4d618eb01";
+    rev = "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b";
     ref = "master";
   };
 
-  hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc865"; }).overlayShared;
+  hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc883"; }).overlayShared;
   haskellOverlay = import ./overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
@@ -46,7 +46,7 @@ let
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
-    haskellPackages = pkgs.haskell.packages.ghc865;
+    haskellPackages = pkgs.haskell.packages.ghc883;
     packages = import ./overlay/haskell-list.nix {inherit pkgs;};
     Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
                              reshape2
