@@ -1,14 +1,14 @@
 { python3, pkgs }:
 let
-  my-overlay  = builtins.fetchGit {
-    url = "https://github.com/hardenedlinux/NSM-data-analysis";
-    rev = "07a94f1f8a154e0aa4e9f9675014d663e91a73de";
+    my-overlay = pkgs.fetchFromGitHub {
+    owner = "hardenedlinux";
+    repo = "NSM-data-analysis";
+    rev = "576e588e3b1e4f2738f4b7e2ca55c59e8be7d689";
+    sha256 = "118h2hi5ib9rfbk3kclvi273zf4zqw1igxxi846amj8096wkcfbv";
   };
 in
 python3.override {
   packageOverrides = self: super: rec {
     editdistance =  self.callPackage "${my-overlay}/pkgs/python/editdistance" {};
-    own-pydicom =  self.callPackage (<nixpkgs> + "/pkgs/development/python-modules/pydicom") { };
-    own-geoip2 =  self.callPackage (<nixpkgs> + "/pkgs/development/python-modules/geoip2") { };
   };
 }
