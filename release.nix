@@ -43,8 +43,9 @@ let
 
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
+    directory = "./julia-pkgs";
     nixpkgs =  import <julia-pkgs>;
-    NUM_THREADS = 8;
+      NUM_THREADS = 8;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
