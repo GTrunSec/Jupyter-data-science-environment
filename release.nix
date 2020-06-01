@@ -36,10 +36,25 @@ let
     packages = import ./overlay/haskell-list.nix {inherit pkgs;};
   };
 
+  iNix = jupyter.kernels.iNixKernel {
+    name = "nix-kernel";
+  };
+
+
+  iJulia = jupyter.kernels.iJuliaWith {
+    name =  "Julia-data-env";
+    nixpkgs =  import <julia-pkgs>;
+    NUM_THREADS = 8;
+    extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
+      gzip
+      zlib
+    ];
+  };
+
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel ];
+      kernels = [ iPython iHaskell IRkernel iJulia iNix ];
     };
 in
 {
