@@ -60,7 +60,7 @@ let
     name = "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
     nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
-    NUM_THREADS = 8;
+    NUM_THREADS = 24;
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
     nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
