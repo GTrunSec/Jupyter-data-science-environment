@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "da7d92c3277f370c7439ff54beec8d632f0c9f82";
+    rev = "e92e445c92250fe360a5cf65b2d79551236dc792";
     ref = "current";
   };
 
@@ -54,11 +54,14 @@
     inline-r = true;
   };
 
+  ##julia part
+  overlay_julia = [ (import ./overlay/julia.nix)];
   currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
-    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
+    ##julia_1.4.2
+    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     NUM_THREADS = 8;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip

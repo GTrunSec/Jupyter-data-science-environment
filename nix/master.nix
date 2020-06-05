@@ -49,11 +49,25 @@ let
                            ];
     inline-r = true;
   };
-
+  overlay_julia = [ (import ../overlay/julia.nix)];
+  currentDir = builtins.getEnv "PWD";
+  iJulia = jupyter.kernels.iJuliaWith {
+    name =  "Julia-data-env";
+    directory = currentDir + "/.julia_pkgs";
+    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
+    NUM_THREADS = 12;
+    cuda = true;
+    cudaVersion = pkgs.cudatoolkit_10_2;
+    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
+    extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
+      gzip
+      zlib
+    ];
+  };
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel ];
+      kernels = [ iPython iHaskell IRkernel iJulia ];
       directory = ./jupyterlab;
       #extraPackages = p: [(iHaskell.runtimePackage.r-libs-site){}];
     };

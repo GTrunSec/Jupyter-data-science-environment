@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "da7d92c3277f370c7439ff54beec8d632f0c9f82";
+    rev = "e92e445c92250fe360a5cf65b2d79551236dc792";
     ref = "current";
   };
 
@@ -54,22 +54,19 @@ let
     inline-r = true;
   };
 
-
-  cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
+  overlay_julia = [ (import ./overlay/julia.nix)];
   currentDir = builtins.getEnv "PWD";
-  
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
-    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
-    cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
+    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     NUM_THREADS = 8;
     cuda = true;
-    cudaVersion = cudapkgs.cudatoolkit_10_2;
+    cudaVersion = pkgs.cudatoolkit_10_2;
+    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
-      cudapkgs.cudatoolkit_10_2
     ];
   };
 
