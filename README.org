@@ -46,5 +46,10 @@ nix-shell default.nix --option substituters "https://cache.nixos.org http://221.
 * Julia
 runCommand `Install_iJulia ` to initializing the `JULIA_PKGDIR`
 #+begin_src sh :async t :exports both :results output
-Instance_ijulia
+Install_ijulia
 #+end_src
+- julia execute
+#+begin_src sh :async t :exports both :results output
+julia_wrapped
+#+end_src
+
