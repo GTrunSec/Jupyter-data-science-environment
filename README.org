@@ -13,9 +13,9 @@
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
+- last [[http://221.4.35.244:8300/jobset/Jupyter-data-science-environment/release#tabs-evaluations][hydra CI]]  packages passing 
 * Quickly run
 - Linux
-
 - create jupyterlab extensions directory
 #+begin_src sh :async t :exports both :results output
 mkdir -p jupyterlab
@@ -37,6 +37,10 @@ nix-shell ./nix/osx-env.nix
 ** Use Cachix
 #+begin_src sh :async t :exports both :results output
 cachix use nsm-data-analysis
+#+end_src
+** Or Using my hydra binary cache
+#+begin_src sh :async t :exports both :results output
+nix-shell default.nix --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo="
 #+end_src
 
 * Julia
