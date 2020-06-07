@@ -53,7 +53,7 @@ let
   currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
-    directory = currentDir + "/.julia_pkgs";
+    directory = "/home/gtrun/data/Jupyter-data-science-environment/.julia_pkgs";
     nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     NUM_THREADS = 24;
     cuda = true;
@@ -77,6 +77,7 @@ pkgs.mkShell rec {
   buildInputs = [ jupyterEnvironment
                   pkgs.python3Packages.ipywidgets
                   env.generateDirectory
+                  iJulia.julia_wrapped
                   ];
   
   shellHook = ''

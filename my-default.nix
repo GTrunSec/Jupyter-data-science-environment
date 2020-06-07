@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "e92e445c92250fe360a5cf65b2d79551236dc792";
+    rev = "89958122d29ab9a178deef5577c054703234cebb";
     ref = "current";
   };
 
@@ -16,6 +16,7 @@ let
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python.nix)
+    (import ./overlay/package-overlay.nix)
     haskellOverlay
     hasktorchOverlay
   ];
@@ -64,7 +65,9 @@ let
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
     nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
-    extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
+    extraPackages = p: with p;[
+      R
+      # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
     ];

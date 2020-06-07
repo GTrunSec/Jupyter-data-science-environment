@@ -18,7 +18,7 @@ let
             sha256 = "0cqpyy4jr3023c47ij08djkpx526gmz8fab45mcnws0glhp7xhms";
           };
         }))
-        pythonPackages.notebook ];
+        pythonPackages.notebook];
     });
 
     nbconvert = pythonPackages.nbconvert.overridePythonAttrs (_:{

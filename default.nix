@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "e92e445c92250fe360a5cf65b2d79551236dc792";
+    rev = "89958122d29ab9a178deef5577c054703234cebb";
     ref = "current";
   };
 
@@ -16,6 +16,7 @@
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python.nix)
+    (import ./overlay/package-overlay.nix)
     haskellOverlay
     hasktorchOverlay
   ];
@@ -55,7 +56,8 @@
   };
 
   ##julia part
-  overlay_julia = [ (import ./overlay/julia.nix)];
+  overlay_julia = [ (import ./overlay/julia.nix)
+                  ];
   currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
