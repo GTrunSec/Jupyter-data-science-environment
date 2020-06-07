@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "e92e445c92250fe360a5cf65b2d79551236dc792";
+    rev = "ce6b72643cf74c2c278224cb29c59a24fedf7c25";
     ref = "current";
   };
 
@@ -55,12 +55,14 @@ let
     inline-r = true;
   };
 
-  cudapkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/927fcf37933ddd24a0e16c6a45b9c0a687a40607"){};
+  overlay_julia = [ (import ./overlay/julia.nix)
+                  ];
 
+  currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-test";
-    directory = "./.julia_pkgs";
-    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/39247f8d04c04b3ee629a1f85aeedd582bf41cac"){};
+    directory = currentDir + "/.julia_pkgs";
+    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
@@ -70,7 +72,9 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia ];
+      kernels = [ iPython iHaskell IRkernel
+                  iJulia
+                ];
       directory = ./jupyterlab;
       extraPackages = p: [p.python3Packages.jupyterlab_git];
       extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages";
@@ -85,8 +89,7 @@ pkgs.buildEnv rec {
             env.generateDirectory
             pkgs.python3Packages.jupyterlab_git
             env.generateDirectory
-            iJulia.InstalliJulia
             iJulia.julia_wrapped
-            iJulia.Install_JuliaCUDA
+            pkgs.R
           ];
 }

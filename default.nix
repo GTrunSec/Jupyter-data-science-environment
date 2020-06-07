@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "89958122d29ab9a178deef5577c054703234cebb";
+    rev = "ce6b72643cf74c2c278224cb29c59a24fedf7c25";
     ref = "current";
   };
 
@@ -83,33 +83,33 @@
       extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages:${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
     };
 
-in
-pkgs.mkShell rec {
-  name = "Jupyter-data-Env";
-  buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
-                  pkgs.python3Packages.jupyterlab_git
-                  pkgs.python3Packages.python-language-server
-                  pkgs.python3Packages.jupyter_lsp
-                  env.generateDirectory
-                  iJulia.InstalliJulia
-                  iJulia.julia_wrapped
-                  iJulia.Install_JuliaCUDA
-                ];
-  
-  shellHook = ''
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
-      if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
+ in
+   pkgs.mkShell rec {
+     name = "Jupyter-data-Env";
+     buildInputs = [ jupyterEnvironment
+                     pkgs.python3Packages.ipywidgets
+                     pkgs.python3Packages.jupyterlab_git
+                     pkgs.python3Packages.python-language-server
+                     pkgs.python3Packages.jupyter_lsp
+                     env.generateDirectory
+                     iJulia.InstalliJulia
+                     iJulia.julia_wrapped
+                     iJulia.Install_JuliaCUDA
+                   ];
+
+     shellok = ''
+     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextensi --user
+     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbtension
+      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupytlab_git
+      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py juter_lsp
+      if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz]; then
           ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-        if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
-       ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-manager@2.0
-       ${env.generateDirectory}/bin/generate-directory @jupyterlab/git
-       ${env.generateDirectory}/bin/generate-directory @krassowski/jupyterlab-lsp
-     fi
+        if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz]; then
+       ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-mager@2.0
+       ${env.generateDirectory}/bin/generate-directory @jupytlab/git
+       ${env.generateDirectory}/bin/generate-directory @krassowski/jupytlab-lsp
+
   fi
-    #${jupyterEnvironment}/bin/jupyter-lab
+    #${jupyterEnvironment}/bin/juter-lab
     '';
-}
+   }

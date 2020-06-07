@@ -12,6 +12,7 @@ let
   overlays = [
     # Only necessary for Haskell kernel
     (import ../overlay/python.nix)
+    (import ../overlay/package-overlay.nix)
     haskellOverlay
     hasktorchOverlay
   ];
@@ -48,8 +49,17 @@ let
                              reshape2
                            ];
     inline-r = true;
+    # extraRuntimePackages = p: with p;[
+    #   R
+    #   rPackages.ggplot2 rPackages.dplyr rPackages.xts rPackages.purrr rPackages.cmaes rPackages.cubature
+    #   rPackages.reshape2
+    # ];
+    # extraEnvVars = "
+    #     export R_LIBS_SITE=$(echo extraEnv_PATH)/library
+    #     ";
   };
-  overlay_julia = [ (import ../overlay/julia.nix)];
+  overlay_julia = [ (import ../overlay/julia.nix)
+                  ];
   currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
@@ -67,7 +77,11 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia ];
+      kernels = [ iPython
+                  iHaskell
+                  IRkernel
+                  iJulia
+                ];
       directory = ./jupyterlab;
       #extraPackages = p: [(iHaskell.runtimePackage.r-libs-site){}];
     };

@@ -1,11 +1,8 @@
 self: super:
 {
-  R = super.R.overrideAttrs(oldAttrs: {
-    lapack = super.lapack.override {
-      lapackProvider = super.openblas;
-    };
+  R = super.R.override {
     blas = super.blas.override {
-      blasProvider = super.openblas;
+      blasProvider = super.lapack-reference;
     };
-  });
+  };  
 }
