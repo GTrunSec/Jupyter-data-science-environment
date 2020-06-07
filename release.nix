@@ -7,6 +7,7 @@ let
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python.nix)
+    (import ./overlay/package-overlay.nix)
     haskellOverlay
     hasktorchOverlay
   ];
