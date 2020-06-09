@@ -97,11 +97,12 @@
                      iJulia.Install_JuliaCUDA
                    ];
 
-     shellok = ''
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextensi --user
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbtension
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupytlab_git
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py juter_lsp
+     shellHook = ''
+     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
+     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
+
+      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
+      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
       if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz]; then
           ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
         if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz]; then

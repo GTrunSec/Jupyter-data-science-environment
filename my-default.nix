@@ -100,7 +100,7 @@ pkgs.mkShell rec {
                 ];
   
   shellHook = ''
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
+     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbtension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
