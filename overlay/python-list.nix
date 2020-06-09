@@ -4,4 +4,5 @@
                                                 numpy pandas matplotlib editdistance ipywidgets
                                                 graphviz pillow elasticsearch requests sqlalchemy
                                                 qtconsole
+                                                mlfinlab
                                                 ]))
