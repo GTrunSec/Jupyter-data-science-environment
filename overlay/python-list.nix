@@ -4,5 +4,12 @@
                                                 numpy pandas matplotlib editdistance ipywidgets
                                                 graphviz pillow elasticsearch requests sqlalchemy
                                                 qtconsole
+                                                #financial machine learning.
                                                 mlfinlab
-                                                ]))
+                                                tqdm
+                                                tensorflow
+                                                patsy
+                                                Keras
+                                                dask
+                                                pyfolio
+                                              ]))
