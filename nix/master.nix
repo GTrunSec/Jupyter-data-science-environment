@@ -11,7 +11,7 @@ let
   haskellOverlay = import ../overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
-    (import ../overlay/python.nix)
+    (import ../overlay/python-overlay.nix)
     (import ../overlay/package-overlay.nix)
     haskellOverlay
     hasktorchOverlay
@@ -30,21 +30,21 @@ let
   };
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ../overlay/own-python.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ../overlay/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-Env";
-    packages = import ../overlay/python-list.nix {inherit pkgs;};
+    packages = import ../overlay/python-packages-list.nix {inherit pkgs;};
     ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ../overlay/R-list.nix {inherit pkgs;};
+    packages = import ../overlay/R-packages-list.nix {inherit pkgs;};
    };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc883;
-    packages = import ../overlay/haskell-list.nix {inherit pkgs;};
+    packages = import ../overlay/haskell-packages-list.nix {inherit pkgs;};
     Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
                              reshape2
                            ];

@@ -15,7 +15,7 @@ let
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlay/python.nix)
+    (import ./overlay/python-overlay.nix)
     haskellOverlay
     hasktorchOverlay
   ];
@@ -31,9 +31,9 @@ let
   };
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ../overlay/own-python.nix {};
+    python3 = pkgs.callPackage ../overlay/python-self-packages.nix {};
     name = "agriculture";
-    packages = import ../overlay/python-list.nix {inherit pkgs;};
+    packages = import ../overlay/python-packages-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {

@@ -14,6 +14,15 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 - last [[http://221.4.35.244:8300/jobset/Jupyter-data-science-environment/release#tabs-evaluations][hydra CI]]  packages passing 
+- Python
+  - python-packages-list.nix
+  - python-overlay.nix
+  - python-self-packages.nix
+- Haskell
+  - haskell-packages-list.nix
+  - haskell-overlay.nix
+- R
+  - R-packages-list.nix
 * Quickly run
 - Linux
 - create jupyterlab extensions directory

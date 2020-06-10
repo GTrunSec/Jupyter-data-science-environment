@@ -6,7 +6,7 @@ let
   haskellOverlay = import ./overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlay/python.nix)
+    (import ./overlay/python-overlay.nix)
     (import ./overlay/package-overlay.nix)
     haskellOverlay
     hasktorchOverlay
@@ -21,20 +21,20 @@ let
   };
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlay/own-python.nix {};
+    python3 = pkgs.callPackage ./overlay/python-self-packages.nix {};
     name = "agriculture";
-    packages = import ./overlay/python-list.nix {inherit pkgs;};
+    packages = import ./overlay/python-packages-list.nix {inherit pkgs;};
   };
 
     IRkernel = jupyter.kernels.iRWith {
       name = "IRkernel";
-      packages = import ./overlay/R-list.nix {inherit pkgs;};
+      packages = import ./overlay/R-packages-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
     haskellPackages = pkgs.haskell.packages.ghc883;
-    packages = import ./overlay/haskell-list.nix {inherit pkgs;};
+    packages = import ./overlay/haskell-packages-list.nix {inherit pkgs;};
   };
 
   iNix = jupyter.kernels.iNixKernel {

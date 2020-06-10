@@ -7,7 +7,7 @@ let
 
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlay/python.nix)
+    (import ./overlay/python-overlay.nix)
   ];
 
   pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
@@ -15,8 +15,8 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "notebook";
-    python3 = pkgs.callPackage ../overlay/own-python.nix { inherit pkgs;};
-    packages = import ../overlay/python-list.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ../overlay/python-self-packages.nix { inherit pkgs;};
+    packages = import ../overlay/python-packages-list.nix { inherit pkgs;};
 
     ##for geoip2 package
     ignoreCollisions = true;
