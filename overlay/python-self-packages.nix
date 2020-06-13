@@ -12,5 +12,6 @@ python3.override {
     editdistance =  self.callPackage "${my-overlay}/pkgs/python/editdistance" {};
     mlfinlab =  self.callPackage ./pkgs/mlfinlab {};
     pyfolio =  self.callPackage ./pkgs/pyfolio {};
+    zat =  self.callPackage "${my-overlay}/pkgs/python/zat" {};
   };
 }

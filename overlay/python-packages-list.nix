@@ -5,6 +5,7 @@
                                                 graphviz pillow elasticsearch requests sqlalchemy
                                                 qtconsole
                                                 sympy
+                                                zat
                                                 #financial machine learning.
                                                 mlfinlab
                                                 tqdm
