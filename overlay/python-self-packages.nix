@@ -2,9 +2,9 @@
 let
     my-overlay = pkgs.fetchFromGitHub {
     owner = "hardenedlinux";
-    repo = "NSM-data-analysis";
-    rev = "576e588e3b1e4f2738f4b7e2ca55c59e8be7d689";
-    sha256 = "118h2hi5ib9rfbk3kclvi273zf4zqw1igxxi846amj8096wkcfbv";
+    repo = "nixpkgs-hardenedlinux";
+    rev = "bd99eb5e9a3f1c6d43d49f4873457ecc5ecf9440";
+    sha256 = "193vp43xwsxdpzq8hyi5bq8hixmni6vj1ya7dn80cf7ymix13qyl";
   };
 in
 python3.override {
@@ -13,5 +13,7 @@ python3.override {
     mlfinlab =  self.callPackage ./pkgs/mlfinlab {};
     pyfolio =  self.callPackage ./pkgs/pyfolio {};
     zat =  self.callPackage "${my-overlay}/pkgs/python/zat" {};
+    fastai = self.callPackage "${my-overlay}/pkgs/python/fast-ai" {};
+    fastai2 = self.callPackage "${my-overlay}/pkgs/python/fastai2" {};
   };
 }

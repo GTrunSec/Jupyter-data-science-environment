@@ -5,6 +5,8 @@
                                                 graphviz pillow elasticsearch requests sqlalchemy
                                                 qtconsole
                                                 sympy
+                                                fastai2
+                                                fastai
                                                 zat
                                                 #financial machine learning.
                                                 mlfinlab
