@@ -12,6 +12,7 @@ python3.override {
     editdistance =  self.callPackage "${my-overlay}/pkgs/python/editdistance" {};
     mlfinlab =  self.callPackage ./pkgs/mlfinlab {};
     pyfolio =  self.callPackage ./pkgs/pyfolio {};
+    nbdev =  self.callPackage ./pkgs/nbdev {};
     zat =  self.callPackage "${my-overlay}/pkgs/python/zat" {};
     fastai = self.callPackage "${my-overlay}/pkgs/python/fast-ai" {};
     fastai2 = self.callPackage "${my-overlay}/pkgs/python/fastai2" {};

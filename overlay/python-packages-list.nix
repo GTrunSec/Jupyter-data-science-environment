@@ -5,6 +5,7 @@
                                                 graphviz pillow elasticsearch requests sqlalchemy
                                                 qtconsole
                                                 sympy
+                                                nbdev
                                                 fastai2
                                                 fastai
                                                 zat
