@@ -64,7 +64,7 @@ let
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
     directory = "/home/gtrun/data/Jupyter-data-science-environment/.julia_pkgs";
-    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
+    #nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     NUM_THREADS = 24;
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
@@ -77,9 +77,9 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython
-                  iHaskell
-                  IRkernel
+      kernels = [ #iPython
+                  #iHaskell
+                  #IRkernel
                   iJulia
                 ];
       directory = ./jupyterlab;
@@ -89,21 +89,11 @@ in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
+                  #pkgs.python3Packages.ipywidgets
                   env.generateDirectory
-                  iJulia.julia_wrapped
+                  iJulia.runtimePackages
                   ];
   
   shellHook = ''
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-  #     if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
-  #   ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-  #      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
-  #      ${env.generateDirectory}/bin/generate-directory "@jupyter-widgets/jupyterlab-manager@2.0"
-  #    fi
-  #    exit
-  # fi
-    #${jupyterEnvironment}/bin/jupyter-lab
     '';
 }
