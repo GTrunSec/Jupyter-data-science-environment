@@ -22,8 +22,9 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/python-self-packages.nix {};
-    name = "agriculture";
+    name = "Python-kernel";
     packages = import ./overlay/python-packages-list.nix {inherit pkgs;};
+    ignoreCollisions = true;
   };
 
     IRkernel = jupyter.kernels.iRWith {
