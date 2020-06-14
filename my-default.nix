@@ -96,13 +96,13 @@ pkgs.mkShell rec {
                   env.generateDirectory
                   iJulia.InstalliJulia
                   iJulia.julia_wrapped
+                  iPython.runtimePackages
                   iJulia.Install_JuliaCUDA
                 ];
   
   shellHook = ''
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
       if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then

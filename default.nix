@@ -95,6 +95,7 @@
                      iJulia.InstalliJulia
                      iJulia.julia_wrapped
                      iJulia.Install_JuliaCUDA
+                     iPython.runtimePackages
                    ];
 
      shellHook = ''
