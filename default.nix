@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "ce6b72643cf74c2c278224cb29c59a24fedf7c25";
+    rev = "a18d29607c2814ac3ca2ce0d59864604000fb3ef";
     ref = "current";
   };
 
@@ -63,7 +63,6 @@
     name =  "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
     ##julia_1.4.2
-    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     NUM_THREADS = 8;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
@@ -92,10 +91,7 @@
                      pkgs.python3Packages.python-language-server
                      pkgs.python3Packages.jupyter_lsp
                      env.generateDirectory
-                     iJulia.InstalliJulia
-                     iJulia.julia_wrapped
-                     iJulia.Install_JuliaCUDA
-                     iPython.runtimePackages
+                     iJulia.runtimePackages
                    ];
 
      shellHook = ''

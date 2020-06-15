@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "ce6b72643cf74c2c278224cb29c59a24fedf7c25";
+    rev = "a18d29607c2814ac3ca2ce0d59864604000fb3ef";
     ref = "current";
   };
 
@@ -60,7 +60,6 @@ let
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
-    nixpkgs =  import (builtins.fetchTarball "https://github.com/GTrunSec/nixpkgs/tarball/3fac6bbcf173596dbd2707fe402ab6f65469236e"){ overlays=overlay_julia;};
     NUM_THREADS = 24;
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
@@ -94,10 +93,7 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.jupyter_lsp
                   pkgs.python3Packages.python-language-server
                   env.generateDirectory
-                  iJulia.InstalliJulia
-                  iJulia.julia_wrapped
-                  iPython.runtimePackages
-                  iJulia.Install_JuliaCUDA
+                  iJulia.runtimePackages
                 ];
   
   shellHook = ''
