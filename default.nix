@@ -17,6 +17,7 @@
     # Only necessary for Haskell kernel
     (import ./overlay/python-overlay.nix)
     (import ./overlay/package-overlay.nix)
+    (import ./overlay/julia.nix)
     haskellOverlay
     hasktorchOverlay
   ];
@@ -56,7 +57,8 @@
   };
 
   ##julia part
-  overlay_julia = [ (import ./overlay/julia.nix)
+  overlay_julia = [
+    (import ./overlay/julia.nix)
                   ];
   currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
