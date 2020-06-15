@@ -57,9 +57,6 @@
   };
 
   ##julia part
-  overlay_julia = [
-    (import ./overlay/julia.nix)
-                  ];
   currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";

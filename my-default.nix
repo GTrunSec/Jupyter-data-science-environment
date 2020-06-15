@@ -65,7 +65,6 @@ let
     cudaVersion = pkgs.cudatoolkit_10_2;
     nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraPackages = p: with p;[
-      R
       # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
