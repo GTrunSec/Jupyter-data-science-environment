@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "a18d29607c2814ac3ca2ce0d59864604000fb3ef";
+    rev = "00286f99d5d9e6c1a7252927beac020319ac78cc";
     ref = "current";
   };
 
