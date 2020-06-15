@@ -25,7 +25,7 @@ let
 
   env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
   
-  pkgs = (import (jupyterLib + "/nix/nixpkgs.nix")) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
   
