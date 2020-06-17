@@ -107,6 +107,6 @@
        ${env.generateDirectory}/bin/generate-directory @krassowski/jupytlab-lsp
 
   fi
-    #${jupyterEnvironment}/bin/juter-lab
+    #${jupyterEnvironment}/bin/jupyter-lab
     '';
    }
