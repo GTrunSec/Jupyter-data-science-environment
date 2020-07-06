@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "00286f99d5d9e6c1a7252927beac020319ac78cc";
+    rev = "4d94c565b83f7ce152d32cac11c186483bc61e13";
     ref = "current";
   };
 
@@ -66,6 +66,7 @@
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
+      libgit2
     ];
   };
 

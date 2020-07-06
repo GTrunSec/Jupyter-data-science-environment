@@ -13,6 +13,7 @@ let
     # Only necessary for Haskell kernel
     (import ../overlay/python-overlay.nix)
     (import ../overlay/package-overlay.nix)
+    (import ../overlay/julia.nix)
     haskellOverlay
     hasktorchOverlay
   ];
@@ -20,7 +21,7 @@ let
 
   env = import ../../jupyterWith/lib/directory.nix { inherit pkgs;};
   
-  pkgs = import ../../jupyterWith/nix/nixpkgs.nix { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
+  pkgs = import ../nix/nixpkgs.nix { inherit overlays; config={ allowUnfree=true; allowBroken=true; ignoreCollisions = true;};};
 
   jupyter = import ../../jupyterWith {pkgs=pkgs;};
   
