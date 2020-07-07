@@ -53,10 +53,18 @@ nix-shell default.nix --option substituters "https://cache.nixos.org http://221.
 #+end_src
 
 * Julia
+[[file:img/Julia-commmand.png]]
 runCommand `Install_iJulia ` to initializing the `JULIA_PKGDIR`
+
 #+begin_src sh :async t :exports both :results output
 Install_ijulia
 #+end_src
+- Install Julia with CUDA
+
+#+begin_src sh :async t :exports both :results output
+Install_Julia_CUDA             
+#+end_src
+
 - julia execute
 #+begin_src sh :async t :exports both :results output
 julia_wrapped
