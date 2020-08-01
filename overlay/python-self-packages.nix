@@ -1,4 +1,4 @@
-{ python3, pkgs }:
+{ python37, pkgs }:
 let
     my-overlay = pkgs.fetchFromGitHub {
     owner = "hardenedlinux";
@@ -7,7 +7,7 @@ let
     sha256 = "193vp43xwsxdpzq8hyi5bq8hixmni6vj1ya7dn80cf7ymix13qyl";
   };
 in
-python3.override {
+python37.override {
   packageOverrides = self: super: rec {
     editdistance =  self.callPackage "${my-overlay}/pkgs/python/editdistance" {};
     mlfinlab =  self.callPackage ./pkgs/mlfinlab {};

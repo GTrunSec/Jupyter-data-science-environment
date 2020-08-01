@@ -78,10 +78,10 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ #iPython
+      kernels = [ iPython
                   #iHaskell
                   #IRkernel
-                  iJulia
+                  #iJulia
                 ];
       directory = ./jupyterlab;
       #extraPackages = p: [(iHaskell.runtimePackage.r-libs-site){}];
