@@ -100,14 +100,15 @@
 
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
-      if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz]; then
-          ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-        if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz]; then
-       ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-mager@2.0
-       ${env.generateDirectory}/bin/generate-directory @jupytlab/git
-       ${env.generateDirectory}/bin/generate-directory @krassowski/jupytlab-lsp
-
-  fi
-    #${jupyterEnvironment}/bin/jupyter-lab
+    if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
+      mkidr -p ./jupyterlab
+      ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
+      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
+      ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-mager@2.0
+      ${env.generateDirectory}/bin/generate-directory @jupytlab/git
+      ${env.generateDirectory}/bin/generate-directory @krassowski/jupytlab-lsp
+      fi
+    fi
+    ${jupyterEnvironment}/bin/jupyter-lab --app-dir=./jupyterlab
     '';
    }
