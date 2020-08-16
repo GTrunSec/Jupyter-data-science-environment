@@ -5,22 +5,26 @@ let
     jupyterlab_git =  pkgs.callPackage ./pkgs/jupyterlab-git {};
     jupyter_lsp =  pkgs.callPackage ./pkgs/jupyter-lsp {};
 
-    jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
-      src = pythonPackages.fetchPypi {
-        pname = "jupyterlab";
-        version = "2.1.2";
-        sha256 = "015iyhc877sc3npjn8mnpfvzxd1vh73k8lv1h3izip7nfkb2j31q";
-      };
-      propagatedBuildInputs = [
-        (pythonPackages.jupyterlab_server.overridePythonAttrs (_:{
-          src = pythonPackages.fetchPypi {
-            pname = "jupyterlab_server";
-            version = "1.1.0";
-            sha256 = "0cqpyy4jr3023c47ij08djkpx526gmz8fab45mcnws0glhp7xhms";
-          };
-        }))
-        pythonPackages.notebook];
-    });
+    # jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
+    #   src = pythonPackages.fetchPypi {
+    #     pname = "jupyterlab";
+    #     version = "3.0.0a10";
+    #     sha256 = "sha256-xUPFeRXnjf6gzZJ3/ro0d7ULjjwS2cyYW9sOrWqDgWI=";
+    #   };
+    #   propagatedBuildInputs = [
+    #     (let
+    #       jupyterlab_server =  pkgs.callPackage ./pkgs/jupyterlab_server {};
+    #     in
+    #       jupyterlab_server
+    #     )
+    #     (let
+    #       nbclassic =  pkgs.callPackage ./pkgs/nbclassic {};
+    #     in
+    #       nbclassic
+    #     )
+    #     pythonPackages.notebook
+    #   ];
+    # });
 
 
     jupyter_contrib_core = pythonPackages.buildPythonPackage rec {
@@ -74,7 +78,6 @@ let
       };
     };
   };
-
 in
 
 {

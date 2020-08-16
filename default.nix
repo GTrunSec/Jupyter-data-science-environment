@@ -30,8 +30,8 @@
   jupyter = import jupyterLib {pkgs=pkgs;};
   
   ihaskell_labextension = pkgs.fetchurl {
-    url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
-    sha256 = "0i17yd3b9cgfkjxmv9rdv3s31aip6hxph5x70s04l9xidlvsp603";
+    url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/ihaskell_jupyterlab-0.0.7.tgz";
+    sha256 = "sha256-vtePEeXAclfWV1fNlNvOZ9uRrSaxQOzOMZ8PkCeWfCs=";
   };
 
   iPython = jupyter.kernels.iPythonWith {
@@ -103,12 +103,12 @@
     if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
       mkidr -p ./jupyterlab
       ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-      if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
+         if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
       ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-mager@2.0
       ${env.generateDirectory}/bin/generate-directory @jupytlab/git
       ${env.generateDirectory}/bin/generate-directory @krassowski/jupytlab-lsp
       fi
     fi
-    ${jupyterEnvironment}/bin/jupyter-lab --app-dir=./jupyterlab
+    ${jupyterEnvironment}/bin/jupyter-lab --ip 10.220.170.112 --app-dir=./jupyterlab
     '';
    }
