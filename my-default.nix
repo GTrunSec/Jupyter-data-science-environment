@@ -31,7 +31,7 @@ let
   
   ihaskell_labextension = pkgs.fetchurl {
     url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/ihaskell_jupyterlab-0.0.7.tgz";
-    sha256 = "sha256-vtePEeXAclfWV1fNlNvOZ9uRrSaxQOzOMZ8PkCeWfCs=";
+    sha256 = "sha256-8HHJgkFjduy0khAzKK+ULYfYPNJsI2XleUSynXwsyLU=";
   };
 
   iPython = jupyter.kernels.iPythonWith {
@@ -100,14 +100,14 @@ pkgs.mkShell rec {
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
-      if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
-        ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-     if [ ! -f "./jupyterlab/extensions/jupyter-widgets-jupyterlab-manager-2.0.0.tgz" ]; then
-       ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-manager@2.0
-       ${env.generateDirectory}/bin/generate-directory @jupyterlab/git
+      if [ ! -f "./jupyterlab/extensions/krassowski-jupyterlab-lsp-1.1.2" ]; then
+      ${env.generateDirectory}/bin/generate-directory @jupyterlab/git
+      ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-manager@2.0
       ${env.generateDirectory}/bin/generate-directory @krassowski/jupyterlab-lsp@1.1.2
-     fi
-   fi
+      if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
+      sudo ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
+      fi
+    fi
     #${jupyterEnvironment}/bin/jupyter-lab
 
     '';
