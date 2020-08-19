@@ -1,6 +1,7 @@
 result
 .DS_Store
 .idea
+.ein*
 *.log
 tmp/
 .julia_pkgs

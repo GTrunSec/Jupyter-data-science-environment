@@ -100,7 +100,7 @@ pkgs.mkShell rec {
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
-      if [ ! -f "./jupyterlab/extensions/krassowski-jupyterlab-lsp-1.1.2" ]; then
+      if [ ! -f "./jupyterlab/extensions/krassowski-jupyterlab-lsp-1.1.2.tgz" ]; then
       ${env.generateDirectory}/bin/generate-directory @jupyterlab/git
       ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-manager@2.0
       ${env.generateDirectory}/bin/generate-directory @krassowski/jupyterlab-lsp@1.1.2
@@ -108,6 +108,12 @@ pkgs.mkShell rec {
       sudo ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
       fi
     fi
+    #for emacs-ein to load kernels environment.
+      ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
+      ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env
+      ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
+      ln -sfT ${IRkernel.spec}/kernels/ir_IRkernel-data-env ~/.local/share/jupyter/kernels/IRkernel-data-env
+      ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-data-env
     #${jupyterEnvironment}/bin/jupyter-lab
 
     '';
