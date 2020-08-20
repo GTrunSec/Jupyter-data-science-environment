@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "17186df7dbe7775b39e991e806d577f00363bdfe";
+    rev = "3ce718af4747360fd3843e5eac890aa7d5f4ffbb";
     ref = "current";
   };
 
@@ -28,12 +28,9 @@
   pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
-  
-  ihaskell_labextension = pkgs.fetchurl {
-    url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/ihaskell_jupyterlab-0.0.7.tgz";
-    sha256 = "sha256-8HHJgkFjduy0khAzKK+ULYfYPNJsI2XleUSynXwsyLU=";
-  };
 
+  ihaskell_labextension = import ./nix/ihaskell_labextension.nix { inherit jupyter pkgs; };
+  
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
@@ -62,7 +59,7 @@
     name =  "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
     ##julia_1.4.2
-    NUM_THREADS = 8;
+    NUM_THREADS = 12;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
@@ -77,9 +74,17 @@
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia iNix ];
-      directory = ./jupyterlab;
-      extraPackages = p: with p;[ python3Packages.jupyterlab_git python3Packages.jupyter_lsp python3Packages.python-language-server ];
-      extraJupyterPath = p: "${p.python3Packages.jupyterlab_git}/lib/python3.7/site-packages:${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
+      directory = jupyter.mkDirectoryWith {
+        extensions = [
+          ihaskell_labextension
+          "@jupyter-widgets/jupyterlab-manager@2.0"
+          "@bokeh/jupyter_bokeh@2.0.0"
+          #"@jupyterlab/git@0.21.0-alpha.0"
+          "@krassowski/jupyterlab-lsp@1.1.2"
+        ];
+      };
+      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server ];
+      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
     };
 
  in
@@ -87,7 +92,6 @@
      name = "Jupyter-data-Env";
      buildInputs = [ jupyterEnvironment
                      pkgs.python3Packages.ipywidgets
-                     pkgs.python3Packages.jupyterlab_git
                      pkgs.python3Packages.python-language-server
                      pkgs.python3Packages.jupyter_lsp
                      env.generateDirectory
@@ -97,17 +101,6 @@
      shellHook = ''
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyterlab_git
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
-      if [ ! -f "./jupyterlab/extensions/krassowski-jupyterlab-lsp-1.1.2" ]; then
-      ${env.generateDirectory}/bin/generate-directory @jupyterlab/git
-      ${env.generateDirectory}/bin/generate-directory @jupyter-widgets/jupyterlab-manager@2.0
-      ${env.generateDirectory}/bin/generate-directory @krassowski/jupyterlab-lsp@1.1.2
-      if [ ! -f "./jupyterlab/extensions/ihaskell_jupyterlab-0.0.7.tgz" ]; then
-      sudo ${env.generateDirectory}/bin/generate-directory ${ihaskell_labextension}
-      fi
-    fi
     #${jupyterEnvironment}/bin/jupyter-lab --app-dir=./jupyterlab
     '';
    }
