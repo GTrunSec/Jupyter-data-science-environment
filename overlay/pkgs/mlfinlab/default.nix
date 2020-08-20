@@ -20,6 +20,28 @@ let
       six
     ];
   };
+
+  POT = python3Packages.buildPythonPackage rec {
+    pname = "POT";
+    version = "0.7.0";
+    doCheck = false;
+
+    src = fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-1KwryHkfBJoxZoINUeIY1sKZiFRJtzXq/vjRjHbUrQY=";
+    };
+
+    doInstallCheck = false;
+    propagatedBuildInputs = with python3Packages; [
+      cython
+      scipy
+      autograd
+      scikitlearn
+      pytest
+      cvxopt
+      numpy
+    ];
+  };
 in
 python3Packages.buildPythonPackage rec {
   pname = "mlfinlab";
@@ -28,8 +50,8 @@ python3Packages.buildPythonPackage rec {
 
   src = fetchgit {
     url = "https://github.com/hudson-and-thames/mlfinlab.git";
-    rev = "665939070e00f6f49c97d6f6f3489ff6bfd46061";
-    sha256 = "0ffnscp86iacbqgcsnrkip5xvqhhdwag6az95i2ddhns8b07amki";
+    rev = "277b447a1db904bd5c46038d4dc3dccdfc13d093";
+    sha256 = "sha256-7e/ZBA2wBZXdTH+8Z93+u1wvKvieA49I699vauHB3kw=";
   };
 
   doInstallCheck = false;
@@ -48,12 +70,18 @@ python3Packages.buildPythonPackage rec {
     sphinx_rtd_theme
     statsmodels
     xmlrunner
+    POT
   ];
 
   postPatch = ''
       substituteInPlace setup.cfg \
       --replace "==" ">=" \
       --replace "xmlrunner>=1.7.7" "xmlrunner" \
+      --replace "scikit-learn>=0.23.1" "scikit-learn" \
+      --replace "Cython>=0.29.21" "Cython" \
+      --replace "cvxpy>=1.1.1" "cvxpy" \
+      --replace "pandas>=1.0.4" "pandas" \
+      --replace "numpy>=1.18.5" "numpy" \
       --replace "numba>=0.49.1" "numba"
       '';
 
