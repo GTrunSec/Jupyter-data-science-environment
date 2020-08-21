@@ -1,5 +1,4 @@
 #+TITLE: Title
-#+AUTHOR: GTrunSec
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+DATE: 18 August 2020
 #+DESCRIPTION:
@@ -27,11 +26,42 @@
 
 #+RESULTS: 9e70e882-d6fc-4e80-b45e-33adfab5eee8
 :results:
-[<matplotlib.lines.Line2D at 0x7fd0f4195910>]
+[<matplotlib.lines.Line2D at 0x7fe6501d0df0>]
 [[file:output.png]]
 
 :end:
+#+BEGIN_SRC julia :async :results value drawer
+1 + 354
+#+END_SRC
 
+#+RESULTS:
+:results:
+:end:
+
+#+NAME: 553e0ea7-f587-41dd-adf1-fdbbc4f370cc
 #+BEGIN_SRC ein-julia :session localhost
 using Pkg
+1 + 354
 #+END_SRC
+
+#+RESULTS: 553e0ea7-f587-41dd-adf1-fdbbc4f370cc
+: 355
+
+* Haskell
+#+NAME: d4d6ba88-f2a5-4df4-97e9-9c8ea3918fe1
+#+begin_src ein-haskell :session localhost
+:t putStrLn "hello, world"
+conanO'Brien = "It's a-me, Conan O'Brien!"
+#+end_src
+
+#+RESULTS: d4d6ba88-f2a5-4df4-97e9-9c8ea3918fe1
+: hello, world
+
+#+NAME: 8c64ef76-5ec9-4917-a73f-29616f08263a
+#+begin_src ein-haskell :session localhost
+conanO'Brien
+#+end_src
+
+#+RESULTS: 8c64ef76-5ec9-4917-a73f-29616f08263a
+: It's a-me, Conan O'Brien!
+
