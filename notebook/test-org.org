@@ -30,14 +30,6 @@
 [[file:output.png]]
 
 :end:
-#+BEGIN_SRC julia :async :results value drawer
-1 + 354
-#+END_SRC
-
-#+RESULTS:
-:results:
-:end:
-
 #+NAME: 553e0ea7-f587-41dd-adf1-fdbbc4f370cc
 #+BEGIN_SRC ein-julia :session localhost
 using Pkg
@@ -46,8 +38,23 @@ using Pkg
 
 #+RESULTS: 553e0ea7-f587-41dd-adf1-fdbbc4f370cc
 : 355
+* Julia
+#+BEGIN_SRC julia :async :results output
+1 + 354
+#+END_SRC
+
+#+RESULTS:
+: 355
+
 
 * Haskell
+#+begin_src haskell :async :results output
+1 + 3
+#+end_src
+
+#+RESULTS:
+: f4705eea791b8748d1f06ba45fdf9de9
+
 #+NAME: d4d6ba88-f2a5-4df4-97e9-9c8ea3918fe1
 #+begin_src ein-haskell :session localhost
 :t putStrLn "hello, world"
@@ -65,3 +72,13 @@ conanO'Brien
 #+RESULTS: 8c64ef76-5ec9-4917-a73f-29616f08263a
 : It's a-me, Conan O'Brien!
 
+* Rust
+#+begin_src rust :exports both :results output
+fn main() {
+    let x = 5 + /* 90 + */ 5;
+    println!("Is `x` 10 or 100? x = {}", x);
+}
+#+end_src
+
+#+RESULTS:
+: Is `x` 10 or 100? x = 10

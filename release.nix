@@ -43,6 +43,10 @@ let
     name = "nix-kernel";
   };
 
+  iRust = jupyter.kernels.rustWith {
+    name = "data-rust-env";
+  };
+
   iJulia = jupyter.kernels.iJuliaWith {
     name =  "Julia-data-env";
     directory = "./julia-pkgs";
@@ -58,7 +62,7 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia iNix ];
+      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
     };
 in
 {
