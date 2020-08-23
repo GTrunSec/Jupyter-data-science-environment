@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "3ce718af4747360fd3843e5eac890aa7d5f4ffbb";
+    rev = "d9fe46bce29dcdb026807335f46cb2b8655dbf6b";
     ref = "current";
   };
 
@@ -114,8 +114,8 @@ pkgs.mkShell rec {
       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
       ln -sfT ${IRkernel.spec}/kernels/ir_IRkernel-data-env ~/.local/share/jupyter/kernels/IRkernel-data-env
-      ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-data-env'
-      ln -sfT ${iRust.spec}/kernels/irust_nix-kernel/  ~/.local/share/jupyter/kernels/IRust-data-env
+      ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-data-env
+      ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/.local/share/jupyter/kernels/IRust-data-env
     #${jupyterEnvironment}/bin/jupyter-lab
     '';
 }

@@ -15,13 +15,25 @@
 #+EXCLUDE_TAGS: noexport
 #+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
 * Org-babel-Rust
-#+begin_src rust :exports both :results output
-fn main() {
-    let x = 5 + /* 90 + */ 5;
-    println!("Is `x` 10 or 100? x = {}", x);
-}
+#+NAME: b2e07d32-1b51-4b6f-b0d8-e1cce738b593
+#+begin_src ein-rust :session localhost
+let foo = 1336 + 1;
 #+end_src
 
-#+RESULTS:
-: Is `x` 10 or 100? x = 10
+#+NAME: bc6d11b9-a673-4e0d-a051-286da9c24aed
+#+begin_src ein-rust :session localhost
+foo
+#+end_src
+
+#+RESULTS: bc6d11b9-a673-4e0d-a051-286da9c24aed
+: 1337
+
+#+NAME: 08180754-ee40-40c9-83bc-006f097b9bc6
+#+begin_src ein-rust :session localhost
+"Hello world!"
+#+end_src
+
+#+RESULTS: 08180754-ee40-40c9-83bc-006f097b9bc6
+: Hello world!
+
 * ein Rust
