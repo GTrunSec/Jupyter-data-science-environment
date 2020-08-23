@@ -5,23 +5,21 @@
 #+DESCRIPTION:
 #+KEYWORDS:
 #+LANGUAGE:  en cn
-#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-themes/setup/theme-readtheorg.setup
-#+hugo_publishdate: (0 5)
-#+hugo_auto_set_lastmod: t
-#+HUGO_categories:
-#+HUGO_tags:
-#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
-#+SELECT_TAGS: export
-#+EXCLUDE_TAGS: noexport
-#+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
-* Org-babel-Rust
-#+NAME: b2e07d32-1b51-4b6f-b0d8-e1cce738b593
-#+begin_src ein-rust :session localhost
+#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-t
+
+
+
+*  ein-Rust
+** example
+#+NAME: f2d02cbd-2756-4f66-9d8c-12df1b9cae2f
+#+begin_src ein-rust :session localhost :exports both
 let foo = 1336 + 1;
 #+end_src
 
+#+RESULTS: f2d02cbd-2756-4f66-9d8c-12df1b9cae2f
+
 #+NAME: bc6d11b9-a673-4e0d-a051-286da9c24aed
-#+begin_src ein-rust :session localhost
+#+begin_src ein-rust :session localhost :exports both
 foo
 #+end_src
 
@@ -29,11 +27,39 @@ foo
 : 1337
 
 #+NAME: 08180754-ee40-40c9-83bc-006f097b9bc6
-#+begin_src ein-rust :session localhost
+#+begin_src ein-rust :session localhost :exports both
 "Hello world!"
 #+end_src
 
 #+RESULTS: 08180754-ee40-40c9-83bc-006f097b9bc6
 : Hello world!
 
-* ein Rust
+#+NAME: a91fa1e0-f452-4121-a4a4-a52f77ffe6af
+#+begin_src ein-rust :session localhost :exports both
+let logical: bool = true;
+
+let a_float: f64 = 1.0;  // Regular annotation
+let an_integer   = 5i32; // Suffix annotation
+#+end_src
+
+#+RESULTS: a91fa1e0-f452-4121-a4a4-a52f77ffe6af
+
+#+NAME: 69c011c0-3a65-4f22-a16c-79f417271556
+#+begin_src ein-rust :session localhost :exports both
+an_integer
+#+end_src
+
+#+RESULTS: 69c011c0-3a65-4f22-a16c-79f417271556
+: 5
+
+* Rust
+** example
+#+begin_src rust :exports both :crates
+fn main() {
+    let x = 5 + /* 90 + */ 5;
+    println!("Is `x` 10 or 100? x = {}", x);
+}
+#+end_src
+
+#+RESULTS:
+: Is `x` 10 or 100? x = 10
