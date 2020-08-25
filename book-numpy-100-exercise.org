@@ -1,0 +1,124 @@
+#+TITLE: book-numpy-100-exercise
+#+AUTHOR: GTrunSec
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 24 August 2020
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en cn
+#+SETUPFILE: ~/Documents/org-notes/setup/hugo.local
+#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-themes/setup/theme-readtheorg.setup
+#+hugo_publishdate: (0 5)
+#+hugo_auto_set_lastmod: t
+#+HUGO_categories:
+#+HUGO_tags:
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
+- [source from] [[https://github.com/conao3/book-numpy-100-exercise/blob/master/solution.org][book-numpy-100-exercise/solution.org at master · conao3/book-numpy-100-exercise]]
+
+
+- [[http://localhost:1313/post/book-numpy-100-exercise/][book-numpy-100-exercise - GTruNSec | 光涛]]
+
+
+* basic knowledge
+#+NAME: d964b3ae-9e4f-4075-b87b-61c3812bf7b6
+#+BEGIN_SRC ein-python :noweb yes :session localhost :exports both :results raw drawer 
+import numpy as np
+#+END_SRC
+
+#+RESULTS: d964b3ae-9e4f-4075-b87b-61c3812bf7b6
+:results:
+:end:
+
+#+NAME: 0f3a7761-34b0-4361-9d54-1f71e5d4fda3
+#+BEGIN_SRC ein-python :session localhost :results output :exports both
+print("numpy version:", np.__version__)
+np.show_config()
+#+END_SRC
+
+#+RESULTS: 0f3a7761-34b0-4361-9d54-1f71e5d4fda3
+#+begin_example
+numpy version: 1.16.0
+blas_mkl_info:
+  NOT AVAILABLE
+blis_info:
+  NOT AVAILABLE
+openblas_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+blas_opt_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+lapack_mkl_info:
+  NOT AVAILABLE
+openblas_lapack_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+lapack_opt_info:
+    libraries = ['openblas', 'openblas']
+    library_dirs = ['/usr/local/lib']
+    language = c
+    define_macros = [('HAVE_CBLAS', None)]
+#+end_example
+
+#+NAME: 11dda52e-2b30-445b-b687-30bffddb812e
+#+BEGIN_SRC ein-python :session localhost :results output
+Z = np.zeros(10)
+print("%d bytes" % (Z.size * Z.itemsize))
+#+END_SRC
+
+#+RESULTS: 11dda52e-2b30-445b-b687-30bffddb812e
+: 80 bytes
+
+- Create a null vector of size 10 but the fifth value which is 1
+
+
+#+NAME: 0bac0eaa-d92e-4317-aec3-285080b0f2ac
+#+BEGIN_SRC ein-python :session localhost :exports both :results value
+Z = np.zeros(10)
+Z[4] = 1
+Z
+  #+END_SRC
+
+  #+RESULTS: 0bac0eaa-d92e-4317-aec3-285080b0f2ac
+  : array([0., 0., 0., 0., 1., 0., 0., 0., 0., 0.])
+
+
+
+ - Create a vector with values ranging from 10 to 49
+
+
+#+NAME: cd103653-4647-4a60-84e4-9f90c1f248c5
+#+BEGIN_SRC ein-python :session localhost :exports both :results output
+Z = np.arange(10, 50)
+Z
+#+END_SRC
+
+#+RESULTS: cd103653-4647-4a60-84e4-9f90c1f248c5
+: array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+:        27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,
+:        44, 45, 46, 47, 48, 49])
+
+
+
+
+- Create a 3x3 matrix with values ranging from 0 to 8
+
+
+#+NAME: e5dfd6ce-a639-4567-b49e-cb60ea09ffeb
+#+BEGIN_SRC ein-python :session localhost :exports both :results output
+T = np.arange(9).reshape(3,3)
+T
+#+END_SRC
+
+#+RESULTS: e5dfd6ce-a639-4567-b49e-cb60ea09ffeb
+: array([[0, 1, 2],
+:        [3, 4, 5],
+:        [6, 7, 8]])
