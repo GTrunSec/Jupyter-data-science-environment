@@ -30,12 +30,12 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ../overlay/python-self-packages.nix {};
-    name = "agriculture";
+    name = "Python-data-env";
     packages = import ../overlay/osx-python-packages-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
-    name = "haskell";
+    name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc883;
     packages = p: with p; [ hvega
                             #inline-r

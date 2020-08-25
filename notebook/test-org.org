@@ -14,7 +14,7 @@
 #+EXCLUDE_TAGS: noexport
 * localhost
 #+NAME: 9e70e882-d6fc-4e80-b45e-33adfab5eee8
-#+BEGIN_SRC ein :session localhost :results raw drawer :image output.png :exports both
+#+BEGIN_SRC ein-python :session localhost :results raw drawer :exports both
   import numpy as np
   def f(x):
         return x**3 - 5*x**2 + 9
@@ -26,10 +26,11 @@
 
 #+RESULTS: 9e70e882-d6fc-4e80-b45e-33adfab5eee8
 :results:
-[<matplotlib.lines.Line2D at 0x7fe6501d0df0>]
-[[file:output.png]]
+[<matplotlib.lines.Line2D at 0x11e55a390>]
+[[file:ein-images/ob-ein-2df722290cda8b03a762fb6a405bff82.png]]
 
 :end:
+
 #+NAME: 553e0ea7-f587-41dd-adf1-fdbbc4f370cc
 #+BEGIN_SRC ein-julia :session localhost :exports both
 using Pkg
