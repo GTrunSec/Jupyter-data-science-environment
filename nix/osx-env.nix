@@ -57,6 +57,10 @@ let
                             histogram-fill
                             #funflow osx failed
                             JuicyPixels
+
+                            diagrams                            
+                            ihaskell-diagrams
+                            ihaskell-blaze ihaskell-charts SVGFonts palette blaze Chart MissingH Rasterific
                           ] ;
   };
 

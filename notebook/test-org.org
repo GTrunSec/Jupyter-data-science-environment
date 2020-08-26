@@ -72,7 +72,6 @@ conanO'Brien
 
 #+RESULTS: 8c64ef76-5ec9-4917-a73f-29616f08263a
 : It's a-me, Conan O'Brien!
-
 * Rust
 #+begin_src rust :exports both :results output
 fn main() {

@@ -1,0 +1,116 @@
+#+TITLE: test ein-haskell with org-mode
+#+AUTHOR: GTrunSec
+#+EMAIL: gtrunsec@hardenedlinux.org
+#+DATE: 25 August 2020
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en cn
+#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-themes/setup/theme-readtheorg.setup
+#+hugo_publishdate: (0 5)
+#+hugo_auto_set_lastmod: t
+#+HUGO_categories:
+#+HUGO_tags:
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
+
+
+* Chart
+#+BEGIN_SRC ein :session localhost :exports both :results output
+
+#+END_SRC
+
+#+NAME: 5ff74bf8-6482-4fad-a6a0-569d0467f85a
+#+begin_src ein-haskell :session localhost :exports both
+{-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE FlexibleContexts          #-}
+{-# LANGUAGE TypeFamilies              #-}
+#+end_src
+
+#+RESULTS: 5ff74bf8-6482-4fad-a6a0-569d0467f85a
+: [....]
+
+#+NAME: fb118491-e2a6-4f20-8d41-1f205ae5b184
+#+BEGIN_SRC ein-haskell :session localhost :exports both :results output
+import Diagrams.Prelude
+import Diagrams.Backend.Cairo.CmdLine
+#+END_SRC
+
+#+RESULTS: fb118491-e2a6-4f20-8d41-1f205ae5b184
+
+#+NAME: 7222e72f-7393-4642-8bad-2ce402e1a5d8
+#+begin_src ein-haskell :session localhost :exports both
+v = (5 ^& 6) :: V2 Double
+#+end_src
+
+#+RESULTS: 7222e72f-7393-4642-8bad-2ce402e1a5d8
+
+
+#+NAME: f76da659-7e25-4cca-acbc-5d7a160e9564
+#+begin_src ein-haskell :session localhost :exports both
+translateX 20 v == v
+#+end_src
+
+#+RESULTS: f76da659-7e25-4cca-acbc-5d7a160e9564
+: True
+
+
+#+NAME: c2cdcf28-6c29-4247-9939-7d89dd18b566
+#+begin_src ein-haskell :session localhost :exports both
+[zero, unitX, unit_X, unitY, unit_Y] :: [V2 Double]
+#+end_src
+
+#+RESULTS: c2cdcf28-6c29-4247-9939-7d89dd18b566
+: [V2 0.0 0.0,V2 1.0 0.0,V2 (-1.0) 0.0,V2 0.0 1.0,V2 0.0 (-1.0)]
+
+
+#+NAME: 27ac48e7-aa47-40f0-8857-445be65aab66
+#+begin_src ein-haskell :session localhost :exports both
+V2 5 6
+#+end_src
+
+#+RESULTS: 27ac48e7-aa47-40f0-8857-445be65aab66
+: V2 5 6
+
+
+#+NAME: ea486188-78a0-45ee-a8ec-0447b5271883
+#+begin_src ein-haskell :session localhost :exports both
+r2 (5, 6)
+#+end_src
+
+#+RESULTS: ea486188-78a0-45ee-a8ec-0447b5271883
+: V2 5 6
+
+#+NAME: b74cd22c-7994-4bc6-8d14-3af10591825e
+#+BEGIN_SRC ein-haskell :session localhost :exports both :results output
+import Diagrams.TwoD.Vector
+#+END_SRC
+
+#+RESULTS: b74cd22c-7994-4bc6-8d14-3af10591825e
+
+#+NAME: 5aed8f5c-7af6-47e1-b513-697335971b4a
+#+begin_src ein-haskell :session localhost :exports both
+norm v *^ e (angleBetween unitX v)
+#+end_src
+
+#+RESULTS: 5aed8f5c-7af6-47e1-b513-697335971b4a
+: V2 5.000000000000001 5.999999999999999
+
+
+#+NAME: 1441e811-c239-4cdb-8a65-c7e0ad8a91b5
+#+begin_src ein-haskell :session localhost :exports both
+3 *^ e (pi @@ rad)
+#+end_src
+
+#+RESULTS: 1441e811-c239-4cdb-8a65-c7e0ad8a91b5
+: V2 (-3.0) 3.6739403974420594e-16
+
+#+NAME: 09dc26f3-7f65-472a-b856-24934ef2b7cd
+#+begin_src ein-haskell :session localhost :exports both
+zigzag :: Int -> Diagram B
+zigzag n = fromOffsets . take (n*2) $ cycle [V2 1 1, V2 1 (-1)]
+#+end_src
+
+#+RESULTS: 09dc26f3-7f65-472a-b856-24934ef2b7cd
+

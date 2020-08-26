@@ -47,29 +47,19 @@
 - Linux
 
 
-- create jupyterlab extensions directory
-
-
 #+begin_src sh :async t :exports both :results output
-mkdir -p ./.jupyterlab
+nix-shell default.nix  --option sandbox false
 #+end_src
 
 #+begin_src sh :async t :exports both :results output
-nix-shell default.nix 
-#+end_src
-
-- For Jupyter lab extensions `directory` to build jupyterlab after you installed extensions.
-
-
-#+begin_src sh :async t :exports both :results output
-jupyter-lab --ip <IPadress or localhost> --app-dir=./jupyterlab
+jupyter-lab --ip <IPadress or localhost> 
 #+end_src
 
 - Macos
 
 
 #+begin_src sh :async t :exports both :results output
-nix-shell ./nix/osx-env.nix 
+nix-shell ./nix/osx-env.nix --option sandbox false
 #+end_src
 
 ** Use Cachix
@@ -79,7 +69,7 @@ cachix use nsm-data-analysis
 
 ** Or Using my hydra binary cache
 #+begin_src sh :async t :exports both :results output
-nix-shell default.nix --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo="
+nix-shell default.nix  --option sandbox false --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo="
 #+end_src
 
 * Julia
