@@ -1,10 +1,9 @@
 _: pkgs:
 let
   packageOverrides = selfPythonPackages: pythonPackages: {
-
     jupyterlab_git =  pkgs.callPackage ./pkgs/jupyterlab-git {};
     jupyter_lsp =  pkgs.callPackage ./pkgs/jupyter-lsp {};
-
+    torchBin = (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/6cce9c30786442f1fb2b6bd7c2c7c9a089e8648b.tar.gz"){}).python37Packages.pytorch-bin;
     # jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
     #   src = pythonPackages.fetchPypi {
     #     pname = "jupyterlab";

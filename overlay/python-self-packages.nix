@@ -5,7 +5,8 @@ let
     repo = "nixpkgs-hardenedlinux";
     rev = "bd99eb5e9a3f1c6d43d49f4873457ecc5ecf9440";
     sha256 = "193vp43xwsxdpzq8hyi5bq8hixmni6vj1ya7dn80cf7ymix13qyl";
-  };
+    };
+
 in
 python37.override {
   packageOverrides = self: super: rec {
