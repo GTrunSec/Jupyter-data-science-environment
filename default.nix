@@ -22,9 +22,6 @@
     hasktorchOverlay
   ];
 
-
-  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
-  
   pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
@@ -94,13 +91,12 @@
                      pkgs.python3Packages.ipywidgets
                      pkgs.python3Packages.python-language-server
                      pkgs.python3Packages.jupyter_lsp
-                     env.generateDirectory
                      iJulia.runtimePackages
                    ];
 
      shellHook = ''
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-    #${jupyterEnvironment}/bin/jupyter-lab --app-dir=./jupyterlab
+    #${jupyterEnvironment}/bin/jupyter-lab --ip
     '';
    }

@@ -69,7 +69,7 @@ cachix use nsm-data-analysis
 
 ** Or Using my hydra binary cache
 #+begin_src sh :async t :exports both :results output
-nix-shell default.nix  --option sandbox false --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo="
+nix-shell default.nix  --option sandbox false --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo= cache.nixos.org-1:${yourtrustkey check nix.conf }"
 #+end_src
 
 * Julia

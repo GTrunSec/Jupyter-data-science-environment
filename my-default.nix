@@ -22,9 +22,6 @@ let
     hasktorchOverlay
   ];
 
-
-  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
-  
   pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = import jupyterLib {pkgs=pkgs;};
@@ -101,7 +98,6 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.jupyterlab_git
                   pkgs.python3Packages.jupyter_lsp
                   pkgs.python3Packages.python-language-server
-                  env.generateDirectory
                   iJulia.runtimePackages
                 ];
   
