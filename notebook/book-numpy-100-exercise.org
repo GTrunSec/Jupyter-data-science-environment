@@ -122,3 +122,49 @@ T
 : array([[0, 1, 2],
 :        [3, 4, 5],
 :        [6, 7, 8]])
+
+
+
+#+begin_src python :results output :async t
+import numpy as np
+yesterday = np.datetime64('today') - np.timedelta64(1)
+today     = np.datetime64('today')
+tomorrow  = np.datetime64('today') + np.timedelta64(1)
+print(yesterday, today, tomorrow)
+#+end_src
+
+#+RESULTS:
+: 2020-08-25 2020-08-26 2020-08-27
+
+
+#+begin_src python :results output :async t
+import numpy as np
+Z = np.random.uniform(0, 10, 10)
+
+print(Z - Z%1)
+print(Z // 1)
+print(np.floor(Z))
+print(Z.astype(int))
+print(np.trunc(Z))
+#+end_src
+
+#+RESULTS:
+: [9. 6. 8. 7. 9. 5. 1. 5. 6. 3.]
+: [9. 6. 8. 7. 9. 5. 1. 5. 6. 3.]
+: [9. 6. 8. 7. 9. 5. 1. 5. 6. 3.]
+: [9 6 8 7 9 5 1 5 6 3]
+: [9. 6. 8. 7. 9. 5. 1. 5. 6. 3.]
+
+
+- Create a 5x5 matrix with row values ranging from 0 to 4
+
+
+#+begin_src python :results output :async t
+import numpy as np
+Z = np.zeros([5,5])
+Z += np.arange(5)
+Z
+
+#+end_src
+
+#+RESULTS:

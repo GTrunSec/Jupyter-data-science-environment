@@ -13,6 +13,11 @@
 #+SELECT_TAGS: exportean
 #+EXCLUDE_TAGS: noexport
 * localhost
+#+begin_src python :results output silent :async t
+x = 1 + 3
+print(x)
+#+end_src
+
 #+NAME: 9e70e882-d6fc-4e80-b45e-33adfab5eee8
 #+BEGIN_SRC ein-python :session localhost :results raw drawer :exports both
   import numpy as np
@@ -39,14 +44,21 @@ using Pkg
 
 #+RESULTS: 553e0ea7-f587-41dd-adf1-fdbbc4f370cc
 : 355
+
+#+begin_src python :results output :async t :file ./test.py
+
+#+end_src
+
+#+RESULTS:
+: ./tes
+
 * Julia
-#+BEGIN_SRC julia :async :results output :exports both
+#+BEGIN_SRC julia :async t :results output raw :exports both
 1 + 354
 #+END_SRC
 
 #+RESULTS:
-: 355
-
+355
 
 * Haskell
 #+begin_src haskell :async :results output :exports both
@@ -82,3 +94,24 @@ fn main() {
 
 #+RESULTS:
 : Is `x` 10 or 100? x = 10
+
+
+#+begin_src emacs-lisp :tangle yes
+(defun tt-print-heading-has-id ()
+  "print headings that have property named :ID: and print the property value.
+2019-01-14"
+  (interactive)
+  (with-output-to-temp-buffer "*xah temp out*"
+    (org-element-map (org-element-parse-buffer) 'headline
+      (lambda (x)
+        (let ((myid (org-element-property :ID x)))
+          (when myid
+            (princ "heading: " )
+            (princ (org-element-property :raw-value x))
+            (terpri )
+            (princ "ID value is: " )
+            (princ myid )))))))
+#+end_src
+
+#+RESULTS:
+: tt-print-heading-has-id

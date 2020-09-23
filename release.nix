@@ -1,7 +1,8 @@
 let
   jupyterLib = import <jupyterLib>;
-      haskTorchSrc = import <haskTorchSrc>;
-        hasktorchOverlay = (import <haskTorchSrc/nix/shared.nix> { compiler = "ghc883"; }).overlayShared;
+
+  haskTorchSrc = import <haskTorchSrc>;
+  hasktorchOverlay = (import <haskTorchSrc/nix/shared.nix> { compiler = "ghc883"; }).overlayShared;
 
   haskellOverlay = import ./overlay/haskell-overlay.nix;
   overlays = [
@@ -13,13 +14,10 @@ let
     (import ./overlay/julia.nix)
   ];
 
-  pkgs = import <jupyterLib-nixpkgs> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
+  pkgs = import <nixpkgs> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
 
   jupyter = import <jupyterLib> {pkgs=pkgs;};
-  ihaskell_labextension = pkgs.fetchurl {
-    url = "https://github.com/GTrunSec/ihaskell_labextension/releases/download/fetchurl/package.tar.gz";
-    sha256 = "0i17yd3b9cgfkjxmv9rdv3s31aip6hxph5x70s04l9xidlvsp603";
-  };
+
 
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/python-self-packages.nix {};
@@ -28,9 +26,9 @@ let
     ignoreCollisions = true;
   };
 
-    IRkernel = jupyter.kernels.iRWith {
-      name = "IRkernel";
-      packages = import ./overlay/R-packages-list.nix {inherit pkgs;};
+  IRkernel = jupyter.kernels.iRWith {
+    name = "IRkernel";
+    packages = import ./overlay/R-packages-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
@@ -69,7 +67,7 @@ in
   Jupyter-data-science-environment = pkgs.buildEnv {
     name = "Jupyter-data-science-environment";
     paths = [ jupyterEnvironment
-              pkgs.python3Packages.ipywidgets
+              iJulia.runtimePackages
             ];
   };
 }

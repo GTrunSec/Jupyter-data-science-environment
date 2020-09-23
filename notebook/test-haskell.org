@@ -15,6 +15,13 @@
 #+EXCLUDE_TAGS: noexport
 #+PROPERTY: header-args:sh :prologue "exec 2>&1" :epilogue ":"
 
+* Clone Repositories
+#+begin_src sh :async t :exports both :results output
+git clone https://github.com/jamesdbrock/learn-you-a-haskell-notebook.git
+#+end_src
+
+#+RESULTS:
+: Cloning into 'learn-you-a-haskell-notebook'...
 
 * Chart
 #+BEGIN_SRC ein :session localhost :exports both :results output
