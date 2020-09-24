@@ -52,17 +52,17 @@
 
   ##julia part
   currentDir = builtins.getEnv "PWD";
-  # iJulia = jupyter.kernels.iJuliaWith {
-  #   name =  "Julia-data-env";
-  #   directory = currentDir + "/.julia_pkgs";
-  #   ##julia_1.4.2
-  #   NUM_THREADS = 12;
-  #   extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
-  #     gzip
-  #     zlib
-  #     libgit2
-  #   ];
-  # };
+  iJulia = jupyter.kernels.iJuliaWith {
+    name =  "Julia-data-env";
+    directory = currentDir + "/.julia_pkgs";
+    ##julia_1.5.1
+    NUM_THREADS = 12;
+    extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
+      gzip
+      zlib
+      libgit2
+    ];
+  };
 
   iNix = jupyter.kernels.iNixKernel {
     name = "nix-kernel";
@@ -70,8 +70,7 @@
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      #kernels = [ iPython iHaskell IRkernel iJulia iNix ];
-      kernels = [ iNix ];
+      kernels= [ iPython iHaskell IRkernel iJulia iNix ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
           ihaskell_labextension
@@ -92,7 +91,7 @@
                      pkgs.python3Packages.ipywidgets
                      pkgs.python3Packages.python-language-server
                      pkgs.python3Packages.jupyter_lsp
-                     #iJulia.runtimePackages
+                     Julia.runtimePackages
                    ];
 
      shellHook = ''
