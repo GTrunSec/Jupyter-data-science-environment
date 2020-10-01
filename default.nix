@@ -91,7 +91,7 @@
                      pkgs.python3Packages.ipywidgets
                      pkgs.python3Packages.python-language-server
                      pkgs.python3Packages.jupyter_lsp
-                     Julia.runtimePackages
+                     iJulia.runtimePackages
                    ];
 
      shellHook = ''

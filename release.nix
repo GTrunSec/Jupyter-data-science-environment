@@ -49,9 +49,9 @@ let
     name =  "Julia-data-env";
     directory = "./julia-pkgs";
     NUM_THREADS = 24;
-    cuda = true;
-    cudaVersion = pkgs.cudatoolkit_10_2;
-    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
+    # cuda = true;
+    # cudaVersion = pkgs.cudatoolkit_10_2;
+    # nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
