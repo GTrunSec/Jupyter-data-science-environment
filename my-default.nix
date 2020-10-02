@@ -1,7 +1,7 @@
 let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "e5e8204616451cd14b0f48fc9cdb61d768fbf493";
+    rev = "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352";
     ref = "current";
   };
 
@@ -28,6 +28,12 @@ let
 
   ihaskell_labextension = import ./nix/ihaskell_labextension.nix { inherit jupyter pkgs; };
 
+  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs Rpackages;};
+
+  Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
+                           reshape2
+                         ];
+
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
@@ -38,16 +44,14 @@ let
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
     packages = import ./overlay/R-packages-list.nix {inherit pkgs;};
-   };
+  };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc883;
     packages = import ./overlay/haskell-packages-list.nix {inherit pkgs;};
-    Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
-                             reshape2
-                           ];
     inline-r = true;
+    inherit Rpackages;
   };
 
   currentDir = builtins.getEnv "PWD";
@@ -103,6 +107,8 @@ pkgs.mkShell rec {
                 ];
   
   shellHook = ''
+      export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
+      export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
       ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp

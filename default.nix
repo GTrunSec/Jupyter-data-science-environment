@@ -1,7 +1,7 @@
  let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
-    rev = "e5e8204616451cd14b0f48fc9cdb61d768fbf493";
+    rev = "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352";
     ref = "current";
   };
 
@@ -13,6 +13,7 @@
 
   hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc883"; }).overlayShared;
   haskellOverlay = import ./overlay/haskell-overlay.nix;
+
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlay/python-overlay.nix)
@@ -27,7 +28,13 @@
   jupyter = import jupyterLib {pkgs=pkgs;};
 
   ihaskell_labextension = import ./nix/ihaskell_labextension.nix { inherit jupyter pkgs; };
-  
+
+  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs Rpackages;};
+
+  Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
+                           reshape2
+                         ];
+
   iPython = jupyter.kernels.iPythonWith {
     python3 = pkgs.callPackage ./overlay/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
@@ -44,10 +51,8 @@
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc883;
     packages = import ./overlay/haskell-packages-list.nix {inherit pkgs;};
-    Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
-                             reshape2
-                           ];
     inline-r = true;
+    inherit Rpackages;
   };
 
   ##julia part
@@ -95,6 +100,11 @@
                    ];
 
      shellHook = ''
+      export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
+      export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
+      export PYTHON=python-Python-data-env
+      #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
+
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
     #${jupyterEnvironment}/bin/jupyter-lab --ip
