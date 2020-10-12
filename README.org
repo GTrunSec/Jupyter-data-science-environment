@@ -41,6 +41,10 @@
 
   - R-packages-list.nix
 
+- voila
+  #+begin_src sh :async t :exports both :results output
+  nix develop -c voila
+  #+end_src
 
 
 * Quickly run
