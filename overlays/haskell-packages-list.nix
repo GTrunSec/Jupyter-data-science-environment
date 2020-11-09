@@ -32,9 +32,9 @@
                                                            inline-c
                                                            inline-c-cpp
                                                          ] ++ pkgs.lib.optionals Hasktorch [
-                                                           libtorch-ffi_cpu
-                                                           hasktorch-examples_cpu
-                                                           hasktorch_cpu
+                                                           # libtorch-ffi_cpu
+                                                           # hasktorch-examples_cpu
+                                                           #hasktorch_cpu
                                                          ] ++ pkgs.lib.optionals Matrix [
                                                            matrix
                                                            hmatrix

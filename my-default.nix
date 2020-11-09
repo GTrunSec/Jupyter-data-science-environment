@@ -1,20 +1,10 @@
 let
+  inherit (inputflake) loadInput flakeLock;
+  inputflake = import ./nix/lib.nix {};
   pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
-  jupyterWith-locked = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.jupyterWith.locked;
-  jupyterLib = builtins.fetchTarball {
-    url = "https://github.com/${jupyterWith-locked.owner}/jupyterWith/archive/${jupyterWith-locked.rev}.tar.gz";
-    sha256 = jupyterWith-locked.narHash;
-  };
-  jupyter = import jupyterLib {inherit pkgs;};
-  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs Rpackages;};
-
-
-  haskTorchSrc-locked = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.haskTorch.locked;
-  haskTorchSrc = builtins.fetchTarball {
-    url = "https://github.com/hasktorch/hasktorch/archive/${haskTorchSrc-locked.rev}.tar.gz";
-    sha256 = haskTorchSrc-locked.narHash;
-  };
+  jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
 
   overlays = [
     # Only necessary for Haskell kernel
@@ -22,7 +12,6 @@ let
     (import ./overlays/package-overlay.nix)
     (import ./overlays/julia-overlay.nix)
     (import ./overlays/haskell-overlay.nix)
-    #hasktorchOverlay
   ];
 
 
@@ -52,7 +41,7 @@ let
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
     packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
-                                                             Diagrams = true; Hasktorch = false; InlineC = false; Matrix = true;
+                                                             Diagrams = true; Hasktorch = true; InlineC = false; Matrix = true;
                                                            };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;

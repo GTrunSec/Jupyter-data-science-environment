@@ -7,6 +7,7 @@
     nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux/master"; flake = false; };
     haskTorch = { url = "github:hasktorch/hasktorch/5f905f7ac62913a09cbb214d17c94dbc64fc8c7b"; flake = false; };
     jupyterWith = { url = "github:GTrunSec/jupyterWith/Nov"; flake = false; };
+    haskell-nix = { url = "github:input-output-hk/haskell.nix"; flake = false;};
     #jupyterWith = { url = "/home/gtrun/data/jupyterWith"; flake = false; };
   };
 

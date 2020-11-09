@@ -18,16 +18,33 @@
     "haskTorch": {
       "flake": false,
       "locked": {
-        "lastModified": 1604194877,
-        "narHash": "sha256-KGtoI5c9i52HcdX/ENOrwsYqQ6VUp6xxEASsEwsJf2M=",
+        "lastModified": 1589714496,
+        "narHash": "sha256-Ww2o3Ves51WjsJ3WSuvUxEK9K74km9LNKHGa9pQa+/g=",
         "owner": "hasktorch",
         "repo": "hasktorch",
-        "rev": "86d107941b329032c1ffc9fd604354d611ea126a",
+        "rev": "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b",
         "type": "github"
       },
       "original": {
         "owner": "hasktorch",
         "repo": "hasktorch",
+        "rev": "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b",
+        "type": "github"
+      }
+    },
+    "haskell-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1604884453,
+        "narHash": "sha256-6QZ2grwlw/O4Xl7+7k/z7XAjY1MhEOpqnmL7YtqxLCs=",
+        "owner": "input-output-hk",
+        "repo": "haskell.nix",
+        "rev": "e94de404e1a0655c055a8f9f4b29b07364ce8b4c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "repo": "haskell.nix",
         "type": "github"
       }
     },
@@ -84,6 +101,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "haskTorch": "haskTorch",
+        "haskell-nix": "haskell-nix",
         "jupyterWith": "jupyterWith",
         "nixpkgs": "nixpkgs",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux"
