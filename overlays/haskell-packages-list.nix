@@ -6,7 +6,6 @@
 }:
 (with pkgs.haskellPackages.ghcWithPackages; (p: with p;  [ hvega
                                                            formatting
-                                                           inline-r
                                                            monad-bayes
                                                            hvega
                                                            statistics
@@ -28,6 +27,7 @@
                                                            ihaskell-hvega
                                                            ihaskell-blaze
                                                            ihaskell-charts
+                                                           inline-r
                                                          ] ++ pkgs.lib.optionals InlineC [
                                                            inline-c
                                                            inline-c-cpp

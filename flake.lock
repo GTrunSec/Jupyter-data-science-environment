@@ -15,82 +15,62 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1601282935,
-        "narHash": "sha256-WQAFV6sGGQxrRs3a+/Yj9xUYvhTpukQJIcMbIi7LCJ4=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "588973065fce51f4763287f0fda87a174d78bf48",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "haskTorch": {
       "flake": false,
       "locked": {
-        "lastModified": 1589714496,
-        "narHash": "sha256-Ww2o3Ves51WjsJ3WSuvUxEK9K74km9LNKHGa9pQa+/g=",
+        "lastModified": 1604194877,
+        "narHash": "sha256-KGtoI5c9i52HcdX/ENOrwsYqQ6VUp6xxEASsEwsJf2M=",
         "owner": "hasktorch",
         "repo": "hasktorch",
-        "rev": "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b",
+        "rev": "86d107941b329032c1ffc9fd604354d611ea126a",
         "type": "github"
       },
       "original": {
         "owner": "hasktorch",
         "repo": "hasktorch",
-        "rev": "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b",
         "type": "github"
       }
     },
     "jupyterWith": {
       "flake": false,
       "locked": {
-        "lastModified": 1601597334,
-        "narHash": "sha256-h7e0/h4rRlvopPtEAi8TeqzUfpdmZQMS2b607uvzU1E=",
+        "lastModified": 1604913459,
+        "narHash": "sha256-afJzZMeZbJ+798QLnnlZI/rr9sO7bErzpUK+6G7Y9SU=",
         "owner": "GTrunSec",
         "repo": "jupyterWith",
-        "rev": "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352",
+        "rev": "d356494d7bcafa6c1235ec29b00f3ec187cd1866",
         "type": "github"
       },
       "original": {
         "owner": "GTrunSec",
+        "ref": "Nov",
         "repo": "jupyterWith",
-        "rev": "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1601539597,
-        "narHash": "sha256-gOuB2wl8C0Nxi68VsFL+FP30yj62Yt4izr8WtSldQgI=",
+        "lastModified": 1592174545,
+        "narHash": "sha256-j+udoeEnrsRN8kl9/d7iK1ZRDOGhFqj/HW8A5Br4IZA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "302ef60620d277fc87a8aa58c5c561b62c925651",
+        "rev": "4c67f879f0ee0f4eb610373e479a0a9c518c51c4",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "302ef60620d277fc87a8aa58c5c561b62c925651",
+        "rev": "4c67f879f0ee0f4eb610373e479a0a9c518c51c4",
         "type": "indirect"
       }
     },
     "nixpkgs-hardenedlinux": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2",
-        "zeek-nix": "zeek-nix"
-      },
+      "flake": false,
       "locked": {
-        "lastModified": 1602450700,
-        "narHash": "sha256-RVNKSi4dnu79KTxKG4ZCWNiAo2z3/QU+X2DEXZsrmUo=",
+        "lastModified": 1602716780,
+        "narHash": "sha256-1eI5XbkBUaYQCP3UQdBogs4v1dZWA2J6A9z39+y/MzI=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "d1abf07869e1bfe8dcc8599f3a53bbf64b3e25aa",
+        "rev": "131b13c3ed419309f91659b7a1b5945d43f857e9",
         "type": "github"
       },
       "original": {
@@ -100,21 +80,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1601539597,
-        "narHash": "sha256-gOuB2wl8C0Nxi68VsFL+FP30yj62Yt4izr8WtSldQgI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "302ef60620d277fc87a8aa58c5c561b62c925651",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "302ef60620d277fc87a8aa58c5c561b62c925651",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -122,22 +87,6 @@
         "jupyterWith": "jupyterWith",
         "nixpkgs": "nixpkgs",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux"
-      }
-    },
-    "zeek-nix": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1602297382,
-        "narHash": "sha256-o+OhyMhE8D21CJ7D+jA4XefQGIFJ8JSZeQHaMYK7FeA=",
-        "owner": "hardenedlinux",
-        "repo": "zeek-nix",
-        "rev": "37d4bd43d79ff11814819146ecb9d3a2dd1ae52d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hardenedlinux",
-        "repo": "zeek-nix",
-        "type": "github"
       }
     }
   },
