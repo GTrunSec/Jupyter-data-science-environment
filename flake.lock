@@ -30,6 +30,40 @@
         "type": "github"
       }
     },
+    "haskTorch": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1589714496,
+        "narHash": "sha256-Ww2o3Ves51WjsJ3WSuvUxEK9K74km9LNKHGa9pQa+/g=",
+        "owner": "hasktorch",
+        "repo": "hasktorch",
+        "rev": "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hasktorch",
+        "repo": "hasktorch",
+        "rev": "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b",
+        "type": "github"
+      }
+    },
+    "jupyterWith": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1601597334,
+        "narHash": "sha256-h7e0/h4rRlvopPtEAi8TeqzUfpdmZQMS2b607uvzU1E=",
+        "owner": "GTrunSec",
+        "repo": "jupyterWith",
+        "rev": "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GTrunSec",
+        "repo": "jupyterWith",
+        "rev": "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1601539597,
@@ -84,6 +118,8 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "haskTorch": "haskTorch",
+        "jupyterWith": "jupyterWith",
         "nixpkgs": "nixpkgs",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux"
       }

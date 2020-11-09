@@ -4,14 +4,13 @@ let
   haskTorchSrc = import <haskTorchSrc>;
   hasktorchOverlay = (import <haskTorchSrc/nix/shared.nix> { compiler = "ghc883"; }).overlayShared;
 
-  haskellOverlay = import ./overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlay/python-overlay.nix)
-    (import ./overlay/package-overlay.nix)
-    haskellOverlay
+    (import ./overlays/python-overlay.nix)
+    (import ./overlays/package-overlay.nix)
+    (import ./overlays/haskell-overlay.nix;)
+    (import ./overlays/julia-overlay.nix)
     hasktorchOverlay
-    (import ./overlay/julia.nix)
   ];
 
   pkgs = import <nixpkgs> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
@@ -20,21 +19,29 @@ let
 
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlay/python-self-packages.nix {};
+    python3 = pkgs.callPackage ./overlays/python-self-packages.nix {};
     name = "Python-kernel";
-    packages = import ./overlay/python-packages-list.nix {inherit pkgs;};
+    packages = import ./overlays/python-packages-list.nix { inherit pkgs;
+                                                            MachineLearning = true;
+                                                            DataScience = true;
+                                                            Financial = true;
+                                                            Graph =  true;
+                                                            SecurityAnalysis = true;
+                                                          };
     ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel";
-    packages = import ./overlay/R-packages-list.nix {inherit pkgs;};
+    packages = import ./overlays/R-packages-list.nix {inherit pkgs;};
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
     haskellPackages = pkgs.haskell.packages.ghc883;
-    packages = import ./overlay/haskell-packages-list.nix {inherit pkgs;};
+    packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
+                                                             Diagrams = true; Hasktorch = true; InlineC = true; Matrix = true;
+                                                          };
   };
 
   iNix = jupyter.kernels.iNixKernel {

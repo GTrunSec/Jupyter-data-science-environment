@@ -1,4 +1,4 @@
- let
+let
   jupyterLib = builtins.fetchGit {
     url = https://github.com/GTrunSec/jupyterWith;
     rev = "c1ccbe1b0ee5703fd425ce0a3442e7e2ecfde352";
@@ -12,20 +12,20 @@
   };
 
   hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc883"; }).overlayShared;
-  haskellOverlay = import ./overlay/haskell-overlay.nix;
+  haskellOverlay = import ./overlays/haskell-overlay.nix;
 
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlay/python-overlay.nix)
-    (import ./overlay/package-overlay.nix)
-    (import ./overlay/julia.nix)
+    (import ./overlays/python-overlay.nix)
+    (import ./overlays/package-overlay.nix)
+    (import ./overlays/julia-overlay.nix)
     haskellOverlay
     hasktorchOverlay
   ];
 
   pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
-  jupyter = import jupyterLib {pkgs=pkgs;};
+  jupyter = import jupyterLib {pkgs=pkgs; };
 
   ihaskell_labextension = import ./nix/ihaskell_labextension.nix { inherit jupyter pkgs; };
 
@@ -36,21 +36,29 @@
                          ];
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlay/python-self-packages.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs; };
     name = "Python-data-env";
-    packages = import ./overlay/python-packages-list.nix {inherit pkgs;};
+    packages = import ./overlays/python-packages-list.nix { inherit pkgs;
+                                                            MachineLearning = true;
+                                                            DataScience = true;
+                                                            Financial = true;
+                                                            Graph =  true;
+                                                            SecurityAnalysis = true;
+                                                          };
     ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlay/R-packages-list.nix {inherit pkgs;};
-   };
+    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
+  };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc883;
-    packages = import ./overlay/haskell-packages-list.nix {inherit pkgs;};
+    packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
+                                                             Diagrams = true; Hasktorch = true; InlineC = false; Matrix = true;
+                                                           };
     inline-r = true;
     inherit Rpackages;
   };
@@ -89,17 +97,17 @@
       extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
     };
 
- in
-   pkgs.mkShell rec {
-     name = "Jupyter-data-Env";
-     buildInputs = [ jupyterEnvironment
-                     pkgs.python3Packages.ipywidgets
-                     pkgs.python3Packages.python-language-server
-                     pkgs.python3Packages.jupyter_lsp
-                     iJulia.runtimePackages
-                   ];
+in
+pkgs.mkShell rec {
+  name = "Jupyter-data-Env";
+  buildInputs = [ jupyterEnvironment
+                  pkgs.python3Packages.ipywidgets
+                  pkgs.python3Packages.python-language-server
+                  pkgs.python3Packages.jupyter_lsp
+                  iJulia.runtimePackages
+                ];
 
-     shellHook = ''
+  shellHook = ''
       export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
       export PYTHON=python-Python-data-env
@@ -109,4 +117,4 @@
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
     #${jupyterEnvironment}/bin/jupyter-lab --ip
     '';
-   }
+}
