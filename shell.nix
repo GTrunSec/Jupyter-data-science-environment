@@ -12,15 +12,15 @@ let
 
 
   iPython = jupyter.kernels.iPythonWith {
-    #python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
-    # packages = import ./overlays/python-packages-list.nix { inherit pkgs;
-    #                                                         MachineLearning = true;
-    #                                                         DataScience = true;
-    #                                                         Financial = true;
-    #                                                         Graph =  true;
-    #                                                         SecurityAnalysis = true;
-    #                                                       };
+    packages = import ./overlays/python-packages-list.nix { inherit pkgs;
+                                                            MachineLearning = true;
+                                                            DataScience = true;
+                                                            Financial = true;
+                                                            Graph =  true;
+                                                            SecurityAnalysis = true;
+                                                          };
     ignoreCollisions = true;
   };
 
@@ -28,22 +28,16 @@ let
   iHaskell = jupyter.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
-    haskellPackages = pkgs.haskell.packages.ghc883;
-    # packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
-    #                                                          Diagrams = true; Hasktorch = true; InlineC = false; Matrix = true;
-    #                                                        };
-    # r-libs-site = env.r-libs-site;
-    # r-bin-path = env.r-bin-path;
+    packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
+                                                             Diagrams = true; Hasktorch = true; InlineC = false; Matrix = true;
+                                                           };
+    r-libs-site = env.r-libs-site;
+    r-bin-path = env.r-bin-path;
   };
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython ];
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0"
-        ];
-      };
     };
   voila = pkgs.writeScriptBin "voila" ''
     nix-shell ${nixpkgs-hardenedlinux}/pkgs/python/env/voila --command "voila"
@@ -51,7 +45,7 @@ let
 in
 pkgs.mkShell rec {
   buildInputs = [
-    voila
-    #jupyterEnvironment
+    #voila
+    jupyterEnvironment
   ];
 }

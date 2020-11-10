@@ -8,7 +8,7 @@ let
     # Only necessary for Haskell kernel
     (import ./overlays/python-overlay.nix)
     (import ./overlays/package-overlay.nix)
-    (import ./overlays/haskell-overlay.nix;)
+    (import ./overlays/haskell-overlay.nix)
     (import ./overlays/julia-overlay.nix)
     hasktorchOverlay
   ];

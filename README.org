@@ -101,3 +101,9 @@ Install_Julia_CUDA
 julia_wrapped
 #+end_src
 
+* Flake -> stack overflow issue
+ulimit -s 100000 (default is 8192) before nix looks useful, to pass the test from the top issue
+- https://github.com/NixOS/nixpkgs/issues/42379
+#+begin_src sh :async t :exports both :results output
+ulimit -s 100000
+#+end_src
