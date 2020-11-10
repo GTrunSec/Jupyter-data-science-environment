@@ -107,3 +107,7 @@ ulimit -s 100000 (default is 8192) before nix looks useful, to pass the test fro
 #+begin_src sh :async t :exports both :results output
 ulimit -s 100000
 #+end_src
+then:
+#+begin_src sh :async t :exports both :results output
+nix develop --impure -c jupyter-lab
+#+end_src
