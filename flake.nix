@@ -15,7 +15,6 @@
     (flake-utils.lib.eachDefaultSystem
       (system:
         let
-          hasktorchOverlay = (import (haskTorch + "/nix/shared.nix") { compiler = "ghc883"; }).overlayShared;
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
@@ -23,10 +22,9 @@
               (import ./overlays/package-overlay.nix)
               (import ./overlays/julia-overlay.nix)
               (import ./overlays/haskell-overlay.nix)
-              hasktorchOverlay
             ];
             #ihaskell-0.10.1.1
-            config = { allowBroken = true; sandbox = false; };
+            config = { allowBroken = true; sandbox = true; allowUnsupportedSystem = true;};
           };
         in
           {
