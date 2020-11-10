@@ -38,7 +38,6 @@ let
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
-    haskellPackages = pkgs.haskell.packages.ghc883;
     packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
                                                              Diagrams = true; Hasktorch = true; InlineC = true; Matrix = true;
                                                           };

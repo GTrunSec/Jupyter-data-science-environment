@@ -5,7 +5,7 @@ let
     owner = "gibiansky";
     repo = "IHaskell";
     rev = "ef698157f44960566687a308e3455b5ba031eb43";
-    sha256 = "1y054m6fndsjiypsjgmipmhbpp3spj3fw1x53z4qrixkl43mz3mi";
+    hash = "sha256-sY5fB6Gzx4zJH6UH7oa8ety7YL2xPqmvj1I360wlBfg=";
   };
   overrides = self: hspkgs:
     let
@@ -55,12 +55,11 @@ let
       # Tests not passing.
       #Diff = dontCheck hspkgs.Diff;
       #zeromq4-haskell = dontCheck hspkgs.zeromq4-haskell;
-
     };
 in
 
 {
-  haskellPackages = pkgs.haskellPackages.override (old: {
+  haskellPackages = pkgs.haskell.packages.ghc883.override (old: {
     overrides =
       pkgs.lib.composeExtensions
         (old.overrides or (_: _: {}))
