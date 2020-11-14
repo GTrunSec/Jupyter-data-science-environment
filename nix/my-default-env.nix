@@ -1,56 +1,50 @@
 let
-  jupyterLib = builtins.fetchGit {
-    url = https://github.com/GTrunSec/jupyterWith;
-    rev = "d9fe46bce29dcdb026807335f46cb2b8655dbf6b";
-    ref = "current";
-  };
+  inherit (inputflake) loadInput flakeLock;
+  inputflake = import ../nix/lib.nix {};
+  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
-  haskTorchSrc = builtins.fetchGit {
-    url = https://github.com/hasktorch/hasktorch;
-    rev = "5f905f7ac62913a09cbb214d17c94dbc64fc8c7b";
-    ref = "master";
-  };
+  jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
 
-  hasktorchOverlay = (import (haskTorchSrc + "/nix/shared.nix") { compiler = "ghc883"; }).overlayShared;
-  haskellOverlay = import ../overlay/haskell-overlay.nix;
   overlays = [
     # Only necessary for Haskell kernel
-    (import ../overlay/python-overlay.nix)
-    (import ../overlay/package-overlay.nix)
-    (import ../overlay/julia.nix)
-    haskellOverlay
-    hasktorchOverlay
+    (import ../overlays/python-overlay.nix)
+    (import ../overlays/package-overlay.nix)
+    (import ../overlays/julia-overlay.nix)
+    (import ../overlays/haskell-overlay.nix)
   ];
 
 
-  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs;};
-  
-  pkgs = (import ../nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
-
-  jupyter = import jupyterLib {pkgs=pkgs;};
-
-  ihaskell_labextension = import ../nix/ihaskell_labextension.nix { inherit jupyter pkgs; };
+  Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
+                           reshape2
+                         ];
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ../overlay/python-self-packages.nix { inherit pkgs;};
+    python3 = pkgs.callPackage ../overlays/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
-    packages = import ../overlay/python-packages-list.nix {inherit pkgs;};
+    packages = import ../overlays/python-packages-list.nix { inherit pkgs;
+                                                            MachineLearning = true;
+                                                            DataScience = true;
+                                                            Financial = true;
+                                                            Graph =  true;
+                                                            SecurityAnalysis = true;
+                                                          };
     ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ../overlay/R-packages-list.nix {inherit pkgs;};
-   };
+    packages = import ../overlays/R-packages-list.nix { inherit pkgs;};
+  };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
-    haskellPackages = pkgs.haskell.packages.ghc883;
-    packages = import ../overlay/haskell-packages-list.nix {inherit pkgs;};
-    Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
-                             reshape2
-                           ];
-    inline-r = true;
+    extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
+    packages = import ../overlays/haskell-packages-list.nix { inherit pkgs;
+                                                             Diagrams = true; Hasktorch = true; InlineC = false; Matrix = true;
+                                                           };
+    r-libs-site = env.r-libs-site;
+    r-bin-path = env.r-bin-path;
   };
 
   currentDir = builtins.getEnv "PWD";
@@ -76,21 +70,17 @@ let
   iRust = jupyter.kernels.rustWith {
     name = "data-rust-env";
   };
-  
+
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          ihaskell_labextension
-          "@jupyter-widgets/jupyterlab-manager@2.0"
-          "@bokeh/jupyter_bokeh@2.0.0"
-          #"@jupyterlab/git@0.21.0-alpha.0"
           "@krassowski/jupyterlab-lsp@1.1.2"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server ];
-      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
+      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server python3Packages.torchBin ];
+      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages:${p.python3Packages.torchBin}/lib/python3.7/site-packages";
     };
 
 in
