@@ -1,6 +1,6 @@
 let
   jupyterLib = import <jupyterLib>;
-  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs Rpackages;};
+  env = (import (<jupyterLib> + "/lib/directory.nix")){ inherit pkgs Rpackages;};
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlays/python-overlay.nix)
