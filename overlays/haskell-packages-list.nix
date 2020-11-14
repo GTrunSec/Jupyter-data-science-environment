@@ -19,7 +19,7 @@
                                                            #funflow
                                                            JuicyPixels
                                                            lens
-                                                           random-fu
+                                                           #random-fu failure with 884
                                                          ] ++ pkgs.lib.optionals Diagrams [
                                                            diagrams
                                                            Chart
