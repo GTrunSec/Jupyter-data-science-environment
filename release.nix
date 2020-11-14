@@ -1,16 +1,12 @@
 let
   jupyterLib = import <jupyterLib>;
-
-  haskTorchSrc = import <haskTorchSrc>;
-  hasktorchOverlay = (import <haskTorchSrc/nix/shared.nix> { compiler = "ghc883"; }).overlayShared;
-
+  env = (import (jupyterLib + "/lib/directory.nix")){ inherit pkgs Rpackages;};
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlays/python-overlay.nix)
     (import ./overlays/package-overlay.nix)
     (import ./overlays/haskell-overlay.nix)
     (import ./overlays/julia-overlay.nix)
-    hasktorchOverlay
   ];
 
   pkgs = import <nixpkgs> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
@@ -36,11 +32,15 @@ let
     packages = import ./overlays/R-packages-list.nix {inherit pkgs;};
   };
 
+  Rpackages = p: with p; [ ggplot2 ];
+
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
     packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
                                                              Diagrams = true; Hasktorch = true; InlineC = true; Matrix = true;
-                                                          };
+                                                           };
+    r-libs-site = env.r-libs-site;
+    r-bin-path = env.r-bin-path;
   };
 
   iNix = jupyter.kernels.iNixKernel {
