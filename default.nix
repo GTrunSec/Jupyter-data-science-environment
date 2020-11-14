@@ -1,7 +1,7 @@
 let
   inherit (inputflake) loadInput flakeLock;
   inputflake = import ./nix/lib.nix {};
-  pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
@@ -24,9 +24,9 @@ let
     packages = import ./overlays/python-packages-list.nix { inherit pkgs;
                                                             MachineLearning = true;
                                                             DataScience = true;
-                                                            Financial = true;
+                                                            Financial = false;
                                                             Graph =  true;
-                                                            SecurityAnalysis = true;
+                                                            SecurityAnalysis = false;
                                                           };
     ignoreCollisions = true;
   };
@@ -40,7 +40,8 @@ let
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
     packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
-                                                             Diagrams = true; Hasktorch = false; InlineC = false; Matrix = true;
+                                                             Diagrams = true; Hasktorch = false;
+                                                             InlineC = false; Matrix = true;
                                                            };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;

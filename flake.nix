@@ -1,5 +1,5 @@
 {
-  description = "hardenedlinux nixpkgs collection";
+  description = "Data Science Environment";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
@@ -24,7 +24,7 @@
               (import ./overlays/haskell-overlay.nix)
             ];
             #ihaskell-0.10.1.1
-            config = { allowBroken = true; sandbox = true; allowUnsupportedSystem = true;};
+            config = { allowBroken = true; allowUnfree = true; allowUnsupportedSystem = true;};
           };
         in
           {

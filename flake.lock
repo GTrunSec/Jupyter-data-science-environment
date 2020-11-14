@@ -51,11 +51,11 @@
     "jupyterWith": {
       "flake": false,
       "locked": {
-        "lastModified": 1604913459,
-        "narHash": "sha256-afJzZMeZbJ+798QLnnlZI/rr9sO7bErzpUK+6G7Y9SU=",
+        "lastModified": 1605347286,
+        "narHash": "sha256-jge4B1/Sv3zSYGqtrgqXYP9HFtx1RG3DSnhVp+QMBUs=",
         "owner": "GTrunSec",
         "repo": "jupyterWith",
-        "rev": "d356494d7bcafa6c1235ec29b00f3ec187cd1866",
+        "rev": "229853d4a805fa5492e3c49a6a0d01254835d762",
         "type": "github"
       },
       "original": {

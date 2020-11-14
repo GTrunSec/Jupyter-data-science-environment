@@ -1,7 +1,7 @@
 let
   inherit (inputflake) loadInput flakeLock;
   inputflake = import ./nix/lib.nix {};
-  pkgs = (import ./nix/nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
 
   jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
@@ -91,7 +91,7 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.jupyterlab_git
                   pkgs.python3Packages.jupyter_lsp
                   pkgs.python3Packages.python-language-server
-                  #iJulia.runtimePackages
+                  iJulia.runtimePackages
                   iPython.runtimePackages
                 ];
   
