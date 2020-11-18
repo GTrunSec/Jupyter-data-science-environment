@@ -12,7 +12,7 @@
     #jupyterWith = { url = "/home/gtrun/data/jupyterWith"; flake = false; };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix }:
+  outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, python37 }:
     (flake-utils.lib.eachDefaultSystem
       (system:
         let
