@@ -97,6 +97,21 @@
         "type": "github"
       }
     },
+    "python37": {
+      "locked": {
+        "lastModified": 1592174545,
+        "narHash": "sha256-j+udoeEnrsRN8kl9/d7iK1ZRDOGhFqj/HW8A5Br4IZA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4c67f879f0ee0f4eb610373e479a0a9c518c51c4",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "4c67f879f0ee0f4eb610373e479a0a9c518c51c4",
+        "type": "indirect"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -104,7 +119,8 @@
         "haskell-nix": "haskell-nix",
         "jupyterWith": "jupyterWith",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux"
+        "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
+        "python37": "python37"
       }
     }
   },
