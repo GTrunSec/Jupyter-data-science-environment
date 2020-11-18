@@ -3,28 +3,52 @@ let
   packageOverrides = selfPythonPackages: pythonPackages: {
     jupyterlab_git =  pkgs.callPackage ./pkgs/jupyterlab-git {};
     jupyter_lsp =  pkgs.callPackage ./pkgs/jupyter-lsp {};
-    torchBin = (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/6cce9c30786442f1fb2b6bd7c2c7c9a089e8648b.tar.gz"){}).python37Packages.pytorch-bin;
+    jupytext =  pkgs.callPackage ./pkgs/jupytext {};
 
-    jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
+    pyzmq = pythonPackages.pyzmq.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
-        pname = "jupyterlab";
-        version = "3.0.0a10";
-        sha256 = "sha256-xUPFeRXnjf6gzZJ3/ro0d7ULjjwS2cyYW9sOrWqDgWI=";
+        pname = "pyzmq";
+        version = "20.0.0";
+        sha256 = "sha256-gkrViIMxqt6sdyvOJ+HC+8q4L63pLtvSNFQsThLw3Kk=";
       };
-      propagatedBuildInputs = [
-        (let
-          jupyterlab_server =  pkgs.callPackage ./pkgs/jupyterlab_server {};
-        in
-          jupyterlab_server
-        )
-        (let
-          nbclassic =  pkgs.callPackage ./pkgs/nbclassic {};
-        in
-          nbclassic
-        )
-        pythonPackages.notebook
-      ];
     });
+
+    ipykernel = pythonPackages.ipykernel.overridePythonAttrs (_:{
+      src = pythonPackages.fetchPypi {
+        pname = "ipykernel";
+        version = "5.3.4";
+        sha256 = "sha256-myZSrxYHmGobIxxiMC0HC8BTT1ZMOTpdnRMNuau76J0=";
+      };
+    });
+
+    fsspec = pythonPackages.fsspec.overridePythonAttrs (_:{
+      src = pkgs.fetchFromGitHub {
+        owner = "intake";
+        repo = "filesystem_spec";
+        rev =  "0.8.4";
+        sha256 = "sha256-3Xk/vaQRy9iV52IFo26CmSuRo4uzm9cH7iOtaocr/Ks=";
+      };
+    });
+    # jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
+    #   src = pythonPackages.fetchPypi {
+    #     pname = "jupyterlab";
+    #     version = "3.0.0a10";
+    #     sha256 = "sha256-xUPFeRXnjf6gzZJ3/ro0d7ULjjwS2cyYW9sOrWqDgWI=";
+    #   };
+    #   propagatedBuildInputs = [
+    #     (let
+    #       jupyterlab_server =  pkgs.callPackage ./pkgs/jupyterlab_server {};
+    #     in
+    #       jupyterlab_server
+    #     )
+    #     (let
+    #       nbclassic =  pkgs.callPackage ./pkgs/nbclassic {};
+    #     in
+    #       nbclassic
+    #     )
+    #     pythonPackages.notebook
+    #   ];
+    # });
 
 
     jupyter_contrib_core = pythonPackages.buildPythonPackage rec {

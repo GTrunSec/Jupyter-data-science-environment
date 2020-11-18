@@ -20,7 +20,6 @@ let
                          ];
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
     packages = import ./overlays/python-packages-list.nix { inherit pkgs;
                                                             MachineLearning = true;
@@ -76,31 +75,27 @@ let
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "@krassowski/jupyterlab-lsp@1.1.2"
+          "@jupyter-widgets/jupyterlab-manager@2.0"
+          "jupyterlab-jupytext"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server python3Packages.torchBin ];
-      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages:${p.python3Packages.torchBin}/lib/python3.7/site-packages";
+      extraPackages = p: with p;[ python3Packages.jupytext ];
+      extraJupyterPath = p: "${p.python3Packages.jupytext}/${pkgs.python3.sitePackages}";
     };
 
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
-                  pkgs.python3Packages.jupyterlab_git
-                  pkgs.python3Packages.jupyter_lsp
-                  pkgs.python3Packages.python-language-server
+                  pkgs.python3Packages.jupytext
                   iJulia.runtimePackages
                   iPython.runtimePackages
+                  IRkernel.runtimePackages
                 ];
   
   shellHook = ''
       # export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       # export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
-      ${pkgs.python3Packages.jupyter_core}/bin/jupyter serverextension enable --py jupyter_lsp
       #Pycall
       export PYTHON=python-Python-data-env
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
