@@ -75,7 +75,7 @@ let
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0"
+          "@jupyter-widgets/jupyterlab-manager@2.0.0"
           "jupyterlab-jupytext"
         ];
       };

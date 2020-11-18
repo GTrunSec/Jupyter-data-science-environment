@@ -19,7 +19,6 @@ let
                          ];
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs; };
     name = "Python-data-env";
     packages = import ./overlays/python-packages-list.nix { inherit pkgs;
                                                             MachineLearning = true;
@@ -70,11 +69,12 @@ let
       kernels= [ iPython iHaskell IRkernel iJulia iNix ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "@krassowski/jupyterlab-lsp@1.1.2"
+          "@jupyter-widgets/jupyterlab-manager@2.0.0"
+          "jupyterlab-jupytext"
         ];
       };
       extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server ];
-      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages";
+      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.8/site-packages:${p.python3Packages.python-language-server}/lib/python3.8/site-packages:${p.python3Packages.jupytext}/${pkgs.python3.sitePackages}";
     };
 
 in
@@ -84,6 +84,7 @@ pkgs.mkShell rec {
                   pkgs.python3Packages.ipywidgets
                   pkgs.python3Packages.python-language-server
                   pkgs.python3Packages.jupyter_lsp
+                  pkgs.python3Packages.jupytext
                   iJulia.runtimePackages
                 ];
 
