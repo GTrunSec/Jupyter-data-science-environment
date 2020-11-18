@@ -5,30 +5,30 @@ let
     jupyter_lsp =  pkgs.callPackage ./pkgs/jupyter-lsp {};
     jupytext =  pkgs.callPackage ./pkgs/jupytext {};
 
-    pyzmq =  (if !pkgs.python.passthru.isPy38 then pythonPackages.pyzmq.overridePythonAttrs (_:{
+    pyzmq =  (if pkgs.python.passthru.isPy38 then pythonPackages.pyzmq.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "pyzmq";
         version = "20.0.0";
         sha256 = "sha256-gkrViIMxqt6sdyvOJ+HC+8q4L63pLtvSNFQsThLw3Kk=";
       };
-    }) else "");
+    }) else pythonPackages.pyzmq.overridePythonAttrs (_:{}));
 
-    ipykernel = (if !pkgs.python.passthru.isPy38 then pythonPackages.ipykernel.overridePythonAttrs (_:{
+    ipykernel = (if pkgs.python.passthru.isPy38 then pythonPackages.ipykernel.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "ipykernel";
         version = "5.3.4";
         sha256 = "sha256-myZSrxYHmGobIxxiMC0HC8BTT1ZMOTpdnRMNuau76J0=";
       };
-    }) else "");
+    }) else pythonPackages.ipykernel.overridePythonAttrs (_:{}));
 
-    fsspec =  (if !pkgs.python.passthru.isPy38 then pythonPackages.fsspec.overridePythonAttrs (_:{
+    fsspec =  (if pkgs.python.passthru.isPy38 then pythonPackages.fsspec.overridePythonAttrs (_:{
       src = pkgs.fetchFromGitHub {
         owner = "intake";
         repo = "filesystem_spec";
         rev =  "0.8.4";
         sha256 = "sha256-3Xk/vaQRy9iV52IFo26CmSuRo4uzm9cH7iOtaocr/Ks=";
       };
-    }) else "");
+    }) else  pythonPackages.fsspec.overridePythonAttrs (_:{}));
     # jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
     #   src = pythonPackages.fetchPypi {
     #     pname = "jupyterlab";

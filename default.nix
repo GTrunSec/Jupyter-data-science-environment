@@ -2,7 +2,7 @@ let
   inherit (inputflake) loadInput flakeLock;
   inputflake = import ./nix/lib.nix {};
   pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
-
+  #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
   jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
 

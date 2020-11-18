@@ -27,7 +27,7 @@
              ] ++ pkgs.lib.optionals MachineLearning [
                (if pkgs.python.passthru.isPy38 then tensorflow_2 else "")
                Keras
-               (if pkgs.python.passthru.isPy38 then pytorch_bin else pytorch)
+               pytorch
              ]  ++ pkgs.lib.optionals Financial [
                #financial machine learning.
                #mlfinlab
