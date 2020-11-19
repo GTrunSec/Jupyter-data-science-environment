@@ -11,32 +11,31 @@
                sqlalchemy
                qtconsole
                sympy
-               #nbdev
              ]  ++ pkgs.lib.optionals DataScience [
                numpy
                pandas
-               # fastai2
-               # fastai
+               nbdev
+               fastai
              ] ++ pkgs.lib.optionals Graph [
-               #editdistance
+               editdistance
                ipywidgets
                graphviz
                geoip2
                pillow
                matplotlib
              ] ++ pkgs.lib.optionals MachineLearning [
-               (if pkgs.python.passthru.isPy38 then tensorflow_2 else "")
+               (if pkgs.python.version < "3.8"then tensorflow_2 else "")
                Keras
                pytorch
              ]  ++ pkgs.lib.optionals Financial [
                #financial machine learning.
-               #mlfinlab
+               mlfinlab
                tqdm
                patsy
                dask
-               #pyfolio
+               pyfolio
              ] ++ pkgs.lib.optionals SecurityAnalysis [
-               #zat
+               zat
              ]
 
 )

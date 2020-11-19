@@ -1,8 +1,8 @@
 let
   inherit (inputflake) loadInput flakeLock;
   inputflake = import ./nix/lib.nix {};
-  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
-  #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  #pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
   jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
 
@@ -12,6 +12,7 @@ let
     (import ./overlays/package-overlay.nix)
     (import ./overlays/julia-overlay.nix)
     (import ./overlays/haskell-overlay.nix)
+    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
   Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
@@ -73,17 +74,14 @@ let
           "jupyterlab-jupytext"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server ];
-      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.8/site-packages:${p.python3Packages.python-language-server}/lib/python3.8/site-packages:${p.python3Packages.jupytext}/${pkgs.python3.sitePackages}";
+      extraPackages = p: with p;[ python3Packages.jupytext ];
+      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
-                  pkgs.python3Packages.python-language-server
-                  pkgs.python3Packages.jupyter_lsp
                   pkgs.python3Packages.jupytext
                   iJulia.runtimePackages
                 ];
@@ -93,9 +91,6 @@ pkgs.mkShell rec {
       export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
       export PYTHON=python-Python-data-env
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
-
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
-     ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
     #${jupyterEnvironment}/bin/jupyter-lab --ip
     '';
 }

@@ -12,6 +12,7 @@ let
     (import ./overlays/package-overlay.nix)
     (import ./overlays/julia-overlay.nix)
     (import ./overlays/haskell-overlay.nix)
+    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
 
@@ -80,7 +81,7 @@ let
         ];
       };
       extraPackages = p: with p;[ python3Packages.jupytext ];
-      extraJupyterPath = p: "${p.python3Packages.jupytext}/${pkgs.python3.sitePackages}";
+      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
 in
