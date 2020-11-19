@@ -1,4 +1,6 @@
 let
+  inherit (inputflake) loadInput flakeLock;
+  inputflake = import ./nix/lib.nix {};
   jupyterLib = import <jupyterLib>;
   env = (import (<jupyterLib> + "/lib/directory.nix")){ inherit pkgs Rpackages;};
   overlays = [
@@ -7,6 +9,7 @@ let
     (import ./overlays/package-overlay.nix)
     (import ./overlays/haskell-overlay.nix)
     (import ./overlays/julia-overlay.nix)
+    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
   pkgs = import <nixpkgs> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
@@ -15,7 +18,6 @@ let
 
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlays/python-self-packages.nix {};
     name = "Python-kernel";
     packages = import ./overlays/python-packages-list.nix { inherit pkgs;
                                                             MachineLearning = true;
