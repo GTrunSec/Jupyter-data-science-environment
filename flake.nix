@@ -17,7 +17,7 @@
       (system:
         let
           pkgs = import nixpkgs {
-            inherit system;
+            system = "x86_64-linux";
             overlays = [
               (import ./overlays/python-overlay.nix)
               (import ./overlays/package-overlay.nix)
