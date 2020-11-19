@@ -12,7 +12,6 @@ let
 
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
     packages = import ./overlays/python-packages-list.nix { inherit pkgs;
                                                             MachineLearning = true;
@@ -70,7 +69,11 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
+      extraPackages = p: with p;[ python3Packages.jupytext ];
+      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
+
+
   voila = pkgs.writeScriptBin "voila" ''
     nix-shell ${nixpkgs-hardenedlinux}/pkgs/python/env/voila --command "voila"
   '';

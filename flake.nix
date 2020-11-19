@@ -23,6 +23,7 @@
               (import ./overlays/package-overlay.nix)
               (import ./overlays/julia-overlay.nix)
               (import ./overlays/haskell-overlay.nix)
+              (import (nixpkgs-hardenedlinux + "/nix/python-packages-overlay.nix"))
             ];
             #ihaskell-0.10.1.1
             config = { allowBroken = true; allowUnfree = true; allowUnsupportedSystem = true;};

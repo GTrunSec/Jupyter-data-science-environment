@@ -12,30 +12,30 @@
                qtconsole
                sympy
              ]  ++ pkgs.lib.optionals DataScience [
-               numpy
-               pandas
-               nbdev
-               fastai
+                numpy
+                pandas
+                nbdev
+                fastai
              ] ++ pkgs.lib.optionals Graph [
-               editdistance
-               ipywidgets
-               graphviz
-               geoip2
-               pillow
-               matplotlib
+                editdistance
+                ipywidgets
+                graphviz
+                geoip2
+                pillow
+                matplotlib
              ] ++ pkgs.lib.optionals MachineLearning [
-               (if pkgs.python.version < "3.8"then tensorflow_2 else "")
-               Keras
-               pytorch
+                (if python.passthru.pythonVersion < "3.8" then tensorflow_2 else "")
+                Keras
+                pytorch
              ]  ++ pkgs.lib.optionals Financial [
-               #financial machine learning.
-               mlfinlab
-               tqdm
-               patsy
-               dask
-               pyfolio
+                #financial machine learning.
+                mlfinlab
+                tqdm
+                patsy
+                dask
+                pyfolio
              ] ++ pkgs.lib.optionals SecurityAnalysis [
-               zat
+                zat
              ]
 
 )

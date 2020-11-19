@@ -11,7 +11,6 @@ let
 
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ./overlays/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
     ignoreCollisions = true;
   };
@@ -24,10 +23,19 @@ let
     r-bin-path = env.r-bin-path;
   };
 
+  IRkernel = jupyter.kernels.iRWith {
+    name = "IRkernel-data-env";
+  };
+
+  iRust = jupyter.kernels.rustWith {
+    name = "data-rust-env";
+  };
+
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython ];
+      kernels = [ iPython iHaskell IRkernel iRust ];
     };
+
   voila = pkgs.writeScriptBin "voila" ''
     nix-shell ${nixpkgs-hardenedlinux}/pkgs/python/env/voila --command "voila"
   '';
