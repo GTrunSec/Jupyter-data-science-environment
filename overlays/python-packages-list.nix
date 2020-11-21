@@ -35,7 +35,11 @@
                 dask
                 pyfolio
              ] ++ pkgs.lib.optionals SecurityAnalysis [
-                zat
+               zat
+               textblob
+               pycountry
+               seaborn
+               python-Levenshtein
              ]
 
 )

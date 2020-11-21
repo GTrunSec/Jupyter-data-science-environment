@@ -83,11 +83,11 @@
     "nixpkgs-hardenedlinux": {
       "flake": false,
       "locked": {
-        "lastModified": 1605756159,
-        "narHash": "sha256-XxAIRmpctFXoQnp+NYq2iXE5w3Ws1D5K8NXjGShKblY=",
+        "lastModified": 1605916729,
+        "narHash": "sha256-OFq/vVo0+AKPdKgdbbTDAB/7UihF7z1QXMsorQEfcQ4=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "36eac9d9efe723d5f87c07bb51169069ce39a92f",
+        "rev": "53156d20702105876779fe254d291a988e73ea90",
         "type": "github"
       },
       "original": {

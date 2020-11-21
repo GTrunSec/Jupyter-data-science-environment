@@ -80,7 +80,7 @@ let
           "jupyterlab-jupytext"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupytext ];
+      extraPackages = p: with p;[ python3Packages.jupytext pkgs.pandoc ];
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
@@ -92,6 +92,7 @@ pkgs.mkShell rec {
                   iJulia.runtimePackages
                   iPython.runtimePackages
                   IRkernel.runtimePackages
+                  pkgs.pandoc
                 ];
   
   shellHook = ''

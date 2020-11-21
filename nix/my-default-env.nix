@@ -79,8 +79,7 @@ let
           "@krassowski/jupyterlab-lsp@1.1.2"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server python3Packages.torchBin ];
-      extraJupyterPath = p: "${p.python3Packages.jupyter_lsp}/lib/python3.7/site-packages:${p.python3Packages.python-language-server}/lib/python3.7/site-packages:${p.python3Packages.torchBin}/lib/python3.7/site-packages";
+      extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server ];
     };
 
 in
