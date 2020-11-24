@@ -12,7 +12,7 @@ let
     # zat = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/zat" {};
     # editdistance = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/editdistance" {};
 
-    dask =  (if pkgs.python3.version > "3.8" then pythonPackages.dask.overridePythonAttrs (_:{
+    dask =  (if pkgs.python.passthru.pythonVersion > "3.8"then pythonPackages.dask.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "dask";
         version = "2.30.0";
@@ -20,7 +20,7 @@ let
       };
     }) else pythonPackages.dask.overridePythonAttrs (_:{}));
 
-    pyzmq =  (if pkgs.python.version > "3.8" then pythonPackages.pyzmq.overridePythonAttrs (_:{
+    pyzmq =  (if pkgs.python.passthru.pythonVersion > "3.8" then pythonPackages.pyzmq.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "pyzmq";
         version = "20.0.0";
@@ -28,7 +28,7 @@ let
       };
     }) else pythonPackages.pyzmq.overridePythonAttrs (_:{}));
 
-    ipykernel = (if pkgs.python.version > "3.8" then pythonPackages.ipykernel.overridePythonAttrs (_:{
+    ipykernel = (if pkgs.python.passthru.pythonVersion > "3.8" then pythonPackages.ipykernel.overridePythonAttrs (_:{
       src = pythonPackages.fetchPypi {
         pname = "ipykernel";
         version = "5.3.4";
@@ -36,7 +36,7 @@ let
       };
     }) else pythonPackages.ipykernel.overridePythonAttrs (_:{}));
 
-    fsspec =  (if pkgs.python.version > "3.8" then pythonPackages.fsspec.overridePythonAttrs (_:{
+    fsspec =  (if pkgs.python.passthru.pythonVersion > "3.8" then pythonPackages.fsspec.overridePythonAttrs (_:{
       src = pkgs.fetchFromGitHub {
         owner = "intake";
         repo = "filesystem_spec";
