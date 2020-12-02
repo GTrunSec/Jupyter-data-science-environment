@@ -36,7 +36,7 @@ let
       };
     }) else pythonPackages.ipykernel.overridePythonAttrs (_:{}));
 
-    fsspec =  (if pkgs.python.passthru.pythonVersion > "3.8" then pythonPackages.fsspec.overridePythonAttrs (_:{
+    fsspec =  (if pkgs.python.pythonVersion > "3.8" then pythonPackages.fsspec.overridePythonAttrs (_:{
       src = pkgs.fetchFromGitHub {
         owner = "intake";
         repo = "filesystem_spec";
