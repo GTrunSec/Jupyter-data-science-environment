@@ -70,10 +70,14 @@ let
   iRust = jupyter.kernels.rustWith {
     name = "data-rust-env";
   };
-  
+
+  CXX = jupyter.kernels.xeusCling {
+    name = "cxx-kernel";
+  };
+
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
+      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust CXX ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
           "@jupyter-widgets/jupyterlab-manager@2.0.0"
