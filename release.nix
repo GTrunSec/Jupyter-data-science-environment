@@ -9,7 +9,7 @@ let
     (import ./overlays/package-overlay.nix)
     (import ./overlays/haskell-overlay.nix)
     (import ./overlays/julia-overlay.nix)
-    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
+    (import (<nixpkgs-hardenedlinux> + "/nix/python-packages-overlay.nix"))
   ];
 
   pkgs = import <nixpkgs> { inherit overlays; config={ allowUnfree=true; allowBroken=true;};};
