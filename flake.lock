@@ -51,11 +51,11 @@
     "jupyterWith": {
       "flake": false,
       "locked": {
-        "lastModified": 1605347286,
-        "narHash": "sha256-jge4B1/Sv3zSYGqtrgqXYP9HFtx1RG3DSnhVp+QMBUs=",
+        "lastModified": 1607078939,
+        "narHash": "sha256-bms36/Y1O6jT81YtMvz5w9+DnwIPZv0LEZGba9kerRU=",
         "owner": "GTrunSec",
         "repo": "jupyterWith",
-        "rev": "229853d4a805fa5492e3c49a6a0d01254835d762",
+        "rev": "d070e13a157a4913faa04f65ff357952f1bfe336",
         "type": "github"
       },
       "original": {
@@ -83,11 +83,11 @@
     "nixpkgs-hardenedlinux": {
       "flake": false,
       "locked": {
-        "lastModified": 1605916729,
-        "narHash": "sha256-OFq/vVo0+AKPdKgdbbTDAB/7UihF7z1QXMsorQEfcQ4=",
+        "lastModified": 1607030866,
+        "narHash": "sha256-0Jel00AzgyMrrnh2yNY+ouMPEaDPkvcHxkh1wrkJ/VQ=",
         "owner": "hardenedlinux",
         "repo": "nixpkgs-hardenedlinux",
-        "rev": "53156d20702105876779fe254d291a988e73ea90",
+        "rev": "dbc6289f72e419a3535d3399f557801795a22663",
         "type": "github"
       },
       "original": {

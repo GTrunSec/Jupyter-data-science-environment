@@ -36,6 +36,7 @@
                 pyfolio
              ] ++ pkgs.lib.optionals SecurityAnalysis [
                zat
+               zqd
                textblob
                pycountry
                seaborn

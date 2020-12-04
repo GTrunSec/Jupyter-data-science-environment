@@ -73,6 +73,7 @@ let
 
   CXX = jupyter.kernels.xeusCling {
     name = "cxx-kernel";
+    extraFlag = "c++17";
   };
 
   jupyterEnvironment =
@@ -96,6 +97,7 @@ pkgs.mkShell rec {
                   iJulia.runtimePackages
                   iPython.runtimePackages
                   IRkernel.runtimePackages
+                  CXX.runtimePackages
                   pkgs.pandoc
                 ];
   

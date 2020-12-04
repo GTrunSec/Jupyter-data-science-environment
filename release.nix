@@ -72,7 +72,7 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
+      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust CXX ];
     };
 in
 {
