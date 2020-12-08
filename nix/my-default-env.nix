@@ -12,6 +12,7 @@ let
     (import ../overlays/package-overlay.nix)
     (import ../overlays/julia-overlay.nix)
     (import ../overlays/haskell-overlay.nix)
+    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
 
@@ -20,7 +21,6 @@ let
                          ];
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ../overlays/python-self-packages.nix { inherit pkgs;};
     name = "Python-data-env";
     packages = import ../overlays/python-packages-list.nix { inherit pkgs;
                                                             MachineLearning = true;
@@ -74,11 +74,6 @@ let
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@krassowski/jupyterlab-lsp@1.1.2"
-        ];
-      };
       extraPackages = p: with p;[ python3Packages.jupyter_lsp python3Packages.python-language-server ];
     };
 

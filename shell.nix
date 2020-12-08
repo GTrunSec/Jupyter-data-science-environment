@@ -70,6 +70,13 @@ let
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
       extraPackages = p: with p;[ python3Packages.jupytext ];
+      directory = jupyter.mkDirectoryWith {
+        extensions = [
+          "@jupyter-widgets/jupyterlab-manager@2.0.0"
+          "jupyterlab-jupytext"
+        ];
+      };
+
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
