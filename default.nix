@@ -53,6 +53,11 @@ let
     name =  "Julia-data-env";
     directory = currentDir + "/.julia_pkgs";
     ##julia_1.5.1
+    extraEnv = {
+      PYTHON = "${toString iPython.kernelEnv}/bin/python";
+      PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
+    };
+
     NUM_THREADS = 12;
     extraPackages = p: with p;[   # GZip.jl # Required by DataFrames.jl
       gzip
@@ -89,8 +94,9 @@ pkgs.mkShell rec {
   shellHook = ''
       export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
-      export PYTHON=python-Python-data-env
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
+      export PYTHON="${toString iPython.kernelEnv}/bin/python"
+      export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
     #${jupyterEnvironment}/bin/jupyter-lab --ip
     '';
 }

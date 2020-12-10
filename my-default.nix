@@ -4,6 +4,7 @@ let
   pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
   #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
   jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
+  #jupyter = (import ../jupyterWith){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
 
   overlays = [
@@ -54,11 +55,16 @@ let
     NUM_THREADS = 24;
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
+    extraEnv = {
+      PYTHON = "${toString iPython.kernelEnv}/bin/python";
+      PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
+    };
     nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraPackages = p: with p;[
       # GZip.jl # Required by DataFrames.jl
       gzip
       zlib
+      python3Packages.matplotlib
     ];
   };
 
@@ -105,7 +111,8 @@ pkgs.mkShell rec {
       # export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       # export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
       #Pycall
-      export PYTHON=python-Python-data-env
+      export PYTHON="${toString iPython.kernelEnv}/bin/python"
+      export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}"
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
     #for emacs-ein to load kernels environment.
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env

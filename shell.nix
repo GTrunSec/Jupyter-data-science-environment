@@ -31,6 +31,11 @@ let
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
     nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
+    extraEnv = {
+      PYTHON = "${toString iPython.kernelEnv}/bin/python";
+      PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
+    };
+
     extraPackages = p: with p;[
       # GZip.jl # Required by DataFrames.jl
       gzip
@@ -70,13 +75,6 @@ let
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust ];
       extraPackages = p: with p;[ python3Packages.jupytext ];
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0.0"
-          "jupyterlab-jupytext"
-        ];
-      };
-
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
@@ -93,8 +91,9 @@ pkgs.mkShell rec {
     iPython.runtimePackages
   ];
   shellHook = ''
-      export PYTHON=python-Python-data-env
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
+      export PYTHON="${toString iPython.kernelEnv}/bin/python"
+      export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
     #for emacs-ein to load kernels environment.
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env

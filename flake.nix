@@ -31,6 +31,7 @@
                 key = "3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo=";
               }
             ];
+
             config = { allowBroken = true; allowUnfree = true; allowUnsupportedSystem = true;
                      };
           };
