@@ -4,6 +4,7 @@
 , Financial ? false
 , Graph ? false
 , SecurityAnalysis ? false
+, Sas ? false
 }:
 (p: with p;  [ jsondiff
                elasticsearch
@@ -41,6 +42,8 @@
                pycountry
                seaborn
                python-Levenshtein
+             ] ++ pkgs.lib.optionals Sas [
+               saspy
              ]
 
 )

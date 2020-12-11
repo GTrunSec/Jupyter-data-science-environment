@@ -29,6 +29,7 @@ let
                                                             Financial = true;
                                                             Graph =  true;
                                                             SecurityAnalysis = true;
+                                                            Sas = true;
                                                           };
     ignoreCollisions = true;
   };
@@ -99,8 +100,6 @@ pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [ jupyterEnvironment
                   pkgs.python3Packages.jupytext
-                  pkgs.python3Packages.saspy
-                  pkgs.python3Packages.sas_kernel
                   iJulia.runtimePackages
                   iPython.runtimePackages
                   IRkernel.runtimePackages
@@ -116,6 +115,7 @@ pkgs.mkShell rec {
       export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}"
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
     #for emacs-ein to load kernels environment.
+      ln -sfT ${pkgs.python3Packages.sas_kernel}/local/share/jupyter/kernels/sas ~/.local/share/jupyter/kernels/sas-kernel-env
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env
