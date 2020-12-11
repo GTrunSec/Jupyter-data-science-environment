@@ -100,7 +100,7 @@ let
     mkdir -p $out/share
     cp -r ${pkgs.python3Packages.sas_kernel}/local/share/jupyter/kernels/sas/* $out/share
     substituteInPlace $out/share/kernel.json \
-          --replace "${toString pkgs.python3}/bin/${toString pkgs.python3.executable}" "${toString iPython.runtimePackages}/bin/python-Python-data-env"
+          --replace "${toString pkgs.python3}/bin/${toString pkgs.python3.executable}" "${toString iPython.kernelEnv}/bin/python"
   '';
 in
 pkgs.mkShell rec {
