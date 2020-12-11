@@ -1,12 +1,12 @@
-self: super:
+final: prev:
 {
-  R = super.R.override {
-    blas = super.blas.override {
-      blasProvider = super.lapack-reference;
+  R = prev.R.override {
+    blas = prev.blas.override {
+      blasProvider = prev.lapack-reference;
     };
   };
-  cppzmq = super.cppzmq.overrideAttrs (o: {
-    src = super.fetchFromGitHub {
+  cppzmq = prev.cppzmq.overrideAttrs (o: {
+    src = prev.fetchFromGitHub {
       owner = "zeromq";
       repo = "cppzmq";
       rev = "76bf169fd67b8e99c1b0e6490029d9cd5ef97666";

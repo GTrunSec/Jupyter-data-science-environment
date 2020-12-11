@@ -61,10 +61,9 @@ let
     };
     nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraPackages = p: with p;[
-      # GZip.jl # Required by DataFrames.jl
-      gzip
-      zlib
-      python3Packages.matplotlib
+      # GZip
+      # gzip
+      # zlib
     ];
   };
 
@@ -100,6 +99,8 @@ pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [ jupyterEnvironment
                   pkgs.python3Packages.jupytext
+                  pkgs.python3Packages.saspy
+                  pkgs.python3Packages.sas_kernel
                   iJulia.runtimePackages
                   iPython.runtimePackages
                   IRkernel.runtimePackages
