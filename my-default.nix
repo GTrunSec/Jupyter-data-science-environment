@@ -94,14 +94,6 @@ let
       extraPackages = p: with p;[ python3Packages.jupytext pkgs.pandoc ];
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
-
-
-  sasFix = pkgs.runCommand "fix-script" { } ''
-    mkdir -p $out/share
-    cp -r ${pkgs.python3Packages.sas_kernel}/local/share/jupyter/kernels/sas/* $out/share
-    substituteInPlace $out/share/kernel.json \
-          --replace "${toString pkgs.python3}/bin/${toString pkgs.python3.executable}" "${toString iPython.kernelEnv}/bin/python"
-  '';
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
@@ -121,7 +113,6 @@ pkgs.mkShell rec {
       export PYTHON="${toString iPython.kernelEnv}/bin/python"
       export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}"
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
-      ln -sfT ${toString sasFix}/share ~/.local/share/jupyter/kernels/sas-kernel-env
     #for emacs-ein to load kernels environment.
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
