@@ -1,5 +1,14 @@
 {
   description = "Data Science Environment";
+  # nixConfig = {
+  #   substituters = [
+  #     "http://221.4.35.244:8301/"
+  #   ];
+  #   trusted-public-keys = [
+  #     "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo="
+  #   ];
+  # };
+
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/703f052de185c3dd1218165e62b105a68e05e15f";
@@ -24,15 +33,7 @@
               (import ./overlays/haskell-overlay.nix)
               (import (nixpkgs-hardenedlinux + "/nix/python-packages-overlay.nix"))
             ];
-            config.binary-caches = [
-              "https://cache.nixos.org"
-              { url = "https://nsm-data-analysis.cachix.org"; }
-              { url = "http://221.4.35.244:8301";
-                key = "3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo=";
-              }
-            ];
-
-            config = { allowBroken = true; allowUnfree = true; allowUnsupportedSystem = true;
+             config = { allowBroken = true; allowUnfree = true; allowUnsupportedSystem = true;
                      };
           };
         in
