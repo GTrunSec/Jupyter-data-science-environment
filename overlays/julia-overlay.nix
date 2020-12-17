@@ -1,10 +1,11 @@
-self: super:
+final: prev:
+let
+  rev = (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes.julia_15.locked.rev;
+  juliaPkg = import (builtins.fetchTarball {
+    url    = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+    sha256 = (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes.julia_15.locked.narHash;
+  }) {};
+in
 {
-  julia_13 = super.julia_13.overrideAttrs(oldAttrs: {
-   src = super.fetchzip {
-     url = "https://github.com/JuliaLang/julia/releases/download/v1.5.1/julia-1.5.1-full.tar.gz";
-     sha256 = "sha256-uaxlzni2RtmDhMzPbtDycj44CB0tJUzhmbwsAGwFv/U=";
-   };
-   checkTarget = "";
-  });
+  julia_13 = juliaPkg.julia_15;
 }

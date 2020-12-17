@@ -56,11 +56,11 @@ let
     NUM_THREADS = 24;
     cuda = true;
     cudaVersion = pkgs.cudatoolkit_10_2;
+    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraEnv = {
       PYTHON = "${toString iPython.kernelEnv}/bin/python";
       PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
     };
-    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
     extraPackages = p: with p;[
       # GZip
       # gzip
