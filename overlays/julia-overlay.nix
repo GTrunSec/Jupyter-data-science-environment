@@ -8,4 +8,5 @@ let
 in
 {
   julia_13 = juliaPkg.julia_15;
+  evcxr = juliaPkg.evcxr;
 }

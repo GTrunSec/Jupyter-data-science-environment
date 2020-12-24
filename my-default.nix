@@ -29,7 +29,7 @@ let
                                                             Financial = true;
                                                             Graph =  true;
                                                             SecurityAnalysis = true;
-                                                            Sas = true;
+                                                            Sas = false;
                                                           };
     ignoreCollisions = true;
   };
