@@ -94,6 +94,13 @@ let
       extraPackages = p: with p;[ python3Packages.jupytext pkgs.pandoc ];
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
+
+  #patchelf dependencies
+  libPath = with pkgs; lib.makeLibraryPath [
+    qt4
+    gcc9
+    stdenv.cc.cc.lib
+  ];
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
@@ -107,6 +114,13 @@ pkgs.mkShell rec {
                 ];
   
   shellHook = ''
+   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
+   if [ -f ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt} ]; then
+   patchelf \
+     --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 \
+     --set-rpath ${libPath} \
+      ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt}
+    fi
       # export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       # export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
       #Pycall
