@@ -62,10 +62,17 @@ let
       PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
     };
     extraPackages = p: with p;[
-      # GZip
-      # gzip
-      # zlib
+      ffmpeg
+      stdenv.cc.cc.lib
     ];
+
+    juliaPatchFlags = [ "
+    patchelf \
+     --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 \
+     --set-rpath ${libPath} \
+      ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt
+          "
+                      ];
   };
 
   iNix = jupyter.kernels.iNixKernel {
@@ -95,7 +102,6 @@ let
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
-  #patchelf dependencies
   libPath = with pkgs; lib.makeLibraryPath [
     qt4
     gcc9
@@ -115,15 +121,11 @@ pkgs.mkShell rec {
   
   shellHook = ''
    #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
-   if [ -f ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt} ]; then
-   patchelf \
-     --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 \
-     --set-rpath ${libPath} \
-      ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt}
-    fi
       # export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       # export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
       #Pycall
+      #ln -s ${pkgs.ffmpeg}/bin/ffmpeg     ./.julia_pkgs/artifacts/7f40eeb66d90d3026ae5fb68761c263b57adb840/bin/ffmpeg
+/home/gtrun/data/Jupyter-data-science-environment/.julia_pkgs/artifacts/7f40eeb66d90d3026ae5fb68761c263b57adb840/bin/ffmpeg
       export PYTHON="${toString iPython.kernelEnv}/bin/python"
       export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}"
       #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
