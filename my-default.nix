@@ -137,7 +137,13 @@ pkgs.mkShell rec {
      julia_wrapped -e 'using Pkg; Pkg.add("Electron"); using Electron'
      get_electron=$(dirname ./.julia_pkgs/artifacts/*/electron)
      rm -rf $get_electron/electron
-     ln -s ${pkgs.electron}/bin/electrom  $get_electron/electron
+     ln -s ${pkgs.electron}/bin/electron  $get_electron/electron
+    }
+
+    Julia_FixFfmpeg () {
+     get_ffmpeg=$(dirname ./.julia_pkgs/artifacts/*/bin/ffmpeg)
+     rm -rf $get_ffmpeg/ffmpeg
+     ln -s ${pkgs.ffmpeg}/bin/ffmpeg $get_ffmpeg/ffmpeg
     }
     '';
 }
