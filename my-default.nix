@@ -118,17 +118,13 @@ pkgs.mkShell rec {
                   CXX.runtimePackages
                   pkgs.pandoc
                 ];
-  
+  #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
+  PYTHON = "${toString iPython.kernelEnv}/bin/python";
+  PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
+  #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
+  R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
+
   shellHook = ''
-   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
-      # export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
-      # export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ] )}:$PATH"
-      #Pycall
-      #ln -s ${pkgs.ffmpeg}/bin/ffmpeg     ./.julia_pkgs/artifacts/7f40eeb66d90d3026ae5fb68761c263b57adb840/bin/ffmpeg
-/home/gtrun/data/Jupyter-data-science-environment/.julia_pkgs/artifacts/7f40eeb66d90d3026ae5fb68761c263b57adb840/bin/ffmpeg
-      export PYTHON="${toString iPython.kernelEnv}/bin/python"
-      export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}"
-      #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
     #for emacs-ein to load kernels environment.
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
@@ -136,6 +132,12 @@ pkgs.mkShell rec {
       ln -sfT ${IRkernel.spec}/kernels/ir_IRkernel-data-env ~/.local/share/jupyter/kernels/IRkernel-data-env
       ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-data-env
       ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/.local/share/jupyter/kernels/IRust-data-env
-    #${jupyterEnvironment}/bin/jupyter-lab
+
+    Julia_FixElectron () {
+     julia_wrapped -e 'using Pkg; Pkg.add("Electron"); using Electron'
+     get_electron=$(dirname ./.julia_pkgs/artifacts/*/electron)
+     rm -rf $get_electron/electron
+     ln -s ${pkgs.electron}/bin/electrom  $get_electron/electron
+    }
     '';
 }
