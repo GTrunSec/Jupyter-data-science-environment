@@ -1,21 +1,20 @@
 let
   inherit (inputflake) loadInput flakeLock;
   inputflake = import ./nix/lib.nix { };
-  jupyterLib = import <jupyterLib>;
-  env = (import (<jupyterLib> + "/lib/directory.nix")) { inherit pkgs Rpackages; };
+  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
+  #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
+  #jupyter = (import ../jupyterWith){ inherit pkgs;};
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
+
   overlays = [
     # Only necessary for Haskell kernel
     (import ./overlays/python-overlay.nix)
     (import ./overlays/package-overlay.nix)
-    (import ./overlays/haskell-overlay.nix)
     (import ./overlays/julia-overlay.nix)
-    (import (<nixpkgs-hardenedlinux> + "/nix/python-packages-overlay.nix"))
+    (import ./overlays/haskell-overlay.nix)
+    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
-
-  pkgs = import <nixpkgs> { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
-
-  jupyter = import <jupyterLib> { pkgs = pkgs; };
-
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-kernel";
