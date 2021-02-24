@@ -17,17 +17,18 @@ let
   };
 in
 python3Packages.buildPythonPackage rec {
-      pname = "jupytext";
-      version = "1.7.1";
-      doCheck = false;
+  pname = "jupytext";
+  version = "1.7.1";
+  doCheck = false;
 
-      src = fetchurl {
-        url = "https://github.com/mwouts/jupytext/archive/v${version}.tar.gz";
-        hash = "sha256-2uc500MvC8phACDNAhMiVLnqNwYmHzuIdh6JUeJXRS4=";
-      };
-      propagatedBuildInputs = with python3Packages; [ nbformat
-                                                      pyyaml
-                                                      toml
-                                                      markdown-it-py
-                                                    ];
+  src = fetchurl {
+    url = "https://github.com/mwouts/jupytext/archive/v${version}.tar.gz";
+    hash = "sha256-2uc500MvC8phACDNAhMiVLnqNwYmHzuIdh6JUeJXRS4=";
+  };
+  propagatedBuildInputs = with python3Packages; [
+    nbformat
+    pyyaml
+    toml
+    markdown-it-py
+  ];
 }

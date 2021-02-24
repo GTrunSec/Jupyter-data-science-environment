@@ -22,15 +22,16 @@ let
   };
 in
 python3Packages.buildPythonPackage rec {
-      pname = "nbdev";
-      version = "0.2.18";
-      doCheck = false;
+  pname = "nbdev";
+  version = "0.2.18";
+  doCheck = false;
 
-      src = pythonPackages.fetchPypi {
-        inherit pname version;
-        sha256 = "1ya9q3b3fya03hhqi3y5cipcr534xky47n3y2y6rzv5xay0ipy6j";
-      };
-      propagatedBuildInputs = with python3Packages; [ nbconvert
-                                                      fastscript
-                                                    ];
+  src = pythonPackages.fetchPypi {
+    inherit pname version;
+    sha256 = "1ya9q3b3fya03hhqi3y5cipcr534xky47n3y2y6rzv5xay0ipy6j";
+  };
+  propagatedBuildInputs = with python3Packages; [
+    nbconvert
+    fastscript
+  ];
 }

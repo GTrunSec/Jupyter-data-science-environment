@@ -25,10 +25,11 @@ let
           inherit pname version;
           sha256 = "14kskislpv1psk8c2xz4qik4n228iiz6fmxcw41y3dc4dhb6nxmq";
         };
-        propagatedBuildInputs = with python3Packages; [pandas
-                                                       requests
-                                                       lxml
-                                                      ];
+        propagatedBuildInputs = with python3Packages; [
+          pandas
+          requests
+          lxml
+        ];
       })
     ];
   };
@@ -52,6 +53,6 @@ python3Packages.buildPythonPackage rec {
     scipy
     scikitlearn
     seaborn
-    empyrical 
+    empyrical
   ];
 }

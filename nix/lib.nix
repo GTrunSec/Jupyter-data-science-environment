@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 
 {
   flakeLock = (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes;

@@ -74,15 +74,15 @@ python3Packages.buildPythonPackage rec {
   ];
 
   postPatch = ''
-      substituteInPlace setup.cfg \
-      --replace "==" ">=" \
-      --replace "xmlrunner>=1.7.7" "xmlrunner" \
-      --replace "scikit-learn>=0.23.1" "scikit-learn" \
-      --replace "Cython>=0.29.21" "Cython" \
-      --replace "cvxpy>=1.1.1" "cvxpy" \
-      --replace "pandas>=1.0.4" "pandas" \
-      --replace "numpy>=1.18.5" "numpy" \
-      --replace "numba>=0.49.1" "numba"
-      '';
+    substituteInPlace setup.cfg \
+    --replace "==" ">=" \
+    --replace "xmlrunner>=1.7.7" "xmlrunner" \
+    --replace "scikit-learn>=0.23.1" "scikit-learn" \
+    --replace "Cython>=0.29.21" "Cython" \
+    --replace "cvxpy>=1.1.1" "cvxpy" \
+    --replace "pandas>=1.0.4" "pandas" \
+    --replace "numpy>=1.18.5" "numpy" \
+    --replace "numba>=0.49.1" "numba"
+  '';
 
 }

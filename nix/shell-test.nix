@@ -1,13 +1,12 @@
-{ pkgs ? import <nixpkgs> {}
+{ pkgs ? import <nixpkgs> { }
 , nixpkgs-hardenedlinux
 , jupyterWith
 }:
 let
+  jupyter = import jupyterWith { inherit pkgs; };
+  env = (import (jupyterWith + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
-  jupyter = import jupyterWith { inherit pkgs;};
-  env = (import (jupyterWith + "/lib/directory.nix")){ inherit pkgs Rpackages;};
-
-  Rpackages = p: with p; [];
+  Rpackages = p: with p; [ ];
 
 
   iPython = jupyter.kernels.iPythonWith {
@@ -17,7 +16,7 @@ let
 
 
   iHaskell = jupyter.kernels.iHaskellWith {
-    extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
+    extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;

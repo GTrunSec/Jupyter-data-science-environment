@@ -23,45 +23,53 @@ let
   ];
 
 
-  pkgs = (import ./nixpkgs.nix) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  pkgs = (import ./nixpkgs.nix) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
 
-  jupyter = import jupyterLib {pkgs=pkgs;};
+  jupyter = import jupyterLib { pkgs = pkgs; };
 
 
   iPython = jupyter.kernels.iPythonWith {
-    python3 = pkgs.callPackage ../overlay/python-self-packages.nix {};
+    python3 = pkgs.callPackage ../overlay/python-self-packages.nix { };
     name = "Python-data-env";
-    packages = import ../overlay/osx-python-packages-list.nix {inherit pkgs;};
+    packages = import ../overlay/osx-python-packages-list.nix { inherit pkgs; };
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     haskellPackages = pkgs.haskell.packages.ghc883;
-    packages = p: with p; [ hvega
-                            #inline-r
-                            formatting
-                            inline-c
-                            inline-c-cpp
-                            #hasktorch_cpu
-                            matrix
-                            hmatrix
-                            monad-bayes
-                            hvega
-                            statistics
-                            vector
-                            ihaskell-hvega
-                            aeson
-                            aeson-pretty
-                            formatting
-                            foldl
-                            histogram-fill
-                            #funflow osx failed
-                            JuicyPixels
+    packages = p: with p; [
+      hvega
+      #inline-r
+      formatting
+      inline-c
+      inline-c-cpp
+      #hasktorch_cpu
+      matrix
+      hmatrix
+      monad-bayes
+      hvega
+      statistics
+      vector
+      ihaskell-hvega
+      aeson
+      aeson-pretty
+      formatting
+      foldl
+      histogram-fill
+      #funflow osx failed
+      JuicyPixels
 
-                            diagrams                            
-                            ihaskell-diagrams
-                            ihaskell-blaze ihaskell-charts SVGFonts palette blaze Chart MissingH Rasterific
-                          ] ;
+      diagrams
+      ihaskell-diagrams
+      ihaskell-blaze
+      ihaskell-charts
+      SVGFonts
+      palette
+      blaze
+      Chart
+      MissingH
+      Rasterific
+    ];
   };
 
 
@@ -71,7 +79,7 @@ let
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ../overlay/R-packages-list.nix {inherit pkgs;};
+    packages = import ../overlay/R-packages-list.nix { inherit pkgs; };
   };
 
   ihaskell_labextension = import ./ihaskell_labextension.nix { inherit jupyter pkgs; };
@@ -92,15 +100,16 @@ let
 in
 pkgs.mkShell rec {
   name = "analysis-arg";
-  buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.ipywidgets
-                ];
-  shellHook= ''
+  buildInputs = [
+    jupyterEnvironment
+    pkgs.python3Packages.ipywidgets
+  ];
+  shellHook = ''
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension install --py widgetsnbextension --user
      ${pkgs.python3Packages.jupyter_core}/bin/jupyter nbextension enable --py widgetsnbextension
     #for emacs-ein to load kernels environment.
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/Library/Jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/Library/Jupyter/kernels/iHaskell-data-env
       ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/Library/Jupyter/kernels/IRust-data-env
-    '';
+  '';
 }

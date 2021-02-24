@@ -29,10 +29,10 @@ python3Packages.buildPythonPackage rec {
 
   propagatedBuildInputs = with python3Packages; [ ipython ipykernel metakernel saspy ];
   preBuild = ''
-  mkdir -p $out/local
+    mkdir -p $out/local
   '';
   postPatch = ''
-  substituteInPlace sas_kernel/install.py \
-    --replace "install_my_kernel_spec(user=user, prefix=prefix)" "install_my_kernel_spec(user=user, prefix='$out/local')"
-       '';
+    substituteInPlace sas_kernel/install.py \
+      --replace "install_my_kernel_spec(user=user, prefix=prefix)" "install_my_kernel_spec(user=user, prefix='$out/local')"
+  '';
 }

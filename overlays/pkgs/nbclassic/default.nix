@@ -16,30 +16,31 @@ python3Packages.buildPythonPackage rec {
     sha256 = "sha256-cBFEkicVfcZxWD3RTaLgWHu1gR+qZ2O4hJrbXLZNDw8=";
   };
   propagatedBuildInputs = with python3Packages; [
-    (let
-      jupyter_server = python3Packages.buildPythonPackage rec {
-        pname = "jupyter_server";
-        version = "1.0.0rc5";
+    (
+      let
+        jupyter_server = python3Packages.buildPythonPackage rec {
+          pname = "jupyter_server";
+          version = "1.0.0rc5";
 
-        src = fetchPypi {
-          inherit pname version;
-          sha256 = "sha256-+NgR9c4E5Ln0dqgvV1izY0Ws9HpSa4F5j4ajnVIMzYE=";
+          src = fetchPypi {
+            inherit pname version;
+            sha256 = "sha256-+NgR9c4E5Ln0dqgvV1izY0Ws9HpSa4F5j4ajnVIMzYE=";
+          };
+          propagatedBuildInputs = with python3Packages; [
+            nbformat
+            tornado
+            jinja2
+            prometheus_client
+            jupyter_client
+            jupyter_core
+            nbconvert
+            send2trash
+            terminado
+            packaging
+          ];
+          doCheck = false;
         };
-        propagatedBuildInputs = with python3Packages; [
-          nbformat
-          tornado
-          jinja2
-          prometheus_client
-          jupyter_client
-          jupyter_core
-          nbconvert
-          send2trash
-          terminado
-          packaging
-        ];
-        doCheck = false;
-      };
-    in
+      in
       jupyter_server
     )
     notebook

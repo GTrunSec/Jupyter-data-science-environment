@@ -3,7 +3,6 @@
 , python3
 }:
 with python3.pkgs;
-
 let
   babel = python3Packages.buildPythonPackage rec {
     pname = "Babel";
@@ -17,7 +16,8 @@ let
     doCheck = false;
     propagatedBuildInputs = with python3Packages; [
       pytz
-      (let
+      (
+        let
           jupyter_server = python3Packages.buildPythonPackage rec {
             pname = "jupyter_server";
             version = "1.0.0rc5";
@@ -40,7 +40,7 @@ let
             ];
             doCheck = false;
           };
-      in
+        in
         jupyter_server
       )
     ];

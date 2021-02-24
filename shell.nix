@@ -1,25 +1,31 @@
-{ pkgs ? import <nixpkgs> {}
+{ pkgs ? import <nixpkgs> { }
 , nixpkgs-hardenedlinux
 , jupyterWith
 }:
 let
-
-  jupyter = import jupyterWith { inherit pkgs;};
-  env = (import (jupyterWith + "/lib/directory.nix")){ inherit pkgs Rpackages;};
-  Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
-                           reshape2
-                         ];
+  jupyter = import jupyterWith { inherit pkgs; };
+  env = (import (jupyterWith + "/lib/directory.nix")) { inherit pkgs Rpackages; };
+  Rpackages = p: with p; [
+    ggplot2
+    dplyr
+    xts
+    purrr
+    cmaes
+    cubature
+    reshape2
+  ];
 
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./overlays/python-packages-list.nix { inherit pkgs;
-                                                            MachineLearning = true;
-                                                            DataScience = true;
-                                                            Financial = true;
-                                                            Graph =  true;
-                                                            SecurityAnalysis = true;
-                                                          };
+    packages = import ./overlays/python-packages-list.nix {
+      inherit pkgs;
+      MachineLearning = true;
+      DataScience = true;
+      Financial = true;
+      Graph = true;
+      SecurityAnalysis = true;
+    };
     ignoreCollisions = true;
   };
 
@@ -45,13 +51,15 @@ let
 
 
   iHaskell = jupyter.kernels.iHaskellWith {
-    extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
+    extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
-    packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
-                                                             Diagrams = true;
-                                                             Hasktorch = true;
-                                                             InlineC = false; Matrix = true;
-                                                           };
+    packages = import ./overlays/haskell-packages-list.nix {
+      inherit pkgs;
+      Diagrams = true;
+      Hasktorch = true;
+      InlineC = false;
+      Matrix = true;
+    };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;
   };
@@ -59,7 +67,7 @@ let
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlays/R-packages-list.nix { inherit pkgs;};
+    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
   };
 
   iRust = jupyter.kernels.rustWith {

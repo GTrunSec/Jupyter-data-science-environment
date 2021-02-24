@@ -1,11 +1,11 @@
 let
   inherit (inputflake) loadInput flakeLock;
-  inputflake = import ./nix/lib.nix {};
-  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
+  inputflake = import ./nix/lib.nix { };
+  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
   #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
-  jupyter = (import (loadInput flakeLock.jupyterWith)){ inherit pkgs;};
+  jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
   #jupyter = (import ../jupyterWith){ inherit pkgs;};
-  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")){ inherit pkgs Rpackages;};
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
   overlays = [
     # Only necessary for Haskell kernel
@@ -17,34 +17,45 @@ let
   ];
 
 
-  Rpackages = p: with p; [ ggplot2 dplyr xts purrr cmaes cubature
-                           reshape2
-                         ];
+  Rpackages = p: with p; [
+    ggplot2
+    dplyr
+    xts
+    purrr
+    cmaes
+    cubature
+    reshape2
+  ];
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./overlays/python-packages-list.nix { inherit pkgs;
-                                                            MachineLearning = true;
-                                                            DataScience = true;
-                                                            Financial = true;
-                                                            Graph =  true;
-                                                            SecurityAnalysis = true;
-                                                            Sas = false;
-                                                          };
+    packages = import ./overlays/python-packages-list.nix {
+      inherit pkgs;
+      MachineLearning = true;
+      DataScience = true;
+      Financial = true;
+      Graph = true;
+      SecurityAnalysis = true;
+      Sas = false;
+    };
     ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlays/R-packages-list.nix { inherit pkgs;};
+    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
-    extraIHaskellFlags = "--codemirror Haskell";  # for jupyterlab syntax highlighting
-    packages = import ./overlays/haskell-packages-list.nix { inherit pkgs;
-                                                             Diagrams = true; Hasktorch = true; InlineC = false; Matrix = true;
-                                                           };
+    extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
+    packages = import ./overlays/haskell-packages-list.nix {
+      inherit pkgs;
+      Diagrams = true;
+      Hasktorch = true;
+      InlineC = false;
+      Matrix = true;
+    };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;
   };
@@ -66,13 +77,14 @@ let
       stdenv.cc.cc.lib
     ];
 
-    juliaPatchFlags = [ "
+    juliaPatchFlags = [
+      "
     patchelf \
      --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 \
      --set-rpath ${libPath} \
       ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt
           "
-                      ];
+    ];
   };
 
   iNix = jupyter.kernels.iNixKernel {
@@ -110,14 +122,15 @@ let
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
-  buildInputs = [ jupyterEnvironment
-                  pkgs.python3Packages.jupytext
-                  iJulia.runtimePackages
-                  iPython.runtimePackages
-                  IRkernel.runtimePackages
-                  CXX.runtimePackages
-                  pkgs.pandoc
-                ];
+  buildInputs = [
+    jupyterEnvironment
+    pkgs.python3Packages.jupytext
+    iJulia.runtimePackages
+    iPython.runtimePackages
+    IRkernel.runtimePackages
+    CXX.runtimePackages
+    pkgs.pandoc
+  ];
   #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
   PYTHON = "${toString iPython.kernelEnv}/bin/python";
   PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
@@ -145,5 +158,5 @@ pkgs.mkShell rec {
      rm -rf $get_ffmpeg/ffmpeg
      ln -s ${pkgs.ffmpeg}/bin/ffmpeg $get_ffmpeg/ffmpeg
     }
-    '';
+  '';
 }

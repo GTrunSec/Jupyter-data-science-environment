@@ -1,10 +1,8 @@
 final: prev:
 let
-  rev = (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes.julia_15.locked.rev;
-  juliaPkg = import (builtins.fetchTarball {
-    url    = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
-    sha256 = (builtins.fromJSON (builtins.readFile ../flake.lock)).nodes.julia_15.locked.narHash;
-  }) {};
+  inputflake = import ../nix/lib.nix { };
+  inherit (inputflake) loadInput flakeLock;
+  juliaPkg = (import (loadInput flakeLock.julia_15)) { };
 in
 {
   julia_13 = juliaPkg.julia_15;
