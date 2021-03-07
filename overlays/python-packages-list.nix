@@ -43,9 +43,5 @@
   pycountry
   seaborn
   python-Levenshtein
-] ++ pkgs.lib.optionals Sas [
-  saspy
-  sas_kernel
 ]
-
 )

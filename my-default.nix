@@ -36,7 +36,6 @@ let
       Financial = true;
       Graph = true;
       SecurityAnalysis = true;
-      Sas = false;
     };
     ignoreCollisions = true;
   };
@@ -76,15 +75,6 @@ let
       ffmpeg
       stdenv.cc.cc.lib
     ];
-
-    juliaPatchFlags = [
-      "
-    patchelf \
-     --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 \
-     --set-rpath ${libPath} \
-      ./.julia_pkgs/packages/GR/cRdXQ/deps/gr/bin/gksqt
-          "
-    ];
   };
 
   iNix = jupyter.kernels.iNixKernel {
@@ -106,19 +96,21 @@ let
       kernels = [ iPython iHaskell IRkernel iJulia iNix iRust CXX ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0.0"
-          "jupyterlab-jupytext"
+          "jupyterlab-jupytext@1.2.2"
+          "@jupyterlab/server-proxy"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupytext pkgs.pandoc ];
-      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
+      extraPackages = p: with p;[
+        python3Packages.jupytext
+        pkgs.pandoc
+        python3Packages.jupyter-server-proxy
+        python3Packages.aiohttp
+        python3Packages.simpervisor
+      ];
+
+      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}:${p.python3Packages.jupyter-server-proxy}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.simpervisor}/${p.python3.sitePackages}:${p.python3Packages.multidict}/${p.python3.sitePackages}:${p.python3Packages.yarl}/${p.python3.sitePackages}:${p.python3Packages.async-timeout}/${p.python3.sitePackages}";
     };
 
-  libPath = with pkgs; lib.makeLibraryPath [
-    qt4
-    gcc9
-    stdenv.cc.cc.lib
-  ];
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
@@ -131,32 +123,18 @@ pkgs.mkShell rec {
     CXX.runtimePackages
     pkgs.pandoc
   ];
-  #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
+  #julia_wrapped -e 'Pkg.add(url=" https://github.com/JuliaPy/PyCall.jl ")'
   PYTHON = "${toString iPython.kernelEnv}/bin/python";
   PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
   R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
 
   shellHook = ''
-    #for emacs-ein to load kernels environment.
-      ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
+    ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env
       ln -sfT ${IRkernel.spec}/kernels/ir_IRkernel-data-env ~/.local/share/jupyter/kernels/IRkernel-data-env
       ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-data-env
       ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/.local/share/jupyter/kernels/IRust-data-env
-
-    Julia_FixElectron () {
-     julia_wrapped -e 'using Pkg; Pkg.add("Electron"); using Electron'
-     get_electron=$(dirname ./.julia_pkgs/artifacts/*/electron)
-     rm -rf $get_electron/electron
-     ln -s ${pkgs.electron}/bin/electron  $get_electron/electron
-    }
-
-    Julia_FixFfmpeg () {
-     get_ffmpeg=$(dirname ./.julia_pkgs/artifacts/*/bin/ffmpeg)
-     rm -rf $get_ffmpeg/ffmpeg
-     ln -s ${pkgs.ffmpeg}/bin/ffmpeg $get_ffmpeg/ffmpeg
-    }
   '';
 }
