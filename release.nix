@@ -8,7 +8,6 @@ let
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
   overlays = [
-    # Only necessary for Haskell kernel
     (import ./nix/overlays/python-overlay.nix)
     (import ./nix/overlays/package-overlay.nix)
     (import ./nix/overlays/haskell-overlay.nix)
@@ -60,9 +59,16 @@ let
     name = "cxx-kernel";
   };
 
+  julia_wrapped = import ./nix/julia2nix-env { };
+  iJulia = jupyter.kernels.iJuliaWith {
+    name = "Julia-data-env";
+    inherit julia_wrapped;
+    directory = julia_wrapped.depot;
+  };
+
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iNix iRust CXX ];
+      kernels = [ iPython iHaskell IRkernel iNix iRust CXX iJulia ];
     };
 in
 {

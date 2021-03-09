@@ -56,7 +56,7 @@ let
     r-bin-path = env.r-bin-path;
   };
 
-  julia_wrapped = import ./nix/julia2nix { };
+  julia_wrapped = import ./nix/julia2nix-env { };
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
     inherit julia_wrapped;

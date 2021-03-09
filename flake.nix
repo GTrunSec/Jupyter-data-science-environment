@@ -31,7 +31,6 @@
             overlays = [
               (import ./nix/overlays/python-overlay.nix)
               (import ./nix/overlays/package-overlay.nix)
-              (import ./nix/overlays/julia-overlay.nix)
               (import ./nix/overlays/haskell-overlay.nix)
               (import (nixpkgs-hardenedlinux + "/nix/python-packages-overlay.nix"))
             ];
