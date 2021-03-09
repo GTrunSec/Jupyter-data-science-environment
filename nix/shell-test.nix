@@ -32,16 +32,12 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iRust ];
+      kernels = [ iPython iHaskell IRkernel ];
     };
 
-  voila = pkgs.writeScriptBin "voila" ''
-    nix-shell ${nixpkgs-hardenedlinux}/pkgs/python/env/voila --command "voila"
-  '';
 in
 pkgs.mkShell rec {
   buildInputs = [
-    voila
     jupyterEnvironment
   ];
 }

@@ -72,7 +72,6 @@ let
       extraPackages = p: with p;[ python3Packages.jupytext ];
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
-
 in
 pkgs.mkShell rec {
   buildInputs = [
