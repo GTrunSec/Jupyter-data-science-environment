@@ -9,16 +9,16 @@ let
 
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlays/python-overlay.nix)
-    (import ./overlays/package-overlay.nix)
-    (import ./overlays/julia-overlay.nix)
-    (import ./overlays/haskell-overlay.nix)
+    (import ./nix/overlays/python-overlay.nix)
+    (import ./nix/overlays/package-overlay.nix)
+    (import ./nix/overlays/julia-overlay.nix)
+    (import ./nix/overlays/haskell-overlay.nix)
     (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-kernel";
-    packages = import ./overlays/python-packages-list.nix {
+    packages = import ./nix/overlays/python-packages-list.nix {
       inherit pkgs;
       MachineLearning = true;
       DataScience = true;
@@ -31,14 +31,14 @@ let
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel";
-    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
+    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
   };
 
   Rpackages = p: with p; [ ggplot2 ];
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
-    packages = import ./overlays/haskell-packages-list.nix {
+    packages = import ./nix/overlays/haskell-packages-list.nix {
       inherit pkgs;
       Diagrams = true;
       Hasktorch = true;
@@ -61,23 +61,16 @@ let
     name = "cxx-kernel";
   };
 
+  julia_wrapped = import ../nix/julia2nix { };
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
-    directory = "./julia-pkgs";
-    NUM_THREADS = 24;
-    cuda = true;
-    cudaVersion = pkgs.cudatoolkit_10_2;
-    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
-    extraPackages = p: with p;[
-      # GZip.jl # Required by DataFrames.jl
-      gzip
-      zlib
-    ];
+    inherit julia_wrapped;
+    directory = julia_wrapped.depot;
   };
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust CXX ];
+      kernels = [ iPython iHaskell IRkernel iNix iRust CXX iJulia ];
     };
 in
 {
@@ -85,7 +78,6 @@ in
     name = "Jupyter-data-science-environment";
     paths = [
       jupyterEnvironment
-      iJulia.runtimePackages
     ];
   };
 }

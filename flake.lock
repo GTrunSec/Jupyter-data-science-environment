@@ -65,27 +65,27 @@
     },
     "julia_15": {
       "locked": {
-        "lastModified": 1607560137,
-        "narHash": "sha256-qI5U28r9Ie11OlkwzNFkhW0Z4jLanntJdb3JeFq/85A=",
+        "lastModified": 1610942247,
+        "narHash": "sha256-PKo1ATAlC6BmfYSRmX0TVmNoFbrec+A5OKcabGEu2yU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7ff5e241a2b96fff7912b7d793a06b4374bd846c",
+        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "7ff5e241a2b96fff7912b7d793a06b4374bd846c",
+        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
         "type": "indirect"
       }
     },
     "jupyterWith": {
       "flake": false,
       "locked": {
-        "lastModified": 1614214060,
-        "narHash": "sha256-CM3ltCyLd0OxpC7uECJVe1L/ai9Dtepd6IjevFhapzQ=",
+        "lastModified": 1615253460,
+        "narHash": "sha256-eMChE3NL78YvyEACw8S0oe4rPKilkxJEhUuFWz61pOY=",
         "owner": "GTrunSec",
         "repo": "jupyterWith",
-        "rev": "ebb343880dbf81b2ba36efd4153cfa9952de3965",
+        "rev": "1fd3b47eb16f11f9ec85e421bc5bee75b92d19b2",
         "type": "github"
       },
       "original": {

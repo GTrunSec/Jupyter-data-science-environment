@@ -9,10 +9,10 @@ let
 
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlays/python-overlay.nix)
-    (import ./overlays/package-overlay.nix)
-    (import ./overlays/julia-overlay.nix)
-    (import ./overlays/haskell-overlay.nix)
+    (import ./nix/overlays/python-overlay.nix)
+    (import ./nix/overlays/package-overlay.nix)
+    (import ./nix/overlays/julia-overlay.nix)
+    (import ./nix/overlays/haskell-overlay.nix)
     (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
@@ -29,7 +29,7 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./overlays/python-packages-list.nix {
+    packages = import ./nix/overlays/python-packages-list.nix {
       inherit pkgs;
       MachineLearning = true;
       DataScience = true;
@@ -42,13 +42,13 @@ let
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
+    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
-    packages = import ./overlays/haskell-packages-list.nix {
+    packages = import ./nix/overlays/haskell-packages-list.nix {
       inherit pkgs;
       Diagrams = true;
       Hasktorch = true;
@@ -59,22 +59,11 @@ let
     r-bin-path = env.r-bin-path;
   };
 
-  currentDir = builtins.getEnv "PWD";
+  julia_wrapped = import ../nix/julia2nix { };
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
-    directory = currentDir + "/.julia_pkgs";
-    NUM_THREADS = 24;
-    cuda = true;
-    cudaVersion = pkgs.cudatoolkit_10_2;
-    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
-    extraEnv = {
-      PYTHON = "${toString iPython.kernelEnv}/bin/python";
-      PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
-    };
-    extraPackages = p: with p;[
-      ffmpeg
-      stdenv.cc.cc.lib
-    ];
+    inherit julia_wrapped;
+    directory = julia_wrapped.depot;
   };
 
   iNix = jupyter.kernels.iNixKernel {
@@ -123,9 +112,6 @@ pkgs.mkShell rec {
     CXX.runtimePackages
     pkgs.pandoc
   ];
-  #julia_wrapped -e 'Pkg.add(url=" https://github.com/JuliaPy/PyCall.jl ")'
-  PYTHON = "${toString iPython.kernelEnv}/bin/python";
-  PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
   R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
 

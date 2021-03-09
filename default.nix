@@ -8,10 +8,10 @@ let
 
   overlays = [
     # Only necessary for Haskell kernel
-    (import ./overlays/python-overlay.nix)
-    (import ./overlays/package-overlay.nix)
-    (import ./overlays/julia-overlay.nix)
-    (import ./overlays/haskell-overlay.nix)
+    (import ./nix/overlays/python-overlay.nix)
+    (import ./nix/overlays/package-overlay.nix)
+    (import ./nix/overlays/julia-overlay.nix)
+    (import ./nix/overlays/haskell-overlay.nix)
     (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
 
@@ -27,7 +27,7 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./overlays/python-packages-list.nix {
+    packages = import ./nix/overlays/python-packages-list.nix {
       inherit pkgs;
       MachineLearning = true;
       DataScience = true;
@@ -40,13 +40,13 @@ let
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
+    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
   };
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
-    packages = import ./overlays/haskell-packages-list.nix {
+    packages = import ./nix/overlays/haskell-packages-list.nix {
       inherit pkgs;
       Diagrams = true;
       Hasktorch = false;
@@ -57,24 +57,11 @@ let
     r-bin-path = env.r-bin-path;
   };
 
-  ##julia part
-  currentDir = builtins.getEnv "PWD";
+  julia_wrapped = import ./nix/julia2nix { };
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
-    directory = currentDir + "/.julia_pkgs";
-    ##julia_1.5.1
-    extraEnv = {
-      PYTHON = "${toString iPython.kernelEnv}/bin/python";
-      PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
-    };
-
-    NUM_THREADS = 12;
-    extraPackages = p: with p;[
-      # GZip.jl # Required by DataFrames.jl
-      gzip
-      zlib
-      libgit2
-    ];
+    inherit julia_wrapped;
+    directory = julia_wrapped.depot;
   };
 
   iNix = jupyter.kernels.iNixKernel {
@@ -86,8 +73,9 @@ let
       kernels = [ iPython iHaskell IRkernel iJulia iNix ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "@jupyter-widgets/jupyterlab-manager@2.0.0"
-          "jupyterlab-jupytext"
+          "jupyterlab-jupytext@1.2.2"
+          "@jupyterlab/server-proxy"
+          #"@jupyter-widgets/jupyterlab-manager@2.0.0"
         ];
       };
       extraPackages = p: with p;[ python3Packages.jupytext ];
@@ -100,15 +88,13 @@ pkgs.mkShell rec {
   buildInputs = [
     jupyterEnvironment
     pkgs.python3Packages.jupytext
-    iJulia.runtimePackages
   ];
 
   shellHook = ''
       export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ])}:$PATH"
-      #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
-      export PYTHON="${toString iPython.kernelEnv}/bin/python"
-      export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
+      # export PYTHON="${toString iPython.kernelEnv}/bin/python"
+      # export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
     #${jupyterEnvironment}/bin/jupyter-lab --ip
   '';
 }

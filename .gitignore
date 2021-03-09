@@ -4,7 +4,7 @@ result
 .ein*
 *.log
 tmp/
-.julia_pkgs
+.julia_depot
 jupyterlab
 3rdParty
 .virtual_documents

@@ -18,7 +18,7 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./overlays/python-packages-list.nix {
+    packages = import ./nix/overlays/python-packages-list.nix {
       inherit pkgs;
       MachineLearning = true;
       DataScience = true;
@@ -53,7 +53,7 @@ let
   iHaskell = jupyter.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
-    packages = import ./overlays/haskell-packages-list.nix {
+    packages = import ./nix/overlays/haskell-packages-list.nix {
       inherit pkgs;
       Diagrams = true;
       Hasktorch = true;
@@ -67,7 +67,7 @@ let
 
   IRkernel = jupyter.kernels.iRWith {
     name = "IRkernel-data-env";
-    packages = import ./overlays/R-packages-list.nix { inherit pkgs; };
+    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
   };
 
   iRust = jupyter.kernels.rustWith {
