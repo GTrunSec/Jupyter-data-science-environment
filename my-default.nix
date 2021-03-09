@@ -96,7 +96,6 @@ let
         python3Packages.aiohttp
         python3Packages.simpervisor
       ];
-
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}:${p.python3Packages.jupyter-server-proxy}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.simpervisor}/${p.python3.sitePackages}:${p.python3Packages.multidict}/${p.python3.sitePackages}:${p.python3Packages.yarl}/${p.python3.sitePackages}:${p.python3Packages.async-timeout}/${p.python3.sitePackages}";
     };
 
@@ -116,6 +115,7 @@ pkgs.mkShell rec {
   R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
 
   shellHook = ''
+      sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
     ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env

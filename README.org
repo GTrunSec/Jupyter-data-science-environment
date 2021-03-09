@@ -52,7 +52,7 @@
 
 
 #+begin_src sh :async t :exports both :results output
-nix-shell default.nix  --option sandbox false --command "jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py"
+nix-shell default.nix --option sandbox false --command "jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py"
 #+end_src
 
 #+begin_src sh :async t :exports both :results output

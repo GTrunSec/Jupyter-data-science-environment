@@ -61,16 +61,9 @@ let
     name = "cxx-kernel";
   };
 
-  julia_wrapped = import ../nix/julia2nix { };
-  iJulia = jupyter.kernels.iJuliaWith {
-    name = "Julia-data-env";
-    inherit julia_wrapped;
-    directory = julia_wrapped.depot;
-  };
-
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iNix iRust CXX iJulia ];
+      kernels = [ iPython iHaskell IRkernel iNix iRust CXX ];
     };
 in
 {

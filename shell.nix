@@ -29,26 +29,6 @@ let
     ignoreCollisions = true;
   };
 
-  currentDir = builtins.getEnv "PWD";
-  iJulia = jupyter.kernels.iJuliaWith {
-    name = "Julia-data-env";
-    directory = currentDir + "/.julia_pkgs";
-    NUM_THREADS = 24;
-    cuda = true;
-    cudaVersion = pkgs.cudatoolkit_10_2;
-    nvidiaVersion = pkgs.linuxPackages.nvidia_x11;
-    extraEnv = {
-      PYTHON = "${toString iPython.kernelEnv}/bin/python";
-      PYTHONPATH = "${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}";
-    };
-
-    extraPackages = p: with p;[
-      # GZip.jl # Required by DataFrames.jl
-      gzip
-      zlib
-    ];
-  };
-
 
   iHaskell = jupyter.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
@@ -74,6 +54,13 @@ let
     name = "data-rust-env";
   };
 
+  julia_wrapped = import ../nix/julia2nix { };
+  iJulia = jupyter.kernels.iJuliaWith {
+    name = "Julia-data-env";
+    inherit julia_wrapped;
+    directory = julia_wrapped.depot;
+  };
+
 
   iNix = jupyter.kernels.iNixKernel {
     name = "nix-kernel";
@@ -86,10 +73,6 @@ let
       extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
     };
 
-
-  voila = pkgs.writeScriptBin "voila" ''
-    nix-shell ${nixpkgs-hardenedlinux}/pkgs/python/env/voila --command "voila"
-  '';
 in
 pkgs.mkShell rec {
   buildInputs = [
@@ -99,10 +82,6 @@ pkgs.mkShell rec {
     iPython.runtimePackages
   ];
   shellHook = ''
-      #julia_wrapped -e 'Pkg.add(url="https://github.com/JuliaPy/PyCall.jl")'
-      export PYTHON="${toString iPython.kernelEnv}/bin/python"
-      export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
-    #for emacs-ein to load kernels environment.
       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env

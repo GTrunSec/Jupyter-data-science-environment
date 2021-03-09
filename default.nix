@@ -1,8 +1,8 @@
 let
   inherit (inputflake) loadInput flakeLock;
   inputflake = import ./nix/lib.nix { };
-  #pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
-  pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; }; #tensorflow support
+  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
+  #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; }; #tensorflow support
   jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
@@ -75,13 +75,19 @@ let
         extensions = [
           "jupyterlab-jupytext@1.2.2"
           "@jupyterlab/server-proxy"
-          #"@jupyter-widgets/jupyterlab-manager@2.0.0"
+          "@jupyter-widgets/jupyterlab-manager@2"
         ];
       };
-      extraPackages = p: with p;[ python3Packages.jupytext ];
-      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}";
-    };
 
+      extraPackages = p: with p;[
+        python3Packages.jupytext
+        pkgs.pandoc
+        python3Packages.jupyter-server-proxy
+        python3Packages.aiohttp
+        python3Packages.simpervisor
+      ];
+      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}:${p.python3Packages.jupyter-server-proxy}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.simpervisor}/${p.python3.sitePackages}:${p.python3Packages.multidict}/${p.python3.sitePackages}:${p.python3Packages.yarl}/${p.python3.sitePackages}:${p.python3Packages.async-timeout}/${p.python3.sitePackages}";
+    };
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
@@ -93,6 +99,7 @@ pkgs.mkShell rec {
   shellHook = ''
       export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
       export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ])}:$PATH"
+      sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
       # export PYTHON="${toString iPython.kernelEnv}/bin/python"
       # export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
     #${jupyterEnvironment}/bin/jupyter-lab --ip
