@@ -58,11 +58,13 @@ let
     r-bin-path = env.r-bin-path;
   };
 
-  julia_wrapped = import ../nix/julia2nix { };
+  julia_wrapped = import ./nix/julia2nix-env { };
+  currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
     inherit julia_wrapped;
     directory = julia_wrapped.depot;
+    activateDir = currentDir + "/nix/julia2nix-env";
   };
 
   iNix = jupyter.kernels.iNixKernel {

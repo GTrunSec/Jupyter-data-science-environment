@@ -11,7 +11,6 @@ let
     # Only necessary for Haskell kernel
     (import ../nix/overlays/python-overlay.nix)
     (import ../nix/overlays/package-overlay.nix)
-    (import ../nix/overlays/julia-overlay.nix)
     (import ../nix/overlays/haskell-overlay.nix)
     (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
   ];
@@ -59,11 +58,14 @@ let
     r-bin-path = env.r-bin-path;
   };
 
+
   julia_wrapped = import ../nix/julia2nix-env { };
+  currentDir = builtins.getEnv "PWD";
   iJulia = jupyter.kernels.iJuliaWith {
     name = "Julia-data-env";
     inherit julia_wrapped;
     directory = julia_wrapped.depot;
+    activateDir = currentDir + "/julia2nix-env";
   };
 
   iNix = jupyter.kernels.iNixKernel {
