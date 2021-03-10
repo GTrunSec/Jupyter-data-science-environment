@@ -59,9 +59,7 @@ nix-shell default.nix --option sandbox false --command "jupyter-lab --ip <Ip> --
 jupyter-lab --ip <IPadress or localhost> 
 #+end_src
 
-- Macos
-
-
+- Macos ~Crashed~
 #+begin_src sh :async t :exports both :results output
 nix-shell ./nix/osx-env.nix --option sandbox false
 #+end_src
@@ -74,31 +72,6 @@ cachix use nsm-data-analysis
 ** Or Using my hydra binary cache
 #+begin_src sh :async t :exports both :results output
 nix-shell default.nix  --option sandbox false --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo= cache.nixos.org-1:${yourtrustkey check nix.conf }"
-#+end_src
-
-* Julia
-[[file:img/Julia-commmand.png]]
-runCommand `Install_iJulia ` to initializing the `JULIA_PKGDIR`
-
-#+begin_src sh :async t :exports both :results output
-Install_ijulia
-#+end_src
-
-- Install Julia with CUDA
-
-
-- Julia's CUDA example in ~my-default.nix~. setting cuda version and Nvidia version which are running your system currently.
-
-
-#+begin_src sh :async t :exports both :results output
-Install_Julia_CUDA             
-#+end_src
-
-- julia execute
-
-
-#+begin_src sh :async t :exports both :results output
-julia_wrapped
 #+end_src
 
 * Flake -> stack overflow issue
