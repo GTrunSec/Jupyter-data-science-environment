@@ -15,6 +15,7 @@
     julia_15.url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a";
     python37.url = "nixpkgs/4c67f879f0ee0f4eb610373e479a0a9c518c51c4"; #python3.7 tensorflow_2
     devshell.url = "github:numtide/devshell";
+    mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux/master"; flake = false; };
     haskTorch = { url = "github:hasktorch/hasktorch/5f905f7ac62913a09cbb214d17c94dbc64fc8c7b"; flake = false; };
     jupyterWith = { url = "github:GTrunSec/jupyterWith/Nov"; flake = false; };
@@ -22,7 +23,7 @@
     #jupyterWith = { url = "/home/gtrun/data/jupyterWith"; flake = false; };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, python37, julia_15, devshell }:
+  outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, python37, julia_15, devshell, mach-nix }:
     (flake-utils.lib.eachDefaultSystem
       (system:
         let

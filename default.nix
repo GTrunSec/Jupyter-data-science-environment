@@ -4,7 +4,14 @@ let
   pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
   #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; }; #tensorflow support
   jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
-  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) {
+    inherit pkgs Rpackages;
+  };
+
+  mach-nix = (import (loadInput flakeLock.mach-nix)) { };
+  python-custom = mach-nix.mkPython rec {
+    requirements = builtins.readFile ./nix/python-environment.txt;
+  };
 
   overlays = [
     # Only necessary for Haskell kernel
@@ -26,15 +33,17 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./nix/overlays/python-packages-list.nix {
-      inherit pkgs;
-      MachineLearning = true;
-      DataScience = true;
-      Financial = false;
-      Graph = true;
-      SecurityAnalysis = false;
-    };
-    ignoreCollisions = true;
+    python3 = python-custom.python;
+    packages = python-custom.python.pkgs.selectPkgs;
+    # packages = import ./nix/overlays/python-packages-list.nix {
+    #   inherit pkgs;
+    #   MachineLearning = true;
+    #   DataScience = true;
+    #   Financial = false;
+    #   Graph = true;
+    #   SecurityAnalysis = false;
+    # };
+    # ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
