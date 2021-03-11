@@ -37,21 +37,16 @@ let
     packages = python-custom.python.pkgs.selectPkgs;
   };
 
-  IRkernel = jupyter.kernels.iRWith {
-    name = "IRkernel-data-env";
-    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
-  };
-
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
-    packages = import ./nix/overlays/haskell-packages-list.nix {
-      inherit pkgs;
-      Diagrams = true;
-      Hasktorch = false;
-      InlineC = false;
-      Matrix = true;
-    };
+    # packages = import ./nix/overlays/haskell-packages-list.nix {
+    #   inherit pkgs;
+    #   Diagrams = true;
+    #   Hasktorch = false;
+    #   InlineC = false;
+    #   Matrix = true;
+    # };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;
   };
@@ -71,12 +66,12 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia iNix ];
+      kernels = [ iPython iHaskell iJulia iNix ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "jupyterlab-jupytext@1.2.2"
+          "jupyterlab-jupytext"
           "@jupyterlab/server-proxy"
-          "@jupyter-widgets/jupyterlab-manager@2"
+          "@jupyter-widgets/jupyterlab-manager"
         ];
       };
       extraPackages = p: with p;[

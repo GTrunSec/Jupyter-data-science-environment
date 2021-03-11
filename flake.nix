@@ -11,7 +11,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "nixpkgs/703f052de185c3dd1218165e62b105a68e05e15f";
+    nixpkgs.url = "nixpkgs/master";
     julia_15.url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a";
     python37.url = "nixpkgs/4c67f879f0ee0f4eb610373e479a0a9c518c51c4"; #python3.7 tensorflow_2
     devshell.url = "github:numtide/devshell";

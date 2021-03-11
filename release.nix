@@ -25,22 +25,17 @@ let
     packages = python-custom.python.pkgs.selectPkgs;
   };
 
-  IRkernel = jupyter.kernels.iRWith {
-    name = "IRkernel";
-    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
-  };
-
   Rpackages = p: with p; [ ggplot2 ];
 
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "haskell";
-    packages = import ./nix/overlays/haskell-packages-list.nix {
-      inherit pkgs;
-      Diagrams = true;
-      Hasktorch = true;
-      InlineC = true;
-      Matrix = true;
-    };
+    # packages = import ./nix/overlays/haskell-packages-list.nix {
+    #   inherit pkgs;
+    #   Diagrams = true;
+    #   Hasktorch = true;
+    #   InlineC = true;
+    #   Matrix = true;
+    # };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;
   };
@@ -66,7 +61,7 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iNix iRust CXX iJulia ];
+      kernels = [ iPython iHaskell iNix iRust CXX iJulia ];
     };
 in
 {
