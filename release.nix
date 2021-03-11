@@ -7,6 +7,11 @@ let
   #jupyter = (import ../jupyterWith){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
+  mach-nix = (import (loadInput flakeLock.mach-nix)) { };
+  python-custom = mach-nix.mkPython rec {
+    requirements = builtins.readFile ./nix/python-environment.txt;
+  };
+
   overlays = [
     (import ./nix/overlays/python-overlay.nix)
     (import ./nix/overlays/package-overlay.nix)
@@ -15,11 +20,9 @@ let
   ];
 
   iPython = jupyter.kernels.iPythonWith {
-    name = "Python-kernel";
-    packages = import ./nix/overlays/python-packages-list.nix {
-      inherit pkgs;
-    };
-    ignoreCollisions = true;
+    name = "Python-data-env";
+    python3 = python-custom.python;
+    packages = python-custom.python.pkgs.selectPkgs;
   };
 
   IRkernel = jupyter.kernels.iRWith {

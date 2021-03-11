@@ -101,12 +101,9 @@ pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [
     jupyterEnvironment
-    pkgs.python3Packages.jupytext
-    iJulia.runtimePackages
     iPython.runtimePackages
     IRkernel.runtimePackages
     CXX.runtimePackages
-    pkgs.pandoc
   ];
   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
   R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
