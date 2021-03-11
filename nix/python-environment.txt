@@ -7,4 +7,11 @@ jupytext
 jupyter-server-proxy
 jupyter_packaging
 jupyterlab-server
- nbclassic
+jupyterlab==2.2.6
+nbclassic
+
+elasticsearch
+requests
+sqlalchemy
+qtconsole
+sympy

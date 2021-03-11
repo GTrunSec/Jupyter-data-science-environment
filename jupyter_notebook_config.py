@@ -6,7 +6,7 @@ c.ServerProxy.servers = {
     'command': ['glances', '-wp', '{port}']
   },
   'pluto': {
-    "command": ["/nix/store/s57gfh04kc3prjrysgh4igk2qfwfarcz-julia-env/bin/julia", "--optimize=0", "-e", "using Pkg; Pkg.activate(\"./nix/julia2nix\"); using Pluto; Pluto.run(host=\"0.0.0.0\", port={port}, launch_browser=false, require_secret_for_open_links=false, require_secret_for_access=false)"],
+    "command": ["/nix/store/s57gfh04kc3prjrysgh4igk2qfwfarcz-julia-env/bin/julia", "--optimize=0", "-e", "using Pkg; Pkg.activate(\"./nix/julia2nix-env\"); using Pluto; Pluto.run(host=\"0.0.0.0\", port={port}, launch_browser=false, require_secret_for_open_links=false, require_secret_for_access=false)"],
     "timeout": 60,
     "launcher_entry": {
         "title": "Pluto.jl",

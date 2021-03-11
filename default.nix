@@ -69,16 +69,16 @@ let
       kernels = [ iPython iHaskell iJulia iNix ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "jupyterlab-jupytext"
+          "jupyterlab-jupytext@1.2.2"
           "@jupyterlab/server-proxy"
-          "@jupyter-widgets/jupyterlab-manager"
+          "@jupyter-widgets/jupyterlab-manager@2"
         ];
       };
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
         python-custom.python.pkgs."jupyter-server-proxy"
       ];
-      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}::${p.python3Packages.typing-extensions}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
+      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.typing-extensions}/${p.python3.sitePackages}:${p.python3Packages.typing-extensions}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
     };
 in
 pkgs.mkShell rec {

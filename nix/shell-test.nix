@@ -22,17 +22,13 @@ let
     r-bin-path = env.r-bin-path;
   };
 
-  IRkernel = jupyter.kernels.iRWith {
-    name = "IRkernel-data-env";
-  };
-
   iRust = jupyter.kernels.rustWith {
     name = "data-rust-env";
   };
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel ];
+      kernels = [ iPython iHaskell ];
     };
 
 in

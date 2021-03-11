@@ -53,19 +53,6 @@ let
           };
         }) else pythonPackages.fsspec.overridePythonAttrs (_: { }));
 
-
-    jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_: {
-      src = pythonPackages.fetchPypi {
-        pname = "jupyterlab";
-        version = "3.0.10";
-        sha256 = "sha256-/cYCDYHoiIdVrEswoIqJUgwhDS7aQAz+oMCXLSWRz+w=";
-      };
-      propagatedBuildInputs = [
-        python-custom
-      ];
-    });
-    #jupyterlab = python-custom.python.pkgs."jupyterlab";
-
     jupyter_contrib_core = pythonPackages.buildPythonPackage rec {
       pname = "jupyter_contrib_core";
       version = "0.3.3";
