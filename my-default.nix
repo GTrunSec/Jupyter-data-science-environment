@@ -38,22 +38,17 @@ let
     packages = python-custom.python.pkgs.selectPkgs;
   };
 
-  IRkernel = jupyter.kernels.iRWith {
-    name = "IRkernel-data-env";
-    packages = import ./nix/overlays/R-packages-list.nix { inherit pkgs; };
-  };
-
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
-    packages = import ./nix/overlays/haskell-packages-list.nix {
-      inherit pkgs;
-      Diagrams = true;
-      Hasktorch = true;
-      InlineC = false;
-      Matrix = true;
-    };
-    r-libs-site = env.r-libs-site;
+    # packages = import ./nix/overlays/haskell-packages-list.nix {
+    #   inherit pkgs;
+    #   Diagrams = true;
+    #   Hasktorch = true;
+    #   InlineC = false;
+    #   Matrix = true;
+    # };
+    r-libs-site = env.r-libs-site; #
     r-bin-path = env.r-bin-path;
   };
 
@@ -82,10 +77,10 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell IRkernel iJulia iNix iRust CXX ];
+      kernels = [ iPython iHaskell iJulia iNix iRust ];
       directory = jupyter.mkDirectoryWith {
         extensions = [
-          "jupyterlab-jupytext@1.2.2"
+          "jupyterlab-jupytext"
           "@jupyterlab/server-proxy"
         ];
       };
@@ -93,7 +88,7 @@ let
         python-custom.python.pkgs."jupytext"
         python-custom.python.pkgs."jupyter-server-proxy"
       ];
-      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
+      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}::${p.python3Packages.typing-extensions}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
     };
 
 in
@@ -102,8 +97,6 @@ pkgs.mkShell rec {
   buildInputs = [
     jupyterEnvironment
     iPython.runtimePackages
-    IRkernel.runtimePackages
-    CXX.runtimePackages
   ];
   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
   R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
@@ -113,7 +106,6 @@ pkgs.mkShell rec {
     ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env
       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-data-env ~/.local/share/jupyter/kernels/iHaskell-data-env
       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-data-env
-      ln -sfT ${IRkernel.spec}/kernels/ir_IRkernel-data-env ~/.local/share/jupyter/kernels/IRkernel-data-env
       ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-data-env
       ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/.local/share/jupyter/kernels/IRust-data-env
   '';
