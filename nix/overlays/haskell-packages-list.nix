@@ -5,9 +5,9 @@
 , Matrix ? false
 }:
 (with pkgs.haskellPackages.ghcWithPackages; (p: with p;  [
+  # monad-bayes
   hvega
   formatting
-  monad-bayes
   hvega
   statistics
   vector
@@ -17,7 +17,7 @@
   foldl
   hlint
   histogram-fill
-  #funflow
+  # #funflow
   JuicyPixels
   lens
   #random-fu failure with 884

@@ -40,13 +40,13 @@ let
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
-    # packages = import ./nix/overlays/haskell-packages-list.nix {
-    #   inherit pkgs;
-    #   Diagrams = true;
-    #   Hasktorch = false;
-    #   InlineC = false;
-    #   Matrix = true;
-    # };
+    packages = import ./nix/overlays/haskell-packages-list.nix {
+      inherit pkgs;
+      Diagrams = false;
+      Hasktorch = false;
+      InlineC = false;
+      Matrix = true;
+    };
     r-libs-site = env.r-libs-site;
     r-bin-path = env.r-bin-path;
   };
