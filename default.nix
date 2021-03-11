@@ -35,15 +35,6 @@ let
     name = "Python-data-env";
     python3 = python-custom.python;
     packages = python-custom.python.pkgs.selectPkgs;
-    # packages = import ./nix/overlays/python-packages-list.nix {
-    #   inherit pkgs;
-    #   MachineLearning = true;
-    #   DataScience = true;
-    #   Financial = false;
-    #   Graph = true;
-    #   SecurityAnalysis = false;
-    # };
-    # ignoreCollisions = true;
   };
 
   IRkernel = jupyter.kernels.iRWith {
@@ -88,30 +79,25 @@ let
           "@jupyter-widgets/jupyterlab-manager@2"
         ];
       };
-
       extraPackages = p: with p;[
-        python3Packages.jupytext
-        pkgs.pandoc
-        python3Packages.jupyter-server-proxy
-        python3Packages.aiohttp
-        python3Packages.simpervisor
+        python-custom.python.pkgs."jupytext"
+        python-custom.python.pkgs."jupyter-server-proxy"
       ];
-      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}:${p.python3Packages.jupyter-server-proxy}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.simpervisor}/${p.python3.sitePackages}:${p.python3Packages.multidict}/${p.python3.sitePackages}:${p.python3Packages.yarl}/${p.python3.sitePackages}:${p.python3Packages.async-timeout}/${p.python3.sitePackages}";
+      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
     };
 in
 pkgs.mkShell rec {
   name = "Jupyter-data-Env";
   buildInputs = [
     jupyterEnvironment
-    pkgs.python3Packages.jupytext
   ];
 
   shellHook = ''
-      export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
-      export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ])}:$PATH"
+    export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
+    export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ])}:$PATH"
       sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
       # export PYTHON="${toString iPython.kernelEnv}/bin/python"
       # export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
-    #${jupyterEnvironment}/bin/jupyter-lab --ip
+        #${jupyterEnvironment}/bin/jupyter-lab --ip
   '';
 }

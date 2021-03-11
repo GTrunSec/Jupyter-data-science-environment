@@ -4,14 +4,14 @@ let
   inherit (inputflake) loadInput flakeLock;
 
   packageOverrides = selfPythonPackages: pythonPackages: {
-    jupytext = pkgs.callPackage ./pkgs/jupytext { };
-    pyfolio = pkgs.callPackage ./pkgs/pyfolio { };
-    mlfinlab = pkgs.callPackage ./pkgs/mlfinlab { };
-    nbdev = pkgs.callPackage ./pkgs/nbdev { };
-    simpervisor = pkgs.callPackage ./pkgs/simpervisor { };
+    # jupytext = pkgs.callPackage ./pkgs/jupytext { };
+    # pyfolio = pkgs.callPackage ./pkgs/pyfolio { };
+    # mlfinlab = pkgs.callPackage ./pkgs/mlfinlab { };
+    # nbdev = pkgs.callPackage ./pkgs/nbdev { };
+    # simpervisor = pkgs.callPackage ./pkgs/simpervisor { };
     # saspy = pkgs.callPackage ./pkgs/saspy { };
     # sas_kernel = pkgs.callPackage ./pkgs/sas_kernel { };
-    jupyter-server-proxy = pkgs.callPackage ./pkgs/jupyter-server-proxy { };
+    # jupyter-server-proxy = pkgs.callPackage ./pkgs/jupyter-server-proxy { };
     # fastai = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/fastai" {};
     # zat = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/zat" {};
     # editdistance = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/editdistance" {};

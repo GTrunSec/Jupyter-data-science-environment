@@ -3,3 +3,5 @@ seaborn
 geopandas
 Shapely
 scikit-learn
+jupytext
+jupyter-server-proxy

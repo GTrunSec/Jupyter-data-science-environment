@@ -7,6 +7,12 @@ let
   #jupyter = (import ../jupyterWith){ inherit pkgs;};
   env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
+
+  mach-nix = (import (loadInput flakeLock.mach-nix)) { };
+  python-custom = mach-nix.mkPython rec {
+    requirements = builtins.readFile ./nix/python-environment.txt;
+  };
+
   overlays = [
     # Only necessary for Haskell kernel
     (import ./nix/overlays/python-overlay.nix)
@@ -28,15 +34,8 @@ let
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
-    packages = import ./nix/overlays/python-packages-list.nix {
-      inherit pkgs;
-      MachineLearning = true;
-      DataScience = true;
-      Financial = true;
-      Graph = true;
-      SecurityAnalysis = true;
-    };
-    ignoreCollisions = true;
+    python3 = python-custom.python;
+    packages = python-custom.python.pkgs.selectPkgs;
   };
 
   IRkernel = jupyter.kernels.iRWith {
@@ -91,13 +90,10 @@ let
         ];
       };
       extraPackages = p: with p;[
-        python3Packages.jupytext
-        pkgs.pandoc
-        python3Packages.jupyter-server-proxy
-        python3Packages.aiohttp
-        python3Packages.simpervisor
+        python-custom.python.pkgs."jupytext"
+        python-custom.python.pkgs."jupyter-server-proxy"
       ];
-      extraJupyterPath = p: "${p.python3Packages.jupytext}/${p.python3.sitePackages}:${p.python3Packages.jupyter-server-proxy}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.simpervisor}/${p.python3.sitePackages}:${p.python3Packages.multidict}/${p.python3.sitePackages}:${p.python3Packages.yarl}/${p.python3.sitePackages}:${p.python3Packages.async-timeout}/${p.python3.sitePackages}";
+      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
     };
 
 in

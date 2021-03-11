@@ -18,11 +18,6 @@ let
     name = "Python-kernel";
     packages = import ./nix/overlays/python-packages-list.nix {
       inherit pkgs;
-      MachineLearning = true;
-      DataScience = true;
-      Financial = true;
-      Graph = true;
-      SecurityAnalysis = true;
     };
     ignoreCollisions = true;
   };
