@@ -6,6 +6,7 @@ result
 tmp/
 .julia_depot
 jupyterlab
+julia2nix
 3rdParty
 .virtual_documents
 zeek

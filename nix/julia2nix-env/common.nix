@@ -17,7 +17,9 @@
   # Arguments
   makeWrapperArgs ? "",
   precompile ? true,
-  extraBuildInputs ? []
+  extraBuildInputs ? [],
+  patchShell ? "",
+  patchEval ? ""
 }:
 
 let
@@ -139,6 +141,14 @@ let
       # Remove the registry to save space
       Pkg.Registry.rm("General")
     '
+
+    ${patchShell}
+    julia -e ' \
+    using Pkg
+    Pkg.Registry.add(RegistrySpec(path="${registry}"))
+    Pkg.activate(".")
+    ${patchEval}
+        '
 
     if [[ -n "$precompile" ]]; then
       julia -e ' \
