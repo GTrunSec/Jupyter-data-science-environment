@@ -92,12 +92,13 @@ pkgs.mkShell rec {
     jupyterEnvironment
   ];
 
+  JULIA_DEPOT_PATH = ".julia_depot";
+  R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
+
   shellHook = ''
-    export R_LIBS_SITE=${builtins.readFile env.r-libs-site}
-    export PATH="${pkgs.lib.makeBinPath ([ env.r-bin-path ])}:$PATH"
-      sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
-      # export PYTHON="${toString iPython.kernelEnv}/bin/python"
-      # export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
-        #${jupyterEnvironment}/bin/jupyter-lab --ip
+    sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
+    # export PYTHON="${toString iPython.kernelEnv}/bin/python"
+    # export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
+      #${jupyterEnvironment}/bin/jupyter-lab --ip
   '';
 }

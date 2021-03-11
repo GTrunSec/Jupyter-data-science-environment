@@ -107,7 +107,7 @@ pkgs.mkShell rec {
   ];
   #https://discourse.nixos.org/t/system-with-nixos-how-to-add-another-extra-distribution
   R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
-
+  JULIA_DEPOT_PATH = ".julia_depot";
   shellHook = ''
       sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
     ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Python-data-env

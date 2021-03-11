@@ -16,6 +16,13 @@ let
     zlib
   ];
 
+  custom-python-env = python3.buildEnv.override
+    {
+      extraLibs = with python3Packages; [ xlrd matplotlib ];
+      ignoreCollisions = true;
+    };
+
+
   gr = import ./patch/gr.nix { inherit pkgs; };
 
   # Wrapped Julia with libraries and environment variables.
@@ -28,7 +35,8 @@ let
                 --set R_HOME ${pkgs.R}/lib/R \
                 --set JULIA_NUM_THREADS 24 \
                 --set GRDIR ${gr} \
-                --set PYTHON ${python3}/bin/python
+                --set PYTHON ${custom-python-env}/bin/python \
+                --set PYTHONPATH ${custom-python-env}/${pkgs.python3.sitePackages}
   '';
 
 in
