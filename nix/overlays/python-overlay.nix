@@ -1,20 +1,13 @@
 _: pkgs:
 let
-  inputflake = import ../nix/lib.nix { };
+  inputflake = import ../lib.nix { };
   inherit (inputflake) loadInput flakeLock;
+  mach-nix = (import (loadInput flakeLock.mach-nix)) { };
+  python-custom = mach-nix.mkPython rec {
+    requirements = builtins.readFile ../python-environment.txt;
+  };
 
   packageOverrides = selfPythonPackages: pythonPackages: {
-    # jupytext = pkgs.callPackage ./pkgs/jupytext { };
-    # pyfolio = pkgs.callPackage ./pkgs/pyfolio { };
-    # mlfinlab = pkgs.callPackage ./pkgs/mlfinlab { };
-    # nbdev = pkgs.callPackage ./pkgs/nbdev { };
-    # simpervisor = pkgs.callPackage ./pkgs/simpervisor { };
-    # saspy = pkgs.callPackage ./pkgs/saspy { };
-    # sas_kernel = pkgs.callPackage ./pkgs/sas_kernel { };
-    # jupyter-server-proxy = pkgs.callPackage ./pkgs/jupyter-server-proxy { };
-    # fastai = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/fastai" {};
-    # zat = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/zat" {};
-    # editdistance = pkgs.callPackage "${loadInput flakeLock.nixpkgs-hardenedlinux}/pkgs/python/editdistance" {};
 
     dask = (if pkgs.python.passthru.pythonVersion > "3.8" then
       pythonPackages.dask.overridePythonAttrs
@@ -56,27 +49,10 @@ let
             sha256 = "sha256-3Xk/vaQRy9iV52IFo26CmSuRo4uzm9cH7iOtaocr/Ks=";
           };
         }) else pythonPackages.fsspec.overridePythonAttrs (_: { }));
-    # jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_:{
-    #   src = pythonPackages.fetchPypi {
-    #     pname = "jupyterlab";
-    #     version = "3.0.0a10";
-    #     sha256 = "sha256-xUPFeRXnjf6gzZJ3/ro0d7ULjjwS2cyYW9sOrWqDgWI=";
-    #   };
-    #   propagatedBuildInputs = [
-    #     (let
-    #       jupyterlab_server =  pkgs.callPackage ./pkgs/jupyterlab_server {};
-    #     in
-    #       jupyterlab_server
-    #     )
-    #     (let
-    #       nbclassic =  pkgs.callPackage ./pkgs/nbclassic {};
-    #     in
-    #       nbclassic
-    #     )
-    #     pythonPackages.notebook
-    #   ];
-    # });
 
+
+
+    jupyterlab = python-custom.python.pkgs."jupyterlab";
 
     jupyter_contrib_core = pythonPackages.buildPythonPackage rec {
       pname = "jupyter_contrib_core";
