@@ -22,13 +22,13 @@
   lens
   #random-fu failure with 884
 ] ++ pkgs.lib.optionals Diagrams [
-  diagrams
+  # diagrams
   Chart
-  ihaskell-diagrams
-  ihaskell-hvega
-  ihaskell-blaze
-  ihaskell-charts
-  inline-r
+  # ihaskell-diagrams
+  # ihaskell-hvega
+  # ihaskell-blaze
+  # ihaskell-charts
+  # inline-r
 ] ++ pkgs.lib.optionals InlineC [
   inline-c
   inline-c-cpp

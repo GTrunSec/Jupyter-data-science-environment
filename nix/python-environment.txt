@@ -7,7 +7,7 @@ jupytext
 jupyter-server-proxy
 jupyter_packaging
 jupyterlab-server
-jupyterlab==2.2.6
+jupyterlab
 nbclassic
 
 elasticsearch
@@ -15,3 +15,5 @@ requests
 sqlalchemy
 qtconsole
 sympy
+
+mlfinlab

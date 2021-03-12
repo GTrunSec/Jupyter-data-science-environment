@@ -27,6 +27,12 @@
     (flake-utils.lib.eachDefaultSystem
       (system:
         let
+          machlib = import mach-nix
+            {
+              inherit system;
+              pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
+              pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
+            };
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [
@@ -42,8 +48,10 @@
             };
           };
         in
-        {
-          devShell = import ./shell.nix { inherit pkgs nixpkgs-hardenedlinux jupyterWith; };
+        rec {
+          devShell = import ./shell.nix {
+            inherit pkgs nixpkgs-hardenedlinux jupyterWith; mach-nix = machlib;
+          };
         }
       )
     );

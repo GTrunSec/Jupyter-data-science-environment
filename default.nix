@@ -8,11 +8,6 @@ let
     inherit pkgs Rpackages;
   };
 
-  mach-nix = (import (loadInput flakeLock.mach-nix)) { };
-  python-custom = mach-nix.mkPython rec {
-    requirements = builtins.readFile ./nix/python-environment.txt;
-  };
-
   overlays = [
     # Only necessary for Haskell kernel
     (import ./nix/overlays/python-overlay.nix)
@@ -31,6 +26,13 @@ let
     reshape2
   ];
 
+  mach-nix = (import (loadInput flakeLock.mach-nix)) {
+    pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
+    pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
+  };
+  python-custom = mach-nix.mkPython rec {
+    requirements = builtins.readFile ./nix/python-environment.txt;
+  };
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
     python3 = python-custom.python;

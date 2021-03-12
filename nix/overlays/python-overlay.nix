@@ -1,58 +1,6 @@
 _: pkgs:
 let
-  inputflake = import ../lib.nix { };
-  inherit (inputflake) loadInput flakeLock;
-  mach-nix = (import (loadInput flakeLock.mach-nix)) {
-    pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
-    pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
-  };
-  python-custom = mach-nix.mkPython rec {
-    requirements = builtins.readFile ../python-environment.txt;
-  };
-
   packageOverrides = selfPythonPackages: pythonPackages: {
-
-    dask = (if pkgs.python.passthru.pythonVersion > "3.8" then
-      pythonPackages.dask.overridePythonAttrs
-        (_: {
-          src = pythonPackages.fetchPypi {
-            pname = "dask";
-            version = "2.30.0";
-            sha256 = "sha256-oWaQIuJd6ZsifD2D2kgB8DJBWWLaxDEJm/BTRkjkGlQ=";
-          };
-        }) else pythonPackages.dask.overridePythonAttrs (_: { }));
-
-    pyzmq = (if pkgs.python.passthru.pythonVersion > "3.8" then
-      pythonPackages.pyzmq.overridePythonAttrs
-        (_: {
-          src = pythonPackages.fetchPypi {
-            pname = "pyzmq";
-            version = "20.0.0";
-            sha256 = "sha256-gkrViIMxqt6sdyvOJ+HC+8q4L63pLtvSNFQsThLw3Kk=";
-          };
-        }) else pythonPackages.pyzmq.overridePythonAttrs (_: { }));
-
-    ipykernel = (if pkgs.python.passthru.pythonVersion > "3.8" then
-      pythonPackages.ipykernel.overridePythonAttrs
-        (_: {
-          src = pythonPackages.fetchPypi {
-            pname = "ipykernel";
-            version = "5.3.4";
-            sha256 = "sha256-myZSrxYHmGobIxxiMC0HC8BTT1ZMOTpdnRMNuau76J0=";
-          };
-        }) else pythonPackages.ipykernel.overridePythonAttrs (_: { }));
-
-    fsspec = (if pkgs.python.pythonVersion > "3.8" then
-      pythonPackages.fsspec.overridePythonAttrs
-        (_: {
-          src = pkgs.fetchFromGitHub {
-            owner = "intake";
-            repo = "filesystem_spec";
-            rev = "0.8.4";
-            sha256 = "sha256-3Xk/vaQRy9iV52IFo26CmSuRo4uzm9cH7iOtaocr/Ks=";
-          };
-        }) else pythonPackages.fsspec.overridePythonAttrs (_: { }));
-
     jupyter_contrib_core = pythonPackages.buildPythonPackage rec {
       pname = "jupyter_contrib_core";
       version = "0.3.3";
