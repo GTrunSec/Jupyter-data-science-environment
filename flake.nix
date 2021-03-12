@@ -12,8 +12,7 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/master";
-    julia_15.url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a";
-    python37.url = "nixpkgs/4c67f879f0ee0f4eb610373e479a0a9c518c51c4"; #python3.7 tensorflow_2
+    stable.url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a";
     devshell.url = "github:numtide/devshell";
     mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux/master"; flake = false; };
@@ -23,7 +22,7 @@
     #jupyterWith = { url = "/home/gtrun/data/jupyterWith"; flake = false; };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, python37, julia_15, devshell, mach-nix }:
+  outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, stable, devshell, mach-nix }:
     (flake-utils.lib.eachDefaultSystem
       (system:
         let
@@ -50,7 +49,7 @@
         in
         rec {
           devShell = import ./shell.nix {
-            inherit pkgs nixpkgs-hardenedlinux jupyterWith; mach-nix = machlib;
+            inherit pkgs stable nixpkgs-hardenedlinux jupyterWith; mach-nix = machlib;
           };
         }
       )

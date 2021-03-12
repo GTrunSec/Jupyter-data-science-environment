@@ -78,21 +78,6 @@
         "type": "github"
       }
     },
-    "julia_15": {
-      "locked": {
-        "lastModified": 1610942247,
-        "narHash": "sha256-PKo1ATAlC6BmfYSRmX0TVmNoFbrec+A5OKcabGEu2yU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
-        "type": "indirect"
-      }
-    },
     "jupyterWith": {
       "flake": false,
       "locked": {
@@ -180,33 +165,32 @@
         "type": "github"
       }
     },
-    "python37": {
-      "locked": {
-        "lastModified": 1592174545,
-        "narHash": "sha256-j+udoeEnrsRN8kl9/d7iK1ZRDOGhFqj/HW8A5Br4IZA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "4c67f879f0ee0f4eb610373e479a0a9c518c51c4",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "4c67f879f0ee0f4eb610373e479a0a9c518c51c4",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "devshell": "devshell",
         "flake-utils": "flake-utils",
         "haskTorch": "haskTorch",
         "haskell-nix": "haskell-nix",
-        "julia_15": "julia_15",
         "jupyterWith": "jupyterWith",
         "mach-nix": "mach-nix",
         "nixpkgs": "nixpkgs",
         "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
-        "python37": "python37"
+        "stable": "stable"
+      }
+    },
+    "stable": {
+      "locked": {
+        "lastModified": 1610942247,
+        "narHash": "sha256-PKo1ATAlC6BmfYSRmX0TVmNoFbrec+A5OKcabGEu2yU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "7d71001b796340b219d1bfa8552c81995017544a",
+        "type": "indirect"
       }
     }
   },

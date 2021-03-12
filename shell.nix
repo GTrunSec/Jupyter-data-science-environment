@@ -2,6 +2,7 @@
 , nixpkgs-hardenedlinux
 , jupyterWith
 , mach-nix
+, stable
 }:
 let
   jupyter = import jupyterWith { inherit pkgs; };
