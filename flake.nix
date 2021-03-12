@@ -12,7 +12,7 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/master";
-    stable.url = "nixpkgs/7d71001b796340b219d1bfa8552c81995017544a";
+    stable.url = "nixpkgs/703f052de185c3dd1218165e62b105a68e05e15";
     devshell.url = "github:numtide/devshell";
     mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux/master"; flake = false; };
