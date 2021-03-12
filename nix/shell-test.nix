@@ -1,6 +1,7 @@
 { pkgs ? import <nixpkgs> { }
 , nixpkgs-hardenedlinux
 , jupyterWith
+, mach-nix
 }:
 let
   jupyter = import jupyterWith { inherit pkgs; };
