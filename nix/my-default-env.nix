@@ -51,7 +51,7 @@ let
       inherit pkgs;
       Diagrams = true;
       Hasktorch = true;
-      InlineC = false;
+      InlineR = false;
       Matrix = true;
     };
     r-libs-site = env.r-libs-site;
