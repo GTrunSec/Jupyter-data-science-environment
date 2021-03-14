@@ -57,8 +57,8 @@ let
     };
 in
 {
-  haskellPackages = pkgs.haskellPackages.override (old: {
-    #haskellPackages = pkgs.haskell.packages.ghc883.override (old: {
+  #haskellPackages = pkgs.haskellPackages.override (old: {
+  haskellPackages = pkgs.haskell.packages.ghc883.override (old: {
     overrides =
       pkgs.lib.composeExtensions
         (old.overrides or (_: _: { }))
