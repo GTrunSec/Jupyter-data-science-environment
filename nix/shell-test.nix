@@ -8,7 +8,7 @@ let
   jupyter = import jupyterWith { inherit pkgs; };
   env = (import (jupyterWith + "/lib/directory.nix")) { inherit pkgs Rpackages; };
 
-  Rpackages = p: with p; [ ];
+  Rpackages = p: with p; [ ggplot2 ];
 
 
   iPython = jupyter.kernels.iPythonWith {
