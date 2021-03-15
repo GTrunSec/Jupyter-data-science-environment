@@ -4,9 +4,7 @@ let
   pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
   #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; }; #tensorflow support
   jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
-  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) {
-    inherit pkgs Rpackages;
-  };
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs; };
 
   overlays = [
     # Only necessary for Haskell kernel
@@ -14,16 +12,6 @@ let
     (import ./nix/overlays/package-overlay.nix)
     (import ./nix/overlays/haskell-overlay.nix)
     (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
-  ];
-
-  Rpackages = p: with p; [
-    ggplot2
-    dplyr
-    xts
-    purrr
-    cmaes
-    cubature
-    reshape2
   ];
 
   mach-nix = (import (loadInput flakeLock.mach-nix)) {
@@ -49,8 +37,6 @@ let
       InlineR = false;
       Matrix = true;
     };
-    r-libs-site = env.r-libs-site;
-    r-bin-path = env.r-bin-path;
   };
 
   julia_wrapped = import ./nix/julia2nix-env { };

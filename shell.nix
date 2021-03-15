@@ -6,23 +6,12 @@
 }:
 let
   jupyter = import jupyterWith { inherit pkgs; };
-  env = (import (jupyterWith + "/lib/directory.nix")) { inherit pkgs Rpackages; };
+  env = (import (jupyterWith + "/lib/directory.nix")) { inherit pkgs; };
 
 
   python-custom = mach-nix.mkPython rec {
     requirements = builtins.readFile ./nix/python-environment.txt;
   };
-
-  Rpackages = p: with p; [
-    ggplot2
-    dplyr
-    xts
-    purrr
-    cmaes
-    cubature
-    reshape2
-  ];
-
 
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
@@ -42,10 +31,7 @@ let
       InlineR = false;
       Matrix = true;
     };
-    r-libs-site = env.r-libs-site;
-    r-bin-path = env.r-bin-path;
   };
-
 
   iRust = jupyter.kernels.rustWith {
     name = "data-rust-env";
