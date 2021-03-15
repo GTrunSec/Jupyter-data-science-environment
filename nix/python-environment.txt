@@ -7,7 +7,6 @@ jupytext
 jupyter-server-proxy
 jupyter_packaging
 jupyterlab-server
-jupyterlab
 nbclassic
 
 elasticsearch

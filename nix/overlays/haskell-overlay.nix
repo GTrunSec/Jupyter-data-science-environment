@@ -3,8 +3,8 @@ let
   ihaskellSrc = pkgs.fetchFromGitHub {
     owner = "gibiansky";
     repo = "IHaskell";
-    rev = "ef698157f44960566687a308e3455b5ba031eb43";
-    hash = "sha256-sY5fB6Gzx4zJH6UH7oa8ety7YL2xPqmvj1I360wlBfg=";
+    rev = "0f1262d3e710518fd734fbda6f2eba33e476836b";
+    hash = "sha256-9zgSg57O0TfbpSjY0A0DthJT8hwdfwWpQ3IUbj+uE/4=";
   };
   overrides = self: hspkgs:
     let
@@ -57,8 +57,8 @@ let
     };
 in
 {
-  #haskellPackages = pkgs.haskellPackages.override (old: {
-  haskellPackages = pkgs.haskell.packages.ghc884.override (old: {
+  haskellPackages = pkgs.haskellPackages.override (old: {
+    #haskellPackages = pkgs.haskell.packages.ghc884.override (old: {
     overrides =
       pkgs.lib.composeExtensions
         (old.overrides or (_: _: { }))

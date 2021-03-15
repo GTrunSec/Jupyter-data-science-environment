@@ -72,7 +72,6 @@ pkgs.mkShell rec {
     iPython.runtimePackages
   ];
 
-  R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
   JULIA_DEPOT_PATH = ".julia_depot";
 
   shellHook = ''

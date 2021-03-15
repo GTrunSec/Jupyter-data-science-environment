@@ -22,7 +22,7 @@
   lens
   #random-fu failure with 884
 ] ++ pkgs.lib.optionals Diagrams [
-  #diagrams
+  diagrams
   Chart
 ] ++ pkgs.lib.optionals InlineR [
   # ihaskell-diagrams
