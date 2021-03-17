@@ -23,7 +23,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, stable, devshell, mach-nix }:
-    (flake-utils.lib.eachDefaultSystem
+    (flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ]
       (system:
         let
           machlib = import mach-nix
@@ -33,7 +33,7 @@
               pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
             };
           pkgs = import nixpkgs {
-            system = "x86_64-linux";
+            inherit system;
             overlays = [
               (import ./nix/overlays/python-overlay.nix)
               (import ./nix/overlays/package-overlay.nix)

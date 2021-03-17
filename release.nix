@@ -5,7 +5,7 @@ let
   #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config={ allowUnfree=true; allowBroken=true; };};
   jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
   #jupyter = (import ../jupyterWith){ inherit pkgs;};
-  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs Rpackages; };
+  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs; };
 
   mach-nix = (import (loadInput flakeLock.mach-nix)) {
     pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
@@ -28,8 +28,6 @@ let
     packages = python-custom.python.pkgs.selectPkgs;
   };
 
-  Rpackages = p: with p; [ ggplot2 ];
-
   iHaskell = jupyter.kernels.iHaskellWith {
     name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
@@ -40,8 +38,6 @@ let
       InlineR = false;
       Matrix = true;
     };
-    r-libs-site = env.r-libs-site;
-    r-bin-path = env.r-bin-path;
   };
 
   iNix = jupyter.kernels.iNixKernel {

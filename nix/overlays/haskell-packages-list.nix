@@ -24,11 +24,11 @@
 ] ++ pkgs.lib.optionals Diagrams [
   diagrams
   Chart
-] ++ pkgs.lib.optionals InlineR [
   # ihaskell-diagrams
   # ihaskell-hvega
   # ihaskell-blaze
   # ihaskell-charts
+] ++ pkgs.lib.optionals InlineR [
   # inline-r
 ] ++ pkgs.lib.optionals Hasktorch [
   # libtorch-ffi_cpu
