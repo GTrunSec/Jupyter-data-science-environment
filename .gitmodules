@@ -1,0 +1,3 @@
+[submodule "notebook/nix-expressions-jupyter-repl-test"]
+	path = notebook/nix-expressions-jupyter-repl-test
+	url = https://github.com/GTrunSec/nix-expressions-jupyter-repl-test.git

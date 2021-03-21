@@ -1,13 +1,5 @@
 {
   description = "Data Science Environment";
-  # nixConfig = {
-  #   substituters = [
-  #     "http://221.4.35.244:8301/"
-  #   ];
-  #   trusted-public-keys = [
-  #     "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo="
-  #   ];
-  # };
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
@@ -17,21 +9,22 @@
     mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
     nixpkgs-hardenedlinux = { url = "github:hardenedlinux/nixpkgs-hardenedlinux/master"; flake = false; };
     haskTorch = { url = "github:hasktorch/hasktorch/5f905f7ac62913a09cbb214d17c94dbc64fc8c7b"; flake = false; };
-    jupyterWith = { url = "github:GTrunSec/jupyterWith/Nov"; flake = false; };
+    jupyterWith = { url = "github:GTrunSec/jupyterWith/Mar"; flake = false; };
     haskell-nix = { url = "github:input-output-hk/haskell.nix"; flake = false; };
     #jupyterWith = { url = "/home/gtrun/data/jupyterWith"; flake = false; };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, nixpkgs-hardenedlinux, jupyterWith, haskTorch, haskell-nix, stable, devshell, mach-nix }:
-    (flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ]
+    (flake-utils.lib.eachSystem [ "x86_64-linux" ]
       (system:
         let
           machlib = import mach-nix
             {
-              inherit system;
               pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
               pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
+              python = "python38";
             };
+
           pkgs = import nixpkgs {
             inherit system;
             overlays = [

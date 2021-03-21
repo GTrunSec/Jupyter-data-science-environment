@@ -52,6 +52,7 @@ let
 
   iNix = jupyter.kernels.iNixKernel {
     name = "nix-kernel";
+    nix = pkgs.nixFlakes;
   };
 
   jupyterEnvironment =

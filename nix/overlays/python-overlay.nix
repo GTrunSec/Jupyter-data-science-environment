@@ -2,6 +2,10 @@ _: pkgs:
 let
   packageOverrides = selfPythonPackages: pythonPackages: {
 
+    notebook = pythonPackages.notebook.overridePythonAttrs (_: {
+      doCheck = false;
+    });
+
     jupyterlab = pythonPackages.jupyterlab.overridePythonAttrs (_: {
       doCheck = false;
     });
