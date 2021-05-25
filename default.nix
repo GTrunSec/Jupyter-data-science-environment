@@ -78,8 +78,6 @@ pkgs.mkShell rec {
 
   shellHook = ''
     sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
-    # export PYTHON="${toString iPython.kernelEnv}/bin/python"
-    # export PYTHONPATH="${toString iPython.kernelEnv}/${pkgs.python3.sitePackages}/"
       #${jupyterEnvironment}/bin/jupyter-lab --ip
   '';
 }
