@@ -4,7 +4,6 @@ let
   pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
   #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; }; #tensorflow support
   jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
-  env = (import ((loadInput flakeLock.jupyterWith) + "/lib/directory.nix")) { inherit pkgs; };
 
   overlays = [
     # Only necessary for Haskell kernel
@@ -76,7 +75,6 @@ pkgs.mkShell rec {
   ];
 
   JULIA_DEPOT_PATH = ".julia_depot";
-  R_LIBS_SITE = "${builtins.readFile env.r-libs-site}";
 
   shellHook = ''
     sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py

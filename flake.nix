@@ -23,6 +23,7 @@
               pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
               pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
               python = "python38";
+              inherit pkgs;
             };
 
           pkgs = import nixpkgs {
