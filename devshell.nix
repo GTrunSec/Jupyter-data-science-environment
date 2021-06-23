@@ -2,7 +2,7 @@
 with pkgs;
 let
   python-custom = pkgs.machlib.mkPython rec {
-    requirements = builtins.readFile ./packages/python-environment.txt;
+    requirements = builtins.readFile ./packages/python-packages.txt;
   };
 
   iPython = jupyter.kernels.iPythonWith {
@@ -16,17 +16,13 @@ let
   iHaskell = jupyter.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
-    packages = import ./packages/haskell-packages-list.nix {
+    packages = import ./packages/haskell-packages.nix {
       inherit pkgs;
       Diagrams = true;
       Hasktorch = false;
       InlineR = false;
       Matrix = true;
     };
-  };
-
-  iRust = jupyter.kernels.rustWith {
-    name = "data-rust-env";
   };
 
   julia_wrapped = import ./nix/julia2nix-env { };
@@ -49,7 +45,7 @@ let
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell iJulia iNix iRust ];
+      kernels = [ iPython iHaskell iJulia iNix ];
       directory = "./.jupyterlab";
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
@@ -73,7 +69,6 @@ pkgs.mkShell rec {
        ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
        ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
        ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
-       ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/.local/share/jupyter/kernels/IRust-Symlink
      #${jupyterEnvironment}/bin/jupyter-lab
   '';
 }
