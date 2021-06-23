@@ -2,11 +2,11 @@
   "nodes": {
     "devshell": {
       "locked": {
-        "lastModified": 1616093728,
-        "narHash": "sha256-5A3CABXiKPIzU4uETKStQvBtAoZNL1H1B/LAOk4FguU=",
+        "lastModified": 1622711433,
+        "narHash": "sha256-rGjXz7FA7HImAT3TtoqwecByLO5yhVPSwPdaYPBFRQw=",
         "owner": "numtide",
         "repo": "devshell",
-        "rev": "3663a7dffb94b412cee4cc0c9644fe5f95911101",
+        "rev": "1f4fb67b662b65fa7cfe696fc003fcc1e8f7cc36",
         "type": "github"
       },
       "original": {
@@ -15,13 +15,29 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1606424373,
+        "narHash": "sha256-oq8d4//CJOrVj+EcOaSXvMebvuTkmBJuT5tzlfewUnQ=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "99f1c2157fba4bfe6211a321fd0ee43199025dbf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
-        "lastModified": 1614513358,
-        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
+        "lastModified": 1623875721,
+        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "5466c5bbece17adaab2d82fae80b46e807611bf3",
+        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
         "type": "github"
       },
       "original": {
@@ -65,11 +81,11 @@
     "haskell-nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1616316731,
-        "narHash": "sha256-GvyOpP3RHmUGmqq6jTnH1VFogAOOE4vF9SoOcrvWbzI=",
+        "lastModified": 1624411732,
+        "narHash": "sha256-ehNnscP2qqra8GxSr+9+7yBFl+DzHbXNYi5zheCVF8Q=",
         "owner": "input-output-hk",
         "repo": "haskell.nix",
-        "rev": "72beef11fc6ec32a98f1dd0d4dcd072c89595b43",
+        "rev": "2b842f282c9b9001beab232d513636ec96718c7b",
         "type": "github"
       },
       "original": {
@@ -101,14 +117,16 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "pypi-deps-db": "pypi-deps-db"
+        "pypi-deps-db": [
+          "pypi-deps-db"
+        ]
       },
       "locked": {
-        "lastModified": 1615528021,
-        "narHash": "sha256-FSzp2qrHMhyiVr7K2wGdBeqf5HWGDCouuCYGNqgZD2I=",
+        "lastModified": 1624409613,
+        "narHash": "sha256-XlNC1jIr5fyME6J04SORXLYZGfl/jtfheu1tTviVDa0=",
         "owner": "DavHau",
         "repo": "mach-nix",
-        "rev": "ac62255e8112e547432ca0f09bfe8f4d1920fbb8",
+        "rev": "0171afc4924f3f3fe354cb718a3442c177838f05",
         "type": "github"
       },
       "original": {
@@ -132,31 +150,14 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-hardenedlinux": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1616287981,
-        "narHash": "sha256-jo5iR0vfAkf3n4f7748pJEPc3Q5yF+1dlVhd27EH6rE=",
-        "owner": "hardenedlinux",
-        "repo": "nixpkgs-hardenedlinux",
-        "rev": "e9d8c8c25ca96db47ab525499a44709c5dc7e611",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hardenedlinux",
-        "ref": "master",
-        "repo": "nixpkgs-hardenedlinux",
-        "type": "github"
-      }
-    },
     "pypi-deps-db": {
       "flake": false,
       "locked": {
-        "lastModified": 1615363940,
-        "narHash": "sha256-GJ3ONLWAr5ejqR5bKVfKpI/n+ClaxjyYewMP+QJyq5M=",
+        "lastModified": 1624392597,
+        "narHash": "sha256-wx+D37yIbNM5Q7mAc1diXbTfAcnpXPcAKZzOgQTUUMI=",
         "owner": "DavHau",
         "repo": "pypi-deps-db",
-        "rev": "ab522f2d3255789f1ef97fa7c83d4342be156e67",
+        "rev": "4ab020b5dab8fd927f275b257581cd1248e137bc",
         "type": "github"
       },
       "original": {
@@ -168,13 +169,14 @@
     "root": {
       "inputs": {
         "devshell": "devshell",
+        "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "haskTorch": "haskTorch",
         "haskell-nix": "haskell-nix",
         "jupyterWith": "jupyterWith",
         "mach-nix": "mach-nix",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-hardenedlinux": "nixpkgs-hardenedlinux",
+        "pypi-deps-db": "pypi-deps-db",
         "stable": "stable"
       }
     },

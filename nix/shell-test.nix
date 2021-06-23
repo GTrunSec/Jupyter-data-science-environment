@@ -1,13 +1,6 @@
-{ pkgs ? import <nixpkgs> { }
-, nixpkgs-hardenedlinux
-, jupyterWith
-, mach-nix
-, stable
-}:
+{ pkgs }:
+with pkgs;
 let
-  jupyter = import jupyterWith { inherit pkgs; };
-  env = (import (jupyterWith + "/lib/directory.nix")) { inherit pkgs; };
-
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
     ignoreCollisions = true;

@@ -1,41 +1,32 @@
+{ pkgs }:
+with pkgs;
 let
-  inherit (inputflake) loadInput flakeLock;
-  inputflake = import ./nix/lib.nix { };
-  pkgs = (import (loadInput flakeLock.nixpkgs)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; };
-  #pkgs = (import (loadInput flakeLock.python37)) { inherit overlays; config = { allowUnfree = true; allowBroken = true; }; }; #tensorflow support
-  jupyter = (import (loadInput flakeLock.jupyterWith)) { inherit pkgs; };
-
-  overlays = [
-    # Only necessary for Haskell kernel
-    (import ./nix/overlays/python-overlay.nix)
-    (import ./nix/overlays/package-overlay.nix)
-    (import ./nix/overlays/haskell-overlay.nix)
-    (import ((loadInput flakeLock.nixpkgs-hardenedlinux) + "/nix/python-packages-overlay.nix"))
-  ];
-
-  mach-nix = (import (loadInput flakeLock.mach-nix)) {
-    pypiDataRev = "2205d5a0fc9b691e7190d18ba164a3c594570a4b";
-    pypiDataSha256 = "1aaylax7jlwsphyz3p73790qbrmva3mzm56yf5pbd8hbkaavcp9g";
+  python-custom = pkgs.machlib.mkPython rec {
+    requirements = builtins.readFile ./packages/python-environment.txt;
   };
-  python-custom = mach-nix.mkPython rec {
-    requirements = builtins.readFile ./nix/python-environment.txt;
-  };
+
   iPython = jupyter.kernels.iPythonWith {
     name = "Python-data-env";
     python3 = python-custom.python;
     packages = python-custom.python.pkgs.selectPkgs;
+    ignoreCollisions = true;
   };
 
+
   iHaskell = jupyter.kernels.iHaskellWith {
-    name = "ihaskell-data-env";
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
-    packages = import ./nix/overlays/haskell-packages-list.nix {
+    name = "ihaskell-flake";
+    packages = import ./packages/haskell-packages-list.nix {
       inherit pkgs;
-      Diagrams = false;
+      Diagrams = true;
       Hasktorch = false;
       InlineR = false;
       Matrix = true;
     };
+  };
+
+  iRust = jupyter.kernels.rustWith {
+    name = "data-rust-env";
   };
 
   julia_wrapped = import ./nix/julia2nix-env { };
@@ -45,22 +36,21 @@ let
     inherit julia_wrapped;
     directory = julia_wrapped.depot;
     activateDir = currentDir + "/nix/julia2nix-env";
+    extraEnv = {
+      JULIA_DEPOT_PATH = currentDir + "/.julia_depot";
+    };
   };
+
 
   iNix = jupyter.kernels.iNixKernel {
     name = "nix-kernel";
+    nix = pkgs.nixFlakes;
   };
 
   jupyterEnvironment =
     jupyter.jupyterlabWith {
-      kernels = [ iPython iHaskell iJulia iNix ];
-      directory = jupyter.mkDirectoryWith {
-        extensions = [
-          "jupyterlab-jupytext@1.2.2"
-          "@jupyterlab/server-proxy"
-          "@jupyter-widgets/jupyterlab-manager@2"
-        ];
-      };
+      kernels = [ iPython iHaskell iJulia iNix iRust ];
+      directory = "./.jupyterlab";
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
         python-custom.python.pkgs."jupyter-server-proxy"
@@ -69,15 +59,21 @@ let
     };
 in
 pkgs.mkShell rec {
-  name = "Jupyter-data-Env";
   buildInputs = [
     jupyterEnvironment
+    iJulia.runtimePackages
+    iPython.runtimePackages
   ];
 
-  JULIA_DEPOT_PATH = ".julia_depot";
+  JULIA_DEPOT_PATH = "${./.}/julia_depot";
 
   shellHook = ''
-    sed -i 's|/nix/store/.*./bin/julia|${julia_wrapped}/bin/julia|' ./jupyter_notebook_config.py
-      #${jupyterEnvironment}/bin/jupyter-lab --ip
+    # jupyter lab build
+       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
+       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
+       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
+       ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
+       ln -sfT ${iRust.spec}/kernels/rust_data-rust-env  ~/.local/share/jupyter/kernels/IRust-Symlink
+     #${jupyterEnvironment}/bin/jupyter-lab
   '';
 }
