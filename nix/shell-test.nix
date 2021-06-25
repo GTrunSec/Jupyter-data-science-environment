@@ -12,10 +12,6 @@ let
     name = "ihaskell-flake";
   };
 
-  iRust = jupyter.kernels.rustWith {
-    name = "data-rust-env";
-  };
-
   jupyterEnvironment =
     jupyter.jupyterlabWith {
       kernels = [ iPython iHaskell ];

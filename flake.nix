@@ -3,7 +3,7 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "nixpkgs/3a7674c896847d18e598fa5da23d7426cb9be3d2";
+    nixpkgs.url = "nixpkgs/release-21.05";
     stable.url = "nixpkgs/703f052de185c3dd1218165e62b105a68e05e15";
     flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
     devshell.url = "github:numtide/devshell";
@@ -56,6 +56,7 @@
     ) // {
       overlay = final: prev: {
         jupyter = import jupyterWith { pkgs = final; };
+        julia_wrapped = import ./nix/julia2nix-env { };
         machlib = import mach-nix
           {
             pypiDataRev = pypi-deps-db.rev;
