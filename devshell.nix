@@ -5,7 +5,7 @@ let
     requirements = builtins.readFile ./packages/python-packages.txt;
   };
 
-  iPython = jupyter.kernels.iPythonWith {
+  iPython = jupyterWith.kernels.iPythonWith {
     name = "Python-data-env";
     python3 = python-custom.python;
     packages = python-custom.python.pkgs.selectPkgs;
@@ -13,7 +13,7 @@ let
   };
 
 
-  iHaskell = jupyter.kernels.iHaskellWith {
+  iHaskell = jupyterWith.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
     packages = import ./packages/haskell-packages.nix {
@@ -25,25 +25,27 @@ let
     };
   };
 
-  currentDir = builtins.getEnv "PWD";
-  iJulia = jupyter.kernels.iJuliaWith {
-    name = "Julia-data-env";
-    julia_wrapped = pkgs.julia_wrapped;
-    directory = julia_wrapped.depot;
-    activateDir = currentDir + "/nix/julia2nix-env";
-    extraEnv = {
-      JULIA_DEPOT_PATH = currentDir + "/.julia_depot";
+  iJulia =
+    let
+      currentDir = builtins.getEnv "PWD";
+    in
+    jupyterWith.kernels.iJuliaWith rec {
+      name = "Julia-data-env";
+      #Project.toml directory
+      activateDir = currentDir + "/packages";
+      # JuliaPackages directory
+      JULIA_DEPOT_PATH = activateDir + "/.julia_depot";
+      extraEnv = { };
     };
-  };
 
 
-  iNix = jupyter.kernels.iNixKernel {
+  iNix = jupyterWith.kernels.iNixKernel {
     name = "nix-kernel";
     nix = pkgs.nixFlakes;
   };
 
   jupyterEnvironment =
-    jupyter.jupyterlabWith {
+    jupyterWith.jupyterlabWith {
       kernels = [ iPython iHaskell iJulia iNix ];
       directory = "./.jupyterlab";
       extraPackages = p: with p;[
@@ -60,7 +62,7 @@ pkgs.mkShell rec {
     iPython.runtimePackages
   ];
 
-  JULIA_DEPOT_PATH = "${./.}/julia_depot";
+  JULIA_DEPOT_PATH = builtins.getEnv "PWD" + "/packages/.julia_depot";
 
   shellHook = ''
     # jupyter lab build
