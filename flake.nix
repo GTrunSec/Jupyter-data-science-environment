@@ -2,62 +2,84 @@
   description = "Data Science Environment";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
     nixpkgs.url = "nixpkgs/release-21.05";
+    latest.url = "nixpkgs/nixos-unstable";
     flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-    devshell.url = "github:numtide/devshell";
+    devshell = { url = "github:numtide/devshell"; flake = false; };
     mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
     pypi-deps-db = {
       url = "github:DavHau/pypi-deps-db";
       flake = false;
     };
     jupyterWith = { url = "github:GTrunSec/jupyterWith/main"; };
-
     haskTorch = { url = "github:hasktorch/hasktorch/5f905f7ac62913a09cbb214d17c94dbc64fc8c7b"; flake = false; };
     haskell-nix = { url = "github:input-output-hk/haskell.nix"; flake = false; };
   };
 
-  outputs =
-    inputs@{ self
-    , nixpkgs
-    , flake-compat
-    , pypi-deps-db
-    , flake-utils
-    , jupyterWith
-    , haskTorch
-    , haskell-nix
-    , devshell
-    , mach-nix
-    }:
-    (flake-utils.lib.eachSystem [ "x86_64-linux" ]
-      (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            self.overlay
-            (final: prev: { jupyterWith = jupyterWith.defaultPackage."${final.system}"; })
-          ];
-          config = {
-            allowBroken = true;
-            allowUnfree = true;
-            allowUnsupportedSystem = true;
+  outputs = inputs: with builtins; with inputs;
+    let
+      inherit (utils.lib.exporters) internalOverlays fromOverlays modulesFromList;
+    in
+    utils.lib.systemFlake
+      {
+        inherit self inputs;
+
+        supportedSystems = [ "x86_64-linux" "x86_64-darwin" ];
+
+        channelsConfig = {
+          allowUnsupportedSystem = true;
+          allowBroken = true;
+          allowUnfree = true;
+        };
+        channels = {
+          nixpkgs = {
+            input = nixpkgs;
+            overlaysBuilder = channels:
+              [
+                (import "${devshell}/overlay.nix")
+              ];
+          };
+          latest = {
+            input = latest;
+            overlaysBuilder = channels: [ ];
           };
         };
-      in
-      rec {
-        devShell = import ./devshell.nix { inherit pkgs; };
-      }
-      )
-    ) // {
-      overlay = final: prev: {
-        machlib = import mach-nix
-          {
-            pypiDataRev = pypi-deps-db.rev;
-            pypiDataSha256 = pypi-deps-db.narHash;
-            python = "python38";
-            pkgs = prev;
+
+        sharedOverlays = [
+          self.overlay
+          (final: prev:
+            {
+              __dontExport = true;
+              jupyterWith = jupyterWith.defaultPackage."${final.system}";
+              #python
+              machlib = import mach-nix {
+                pkgs = prev;
+                python = "python38";
+                pypiDataRev = pypi-deps-db.rev;
+                pypiDataSha256 = pypi-deps-db.narHash;
+              };
+            })
+        ];
+
+        overlays = internalOverlays {
+          inherit (self) pkgs inputs;
+        };
+
+        outputsBuilder = channels: {
+          # construct packagesBuilder to export all packages defined in overlays
+          packages = fromOverlays self.overlays channels;
+          devShell = with channels.nixpkgs; devshell.mkShell {
+            name = "devShell";
+            imports = [ (devshell.importTOML ./devshell.toml) ];
+            commands = [ ];
           };
+        };
+
+      } // {
+      overlay = final: prev: {
+        jupyterWith-env = prev.callPackage ./nix/jupyterwith-env.nix { };
+        jupyterWith-ci = prev.callPackage ./nix/jupyterwith-ci.nix { };
       };
     };
 }

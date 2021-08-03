@@ -4,8 +4,9 @@ result
 .ein*
 *.log
 tmp/
-.julia_depot
+julia_depot
 .jupyterlab
+.jupyterlab-ci
 julia2nix
 3rdParty
 .virtual_documents

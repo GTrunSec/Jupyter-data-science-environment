@@ -2,19 +2,7 @@
 #+AUTHOR: GTrunSec
 #+EMAIL: gtrunsec@hardenedlinux.org
 #+DATE: 22 April 2020
-#+DESCRIPTION:
-#+KEYWORDS:
-#+LANGUAGE:  en cn
-#+SETUPFILE: ~/Documents/my-blog/public/theme/org-html-themes/setup/theme-readtheorg.setup
-#+hugo_publishdate: (0 5)
-#+hugo_auto_set_lastmod: t
-#+HUGO_categories:
-#+HUGO_tags:
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
-#+SELECT_TAGS: export
-#+EXCLUDE_TAGS: noexport
-- last [[http://221.4.35.244:8300/jobset/Jupyter-data-science-environment/release#tabs-evaluations][hydra CI]]  packages passing 
-
 
 - Python
 
@@ -41,37 +29,28 @@
 
   - R-packages-list.nix
 
-- voila
-  #+begin_src sh :async t :exports both :results output
-  nix develop -c voila
-  #+end_src
-
-
 * Quickly run
 - Linux
 
 
 #+begin_src sh :async t :exports both :results output
-nix-shell default.nix --option sandbox false --command "jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py"
+nix develop --impure --command -- jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py
 #+end_src
 
+- Or With ~nix-shell~
+
 #+begin_src sh :async t :exports both :results output
-jupyter-lab --ip <IPadress or localhost> 
+nix-shell --option sandbox false --command "jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py"
 #+end_src
 
-- Macos ~Crashed~
+
 #+begin_src sh :async t :exports both :results output
-nix-shell ./nix/osx-env.nix --option sandbox false
+jupyter-lab --ip <IPadress or localhost>
 #+end_src
 
 ** Use Cachix
 #+begin_src sh :async t :exports both :results output
-cachix use nsm-data-analysis
-#+end_src
-
-** Or Using my hydra binary cache
-#+begin_src sh :async t :exports both :results output
-nix-shell default.nix  --option sandbox false --option substituters "https://cache.nixos.org http://221.4.35.244:8301" --option trusted-public-keys "221.4.35.244:3ehdeUIC5gWzY+I7iF3lrpmxOMyEZQbZlcjOmlOVpeo= cache.nixos.org-1:${yourtrustkey check nix.conf }"
+cachix use gtrunsec
 #+end_src
 
 * Flake -> stack overflow issue

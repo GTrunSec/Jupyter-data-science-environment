@@ -2,7 +2,7 @@
 with pkgs;
 let
   python-custom = pkgs.machlib.mkPython rec {
-    requirements = builtins.readFile ./packages/python-packages.txt;
+    requirements = builtins.readFile ../packages/python-packages.txt;
   };
 
   iPython = jupyterWith.kernels.iPythonWith {
@@ -16,7 +16,7 @@ let
   iHaskell = jupyterWith.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
-    packages = import ./packages/haskell-packages.nix {
+    packages = import ../packages/haskell-packages.nix {
       inherit pkgs;
       Diagrams = true;
       Hasktorch = false;
@@ -27,14 +27,14 @@ let
 
   iJulia =
     let
-      currentDir = builtins.getEnv "PWD";
+      currentDir = builtins.getEnv "DEVSHELL_ROOT";
     in
     jupyterWith.kernels.iJuliaWith rec {
       name = "Julia-data-env";
       #Project.toml directory
-      activateDir = currentDir + "/packages";
+      activateDir = currentDir + "/packages/julia";
       # JuliaPackages directory
-      JULIA_DEPOT_PATH = activateDir + "/.julia_depot";
+      JULIA_DEPOT_PATH = activateDir + "/julia_depot";
       extraEnv = { };
     };
 
@@ -62,14 +62,12 @@ pkgs.mkShell rec {
     iPython.runtimePackages
   ];
 
-  JULIA_DEPOT_PATH = builtins.getEnv "PWD" + "/packages/.julia_depot";
+  JULIA_DEPOT_PATH = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/julia_depot";
 
   shellHook = ''
-    # jupyter lab build
-       ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
-       ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
-       ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
-       ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
-     #${jupyterEnvironment}/bin/jupyter-lab
+    ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
+    ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
+    ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
+    ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
   '';
 }

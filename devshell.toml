@@ -1,0 +1,16 @@
+[devshell]
+packages = ["nixpkgs-fmt", "julia_16-bin"]
+
+[[commands]]
+name = "jupyterWith-Env"
+category = "jupyter"
+command = "nix develop .#jupyterWith-env --impure -c -- jupyter-lab --ip $1 --port $2 --config $DEVSHELL_ROOT/jupyter_notebook_config.py"
+help = "jupyterWith-Env <IP> <PORT>"
+
+[[commands]]
+name = "julia-instantiate"
+category = "Julia Package"
+command = '''
+        eval $(echo "julia -e 'import Pkg; Pkg.activate(\"$DEVSHELL_ROOT/packages/julia\"); Pkg.instantiate()'")
+        '''
+help = "Instantiating Julia Packages"
