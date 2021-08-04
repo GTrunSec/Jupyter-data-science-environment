@@ -1,5 +1,15 @@
 [devshell]
 packages = ["nixpkgs-fmt", "julia_16-bin"]
+startup.julia.text = "export JULIA_DEPOT_PATH=$DEVSHELL_ROOT/packages/julia/julia_depot"
+
+[[commands]]
+name = "pluto"
+category = "Julia Package"
+command = '''
+        eval $(echo "julia -e 'import Pkg; Pkg.activate(\"$DEVSHELL_ROOT/packages/julia\"); using Pluto; Pluto.run(host=\"$1\", port=$2)'")
+        '''
+help = "launch pluto server: pluto <ip> <port>"
+
 
 [[commands]]
 name = "jupyterWith-Env"
@@ -9,9 +19,18 @@ help = "jupyterWith-Env <IP> <PORT>"
 
 [[commands]]
 name = "julia-instantiate"
-category = "Julia Package"
+category = "julia"
 command = '''
         eval $(echo "julia -e 'import Pkg; Pkg.activate(\"$DEVSHELL_ROOT/packages/julia\"); Pkg.instantiate()'")
+        '''
+help = "Instantiating Julia Packages"
+
+[[commands]]
+name = "julia-wrapped"
+category = "julia"
+command = '''
+        cd $DEVSHELL_ROOT/packages/julia
+        julia -L startup.jl
         '''
 help = "Instantiating Julia Packages"
 
