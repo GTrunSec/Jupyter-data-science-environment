@@ -4,48 +4,18 @@
 #+DATE: 22 April 2020
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 
-- Python
-
-  - python-packages-list.nix
-
-
-
-  - python-overlay.nix
-
-
-  - python-self-packages.nix
-
-
-- Haskell
-
-  - haskell-packages-list.nix
-
-
-
-  - haskell-overlay.nix
-
-
-- R
-
-  - R-packages-list.nix
 
 * Quickly run
-- Linux
-
 
 #+begin_src sh :async t :exports both :results output
-nix develop --impure --command -- jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py
+nix develop .#jupyterWith-env --impure --command -- jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py
 #+end_src
 
-- Or With ~nix-shell~
+- direnv allow
 
 #+begin_src sh :async t :exports both :results output
-nix-shell --option sandbox false --command "jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py"
-#+end_src
-
-
-#+begin_src sh :async t :exports both :results output
-jupyter-lab --ip <IPadress or localhost>
+direnv allow
+jupyterWith-Env <ip> <port>
 #+end_src
 
 ** Use Cachix
