@@ -13,6 +13,7 @@
       flake = false;
     };
     jupyterWith = { url = "github:GTrunSec/jupyterWith/main"; };
+    #jupyterWith = { url = "/home/gtrun/data/jupyterWith"; };
     haskTorch = { url = "github:hasktorch/hasktorch/5f905f7ac62913a09cbb214d17c94dbc64fc8c7b"; flake = false; };
     haskell-nix = { url = "github:input-output-hk/haskell.nix"; flake = false; };
   };

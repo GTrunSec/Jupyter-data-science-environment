@@ -14,3 +14,12 @@ command = '''
         eval $(echo "julia -e 'import Pkg; Pkg.activate(\"$DEVSHELL_ROOT/packages/julia\"); Pkg.instantiate()'")
         '''
 help = "Instantiating Julia Packages"
+
+
+[[commands]]
+name = "jupyterlab-jupytext"
+category = "extensions"
+command = '''
+        nix develop .#jupyterWith-env --impure -c -- sudo -E jupyter labextension install "jupyterlab-jupytext"
+        '''
+help = "Install jupytext"

@@ -3,16 +3,11 @@ seaborn
 geopandas
 Shapely
 scikit-learn
-jupytext
-jupyter-server-proxy
-jupyter_packaging
-jupyterlab-server
-nbclassic
-
 elasticsearch
-requests
 sqlalchemy
 qtconsole
 sympy
-
 mlfinlab
+
+# Jupyter Extensions
+jupytext

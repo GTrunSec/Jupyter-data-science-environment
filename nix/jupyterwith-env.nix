@@ -45,14 +45,21 @@ let
   };
 
   jupyterEnvironment =
-    jupyterWith.jupyterlabWith {
+    let
+      mapPkgs = v: "${lib.concatImapStringsSep ":" (pos: x: x + "/${pkgs.python3.sitePackages}") v}";
+    in
+    jupyterWith.jupyterlabWith rec {
       kernels = [ iPython iHaskell iJulia iNix ];
       directory = "./.jupyterlab";
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
         python-custom.python.pkgs."jupyter-server-proxy"
       ];
-      extraJupyterPath = p: "${python-custom.python.pkgs."jupytext"}/${p.python3.sitePackages}:${python-custom.python.pkgs."jupyter-server-proxy"}/${p.python3.sitePackages}:${p.python3Packages.aiohttp}/${p.python3.sitePackages}:${p.python3Packages.typing-extensions}/${p.python3.sitePackages}:${p.python3Packages.typing-extensions}/${p.python3.sitePackages}:${python-custom.python.pkgs.simpervisor}/${p.python3.sitePackages}:${python-custom.python.pkgs."multidict"}/${p.python3.sitePackages}:${python-custom.python.pkgs."yarl"}/${p.python3.sitePackages}:${python-custom.python.pkgs."async-timeout"}/${p.python3.sitePackages}";
+      extraJupyterPath = p: mapPkgs (lib.attrVals [
+        "jupytext"
+        #"jupyter-server-proxy"
+      ]
+        python-custom.python.pkgs);
     };
 in
 pkgs.mkShell rec {
@@ -65,9 +72,12 @@ pkgs.mkShell rec {
   JULIA_DEPOT_PATH = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/julia_depot";
 
   shellHook = ''
-    ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
-    ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
-    ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
-    ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
+    if [ ! -d "$DEVSHELL_ROOT/.jupyterlab" ]; then
+       jupyter lab build
+    fi
+    # ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
+    # ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
+    # ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
+    # ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
   '';
 }
