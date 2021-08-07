@@ -6,9 +6,9 @@ packages = ["nixpkgs-fmt", "julia_16-bin"]
 name = "pluto"
 category = "Julia Package"
 command = '''
-        eval $(echo "nix develop --impure -c -- julia -e 'import Pkg; Pkg.activate(\"$DEVSHELL_ROOT/packages/julia\"); using Pluto; Pluto.run(host=\"$1\", port=$2)'")
+        eval $(echo "nix develop --impure -c -- julia -L $DEVSHELL_ROOT/packages/julia/$1/startup.jl -e 'using Pluto; Pluto.run(host=\"$2\", port=$3)'")
         '''
-help = "launch pluto server: pluto <ip> <port>"
+help = "launch pluto server: pluto <juliaPackageDir> <ip> <port> | Example: pluto default 10.220.170.112 8889"
 
 
 [[commands]]
