@@ -8,6 +8,13 @@ sqlalchemy
 qtconsole
 sympy
 mlfinlab
+matplotlib
 
 # Jupyter Extensions
 jupytext
+
+
+#################
+# Julia Pycall  #
+#################
+statsmodels

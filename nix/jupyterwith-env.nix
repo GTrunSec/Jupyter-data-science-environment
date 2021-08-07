@@ -25,19 +25,19 @@ let
     };
   };
 
-  iJulia =
-    let
-      currentDir = builtins.getEnv "DEVSHELL_ROOT";
-    in
-    jupyterWith.kernels.iJuliaWith rec {
-      name = "Julia-data-env";
-      #Project.toml directory
-      activateDir = currentDir + "/packages/julia";
-      # JuliaPackages directory
-      JULIA_DEPOT_PATH = activateDir + "/julia_depot";
-      extraEnv = { };
+  juliaPackages = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/default";
+  iJulia = jupyterWith.kernels.iJuliaWith rec {
+    name = "Julia-data-env";
+    #Project.toml directory
+    activateDir = juliaPackages;
+    # JuliaPackages directory
+    JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
+    extraEnv = {
+      #TODO NEXT VERSION or PATCH
+      #https://github.com/JuliaLang/julia/issues/40585#issuecomment-834096490
+      PYTHON = "${python-custom}/bin/python";
     };
-
+  };
 
   iNix = jupyterWith.kernels.iNixKernel {
     name = "nix-kernel";
@@ -69,7 +69,9 @@ pkgs.mkShell rec {
     iPython.runtimePackages
   ];
 
-  JULIA_DEPOT_PATH = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/julia_depot";
+  JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
+
+  PYTHON = "${python-custom}/bin/python";
 
   shellHook = ''
     if [ ! -d "$DEVSHELL_ROOT/.jupyterlab" ]; then
