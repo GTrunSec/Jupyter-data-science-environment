@@ -39,6 +39,7 @@
             overlaysBuilder = channels:
               [
                 (import "${devshell}/overlay.nix")
+                (import ./nix/overlays/override.nix channels)
               ];
           };
           latest = {
