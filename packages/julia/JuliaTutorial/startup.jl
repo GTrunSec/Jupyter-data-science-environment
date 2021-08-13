@@ -1,3 +1,3 @@
 import Pkg
-Pkg.activate("./packages/julia/JuliaTutorial")
+Pkg.activate("./packages/julia/default")
 Pkg.instantiate()

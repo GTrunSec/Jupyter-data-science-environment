@@ -2,6 +2,7 @@
 with pkgs;
 let
   python-custom = pkgs.machlib.mkPython rec {
+    python = "python38";
     requirements = builtins.readFile ../packages/python-packages.txt;
   };
 

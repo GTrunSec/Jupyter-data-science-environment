@@ -57,9 +57,7 @@
               #python
               machlib = import mach-nix {
                 pkgs = prev;
-                python = "python38";
-                pypiDataRev = pypi-deps-db.rev;
-                pypiDataSha256 = pypi-deps-db.narHash;
+                pypiData = pypi-deps-db;
               };
             })
         ];
