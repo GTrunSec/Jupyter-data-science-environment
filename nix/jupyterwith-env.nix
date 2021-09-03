@@ -26,7 +26,7 @@ let
     };
   };
 
-  juliaPackages = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/default";
+  juliaPackages = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/";
   iJulia = jupyterWith.kernels.iJuliaWith rec {
     name = "Julia-data-env";
     inherit pkgs;

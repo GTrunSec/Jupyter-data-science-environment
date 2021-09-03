@@ -7,7 +7,7 @@ elasticsearch
 sqlalchemy
 qtconsole
 sympy
-mlfinlab
+#mlfinlab
 matplotlib
 
 # Jupyter Extensions

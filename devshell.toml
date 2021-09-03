@@ -12,13 +12,18 @@ help = "launch pluto server: pluto <juliaPackageDir> <ip> <port> | Example: plut
 
 
 [[commands]]
-name = "jupyterWith-Env"
+name = "jupyterEnv"
 category = "jupyter"
 command = '''
-        sed -i "s|/packages/julia/.*.|/packages/julia/$1\"\;|" nix/jupyterwith-env.nix
-        nix develop .#jupyterWith-env --impure -c -- jupyter-lab --ip $2 --port $3 --config $DEVSHELL_ROOT/jupyter_notebook_config.py
+        set +u
+        if [[ -z "$3" ]]; then
+        sed -i "s|/packages/julia/.*.|/packages/julia/$3\"\;|" nix/jupyterwith-env.nix
+        else
+        sed -i "s|/packages/julia/.*.|/packages/julia/default\"\;|" nix/jupyterwith-env.nix
+        fi
+        nix develop .#jupyterWith-env --impure -c -- jupyter-lab --ip $1 --port $2 --config $DEVSHELL_ROOT/jupyter_notebook_config.py
 '''
-help = "jupyterWith-Env <juliaPackageDir> <IP> <PORT> | Example: jupyterWith-Env default 10.220.170.112 8888 "
+help = "jupyterEnv <juliaPackageDir> <IP> <PORT> | Example: jupyterWith-Env 10.220.170.112 8888 <Julia Package DirName>"
 
 [[commands]]
 name = "julia-wrapped"
