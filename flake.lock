@@ -116,11 +116,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1630707464,
-        "narHash": "sha256-tfxaO8xBudVQCKloJ4v0qMKL2+DhlubP3eJGzcF1GL4=",
+        "lastModified": 1631568933,
+        "narHash": "sha256-Gkv97aHOftmhWYXTRcb/yTYzmjGHF5qngLFi2AZSVM4=",
         "owner": "GTrunSec",
         "repo": "jupyterWith",
-        "rev": "ff41ffffb0c034db8fb9ff06ebea2cb5d4e8f999",
+        "rev": "bd808a034b4a64dbf34e7dea103c174826192638",
         "type": "github"
       },
       "original": {
