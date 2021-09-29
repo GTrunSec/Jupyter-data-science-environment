@@ -2,9 +2,9 @@
   description = "Data Science Environment";
 
   inputs = {
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/staging";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     nixpkgs.url = "nixpkgs/release-21.05";
-    latest.url = "nixpkgs/nixos-unstable";
+    latest.url = "github:NixOS/nixpkgs/master";
     flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
     devshell = { url = "github:numtide/devshell"; flake = false; };
     mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
@@ -20,9 +20,9 @@
 
   outputs = inputs: with builtins; with inputs;
     let
-      inherit (utils.lib.exporters) internalOverlays fromOverlays modulesFromList;
+      inherit (utils.lib) exportOverlays exportPackages exportModules;
     in
-    utils.lib.systemFlake
+    utils.lib.mkFlake
       {
         inherit self inputs;
 
@@ -61,13 +61,13 @@
             })
         ] ++ (nixpkgs.lib.attrValues jupyterWith.overlays);
 
-        overlays = internalOverlays {
+        overlays = exportOverlays {
           inherit (self) pkgs inputs;
         };
 
         outputsBuilder = channels: {
           # construct packagesBuilder to export all packages defined in overlays
-          packages = fromOverlays self.overlays channels;
+          packages = exportPackages self.overlays channels;
           devShell = with channels.nixpkgs; devshell.mkShell {
             name = "devShell";
             imports = [ (devshell.importTOML ./devshell.toml) ];

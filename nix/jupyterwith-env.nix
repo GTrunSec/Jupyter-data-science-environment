@@ -26,7 +26,7 @@ let
     };
   };
 
-  juliaPackages = builtins.getEnv "DEVSHELL_ROOT" + "/packages/julia/default";
+  juliaPackages = builtins.getEnv "$PRJ_ROOT" + "/packages/julia/";
   iJulia = jupyterWith.kernels.iJuliaWith rec {
     name = "Julia-data-env";
     inherit pkgs;
@@ -76,7 +76,7 @@ pkgs.mkShell rec {
   PYTHON = "${python-custom}/bin/python";
 
   shellHook = ''
-    if [ ! -d "$DEVSHELL_ROOT/.jupyterlab" ]; then
+    if [ ! -d "$PRJ_ROOT/.jupyterlab" ]; then
        jupyter lab build
     fi
     # ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
