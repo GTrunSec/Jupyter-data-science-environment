@@ -6,24 +6,24 @@
 }:
 (with pkgs.haskellPackages.ghcWithPackages; (p: with p;  [
   #monad-bayes
-  hvega
-  formatting
-  hvega
+  # hvega
+  # formatting
+  # hvega
   statistics
   vector
   aeson
   aeson-pretty
-  formatting
-  foldl
-  hlint
-  histogram-fill
-  # #funflow
-  JuicyPixels
-  lens
+  # formatting
+  # foldl
+  # hlint
+  # histogram-fill
+  # # #funflow
+  # JuicyPixels
+  # lens
   #random-fu failure with 884
 ] ++ pkgs.lib.optionals Diagrams [
-  diagrams
-  Chart
+  # diagrams
+  # Chart
   # ihaskell-diagrams
   # ihaskell-hvega
   # ihaskell-blaze
@@ -35,7 +35,7 @@
   # hasktorch-examples_cpu
   #hasktorch_cpu
 ] ++ pkgs.lib.optionals Matrix [
-  matrix
-  hmatrix
+  # matrix
+  # hmatrix
 ]
 ))
