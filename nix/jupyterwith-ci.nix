@@ -22,7 +22,7 @@ let
     name = "ihaskell-flake";
   };
 
-  juliaPackages = builtins.getEnv "$PRJ_ROOT" + "/packages/julia/default";
+  juliaPackages = builtins.getEnv "PRJ_ROOT" + "/packages/julia/default";
   iJulia = jupyterWith.kernels.iJuliaWith rec {
     name = "Julia-data-env";
     #Project.toml directory
@@ -49,15 +49,16 @@ pkgs.mkShell rec {
     jupyterEnvironment
     iJulia.runtimePackages
     iPython.runtimePackages
+    nodejs
   ];
 
   JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
 
   shellHook = ''
-    if [ ! -d "$$PRJ_ROOT/.jupyterlab-ci" ]; then
+    if [ ! -d "$PRJ_ROOT/.jupyterlab-ci" ]; then
        jupyter lab build
     else
-      rm -rf  $$PRJ_ROOT/.jupyterlab-ci
+      rm -rf  $PRJ_ROOT/.jupyterlab-ci
       jupyter lab build
     fi
   '';

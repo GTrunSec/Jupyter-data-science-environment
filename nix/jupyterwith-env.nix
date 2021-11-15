@@ -26,7 +26,7 @@ let
     };
   };
 
-  juliaPackages = builtins.getEnv "$PRJ_ROOT" + "/packages/julia/";
+  juliaPackages = builtins.getEnv "PRJ_ROOT" + "/packages/julia/";
   iJulia = jupyterWith.kernels.iJuliaWith rec {
     name = "Julia-data-env";
     inherit pkgs;
@@ -69,6 +69,7 @@ pkgs.mkShell rec {
     jupyterEnvironment
     iJulia.runtimePackages
     iPython.runtimePackages
+    nodejs
   ];
 
   JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
