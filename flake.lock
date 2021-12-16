@@ -240,15 +240,16 @@
       "locked": {
         "lastModified": 1639629015,
         "narHash": "sha256-GDYRytP+5nKtlwO1JpyC0t8EUXfpiYv9q9j8NVM2K+A=",
-        "ref": "main",
+        "owner": "GTrunSec",
+        "repo": "jupyterWith",
         "rev": "520446bc12a94b3da087051c202b1a5bfb6bbb68",
-        "revCount": 341,
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/GTrunSec/jupyterWith"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/GTrunSec/jupyterWith"
+        "owner": "GTrunSec",
+        "ref": "main",
+        "repo": "jupyterWith",
+        "type": "github"
       }
     },
     "latest": {
