@@ -1,4 +1,5 @@
 pandas
+polars
 scikit-learn
 #################
 # Julia Pycall  #

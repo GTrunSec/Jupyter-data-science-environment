@@ -3,7 +3,7 @@
 
   inputs = {
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    nixpkgs.url = "nixpkgs/release-21.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
     latest.url = "github:NixOS/nixpkgs/master";
     flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
     devshell = { url = "github:numtide/devshell"; flake = false; };

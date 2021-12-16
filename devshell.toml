@@ -16,12 +16,12 @@ name = "jupyterEnv"
 category = "jupyter"
 command = '''
         set +u
-        if [[ -z "$3" ]]; then
-        sed -i "s|/packages/julia/.*.|/packages/julia/$3\"\;|" nix/jupyterwith-env.nix
+        if [[ ! -z "$3" ]]; then
+        sed -i "s|/packages/julia/.*.|/packages/julia/$3\"\)|" nix/jupyterwith-env.nix
         else
-        sed -i "s|/packages/julia/.*.|/packages/julia/default\"\;|" nix/jupyterwith-env.nix
+        sed -i "s|/packages/julia/.*.|/packages/julia/default\"\)|" nix/jupyterwith-env.nix
         fi
-        nix develop .#jupyterWith-env --impure -c -- jupyter-lab --ip $1 --port $2 --config $$PRJ_ROOT/jupyter_notebook_config.py
+        nix develop .#jupyterWith-env --impure -c -- jupyter-lab --ip $1 --port $2 --config $PRJ_ROOT/jupyter_notebook_config.py
 '''
 help = "jupyterEnv <juliaPackageDir> <IP> <PORT> | Example: jupyterWith-Env 10.220.170.112 8888 <Julia Package DirName>"
 
@@ -29,7 +29,7 @@ help = "jupyterEnv <juliaPackageDir> <IP> <PORT> | Example: jupyterWith-Env 10.2
 name = "julia-wrapped"
 category = "julia"
 command = '''
-        sed -i "s|/packages/julia/.*.|/packages/julia/$@\"\;|" nix/jupyterwith-env.nix
+        sed -i "s|/packages/julia/.*.|/packages/julia/$@\"\)|" nix/jupyterwith-env.nix
         nix develop .#jupyterWith-env --impure --command -- julia -L $$PRJ_ROOT/packages/julia/$@/startup.jl
         '''
 help = "julia-wrapped <JuliaTutorial/default> | Initializing Julia Packages"

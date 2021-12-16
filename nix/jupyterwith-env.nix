@@ -1,4 +1,6 @@
-{ pkgs }:
+{ pkgs
+, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/default")
+}:
 with pkgs;
 let
   python-custom = pkgs.machlib.mkPython rec {
@@ -26,14 +28,13 @@ let
     };
   };
 
-  juliaPackages = builtins.getEnv "PRJ_ROOT" + "/packages/julia/";
-  iJulia = jupyterWith.kernels.iJuliaWith rec {
+
+  iJulia = jupyterWith.kernels.iJuliaWith {
     name = "Julia-data-env";
-    inherit pkgs;
     #Project.toml directory
-    activateDir = juliaPackages;
+    activateDir = julia_depot_path;
     # JuliaPackages directory
-    JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
+    JULIA_DEPOT_PATH = julia_depot_path + "/julia_depot";
     extraEnv = {
       #TODO NEXT VERSION or PATCH
       #https://github.com/JuliaLang/julia/issues/40585#issuecomment-834096490
@@ -52,7 +53,7 @@ let
     in
     jupyterWith.jupyterlabWith rec {
       kernels = [ iPython iHaskell iJulia iNix ];
-      directory = "./.jupyterlab";
+      #directory = "./.jupyterlab";
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
         python-custom.python.pkgs."jupyter-server-proxy"
@@ -72,12 +73,12 @@ pkgs.mkShell rec {
     nodejs
   ];
 
-  JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
+  JULIA_DEPOT_PATH = julia_depot_path + "/julia_depot";
 
   PYTHON = "${python-custom}/bin/python";
 
   shellHook = ''
-    if [ ! -d "$PRJ_ROOT/.jupyterlab" ]; then
+    if [ -d "$PRJ_ROOT/.jupyterlab" ]; then
        jupyter lab build
     fi
     # ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
