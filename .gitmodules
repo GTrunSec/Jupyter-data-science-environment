@@ -1,3 +1,6 @@
 [submodule "notebook/nix-expressions-jupyter-repl-test"]
 	path = notebook/nix-expressions-jupyter-repl-test
 	url = https://github.com/GTrunSec/nix-expressions-jupyter-repl-test.git
+[submodule "packages/julia/Julia-DataFrames-Tutorial"]
+	path = packages/julia/Julia-DataFrames-Tutorial
+	url = https://github.com/bkamins/Julia-DataFrames-Tutorial.git
