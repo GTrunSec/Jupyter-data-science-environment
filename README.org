@@ -7,7 +7,7 @@
 
 * Quickly run
 
-- get devshell env
+- getting devshell env
 
 #+begin_src sh :async t :exports both :results output
 nix develop or nix-shell
@@ -22,8 +22,20 @@ nix develop .#jupyterEnv --impure --command -- jupyter-lab --ip <Ip> --port <por
 
 #+begin_src sh :async t :exports both :results output
 direnv allow
-jupyterEnv <ip> <port> <Julia Package DirName>
+jupyterlab <ip> <port>
 #+end_src
+
+
+* Julia Support
+
+juliaPackageDirName: you can find the example dir in ~./packages/julia/default~
+
+default: the name of ~default~ will be an argument for command as following:
+
+#+begin_src sh :async :exports both :results output
+jupyterlab <ip> <port> <juliaPackageDirName>
+#+end_src
+
 
 ** Use Cachix
 #+begin_src sh :async t :exports both :results output

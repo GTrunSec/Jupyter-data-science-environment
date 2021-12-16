@@ -67,17 +67,13 @@
         outputsBuilder = channels: {
           # construct packagesBuilder to export all packages defined in overlays
           packages = exportPackages self.overlays channels;
-          devShell = with channels.nixpkgs; devshell.mkShell {
-            name = "devShell";
-            imports = [ (devshell.importTOML ./devshell.toml) ];
-            commands = [ ];
-          };
+          devShell = import ./shell { inherit self inputs channels; };
         };
 
       } // {
       overlay = final: prev: {
-        jupyterWith-env = prev.callPackage ./nix/jupyterwith-env.nix { };
-        jupyterWith-ci = prev.callPackage ./nix/jupyterwith-ci.nix { };
+        jupyterlab-env = prev.callPackage ./nix/jupyterlab-env.nix { };
+        jupyterlab-ci = prev.callPackage ./nix/jupyterlab-ci.nix { };
       };
     };
 }
