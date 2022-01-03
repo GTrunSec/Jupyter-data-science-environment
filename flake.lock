@@ -171,6 +171,22 @@
         "type": "github"
       }
     },
+    "funflowSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635847843,
+        "narHash": "sha256-jqgQGIbTKISs2H6wn1+RLsG/+k6Ajs1DRI1ONP0+Q+0=",
+        "owner": "tweag",
+        "repo": "funflow",
+        "rev": "e273cfa83a45eaa640305e1cfb51fc707ab4b8bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tweag",
+        "repo": "funflow",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "flake": false,
       "locked": {
@@ -238,16 +254,15 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1639629015,
-        "narHash": "sha256-GDYRytP+5nKtlwO1JpyC0t8EUXfpiYv9q9j8NVM2K+A=",
-        "owner": "GTrunSec",
+        "lastModified": 1639992194,
+        "narHash": "sha256-ZXC/40+szA4vxa4y4uJBQptt+EZTi6gRAw9vJa8dzPA=",
+        "owner": "tweag",
         "repo": "jupyterWith",
-        "rev": "520446bc12a94b3da087051c202b1a5bfb6bbb68",
+        "rev": "5f68e85ec95f3169a9613c0e8d4d4d7edf2bb27a",
         "type": "github"
       },
       "original": {
-        "owner": "GTrunSec",
-        "ref": "main",
+        "owner": "tweag",
         "repo": "jupyterWith",
         "type": "github"
       }
@@ -357,11 +372,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1639611244,
-        "narHash": "sha256-9Q+KZIrByBR7pqK/Y7/yIdagaGig7O+gPTbipKpWFWs=",
+        "lastModified": 1641171656,
+        "narHash": "sha256-dq+kqxsUguIevut+BS9QSTEygzdFsDx/SD5+issDFog=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "432864f33c84af53192d4b23ee5871697e57f094",
+        "rev": "81cea446d0c422095226f761d0135b05544f93e7",
         "type": "github"
       },
       "original": {
@@ -410,6 +425,7 @@
       "inputs": {
         "devshell": "devshell",
         "flake-compat": "flake-compat",
+        "funflowSrc": "funflowSrc",
         "jupyterWith": "jupyterWith",
         "latest": "latest",
         "mach-nix": "mach-nix",

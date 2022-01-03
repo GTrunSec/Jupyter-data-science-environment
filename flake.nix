@@ -12,7 +12,8 @@
       url = "github:DavHau/pypi-deps-db";
       flake = false;
     };
-    jupyterWith = { url = "github:GTrunSec/jupyterWith/main"; };
+    jupyterWith = { url = "github:tweag/jupyterWith"; };
+    funflowSrc = { url = "github:tweag/funflow"; flake = false; };
     #jupyterWith = { url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith"; };
     #haskTorch = { url = "github:hasktorch/hasktorch"; };
   };
@@ -57,6 +58,14 @@
                 pkgs = final;
                 pypiData = pypi-deps-db;
               };
+              haskellPackages = prev.haskellPackages.override
+                (old: {
+                  overrides = prev.lib.composeExtensions (old.overrides or (_: _: { })) (hfinal: hprev:
+                    {
+                      funflow = prev.haskell.lib.overrideCabal
+                        (hprev.callCabal2nix "funflow" "${inputs.funflowSrc}/funflow" { });
+                    });
+                });
             })
         ] ++ (nixpkgs.lib.attrValues jupyterWith.overlays);
 
