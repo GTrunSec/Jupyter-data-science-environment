@@ -1,24 +1,36 @@
 {
   description = "Data Science Environment";
-
+  nixConfig = {
+    flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
+  };
   inputs = {
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
-    latest.url = "github:NixOS/nixpkgs/master";
-    flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
-    devshell = { url = "github:numtide/devshell"; flake = false; };
-    mach-nix = { url = "github:DavHau/mach-nix"; inputs.nixpkgs.follows = "nixpkgs"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
+    mach-nix = { inputs.nixpkgs.follows = "nixpkgs"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
+    flake-compat.flake = false;
     pypi-deps-db = {
       url = "github:DavHau/pypi-deps-db";
       flake = false;
     };
-    jupyterWith = { url = "github:tweag/jupyterWith"; };
+    jupyterWith = {
+      url = "github:tweag/jupyterWith";
+      #url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith";
+    };
     funflowSrc = { url = "github:tweag/funflow"; flake = false; };
-    #jupyterWith = { url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith"; };
     #haskTorch = { url = "github:hasktorch/hasktorch"; };
   };
 
-  outputs = inputs: with builtins; with inputs;
+  outputs =
+    inputs@{ self
+    , nixpkgs
+    , latest
+    , mach-nix
+    , pypi-deps-db
+    , utils
+    , flake-compat
+    , devshell
+    , jupyterWith
+    , funflowSrc
+    }:
+
     let
       inherit (utils.lib) exportOverlays exportPackages exportModules;
     in
@@ -64,6 +76,8 @@
                     {
                       funflow = prev.haskell.lib.overrideCabal
                         (hprev.callCabal2nix "funflow" "${inputs.funflowSrc}/funflow" { });
+                      docker-client = prev.haskell.lib.overrideCabal
+                        (hprev.callCabal2nix "docker-client" "${inputs.funflowSrc}/docker-client" { });
                     });
                 });
             })
