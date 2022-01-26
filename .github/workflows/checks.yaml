@@ -13,7 +13,7 @@ jobs:
         fetch-depth: 0
     - uses: cachix/install-nix-action@v16
       with:
-        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.5pre20211026_5667822/install
+        install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.6.0pre20220113_a2811f8/install
     # Configure Nix to enable flakes
     - run: echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf
 

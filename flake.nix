@@ -7,7 +7,7 @@
     mach-nix = { inputs.nixpkgs.follows = "nixpkgs"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
     flake-compat.flake = false;
     pypi-deps-db = {
-      url = "github:DavHau/pypi-deps-db";
+      # url = "github:DavHau/pypi-deps-db";
       flake = false;
     };
     jupyterWith = {
