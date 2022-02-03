@@ -1,5 +1,6 @@
 [devshell]
 packages = ["nixpkgs-fmt", "julia_16-bin"]
+#startup.julia.text = "export JULIA_DEPOT_PATH"
 
 [[commands]]
 name = "pluto"

@@ -50,7 +50,7 @@
             input = nixpkgs;
             overlaysBuilder = channels:
               [
-                (import "${devshell}/overlay.nix")
+                devshell.overlay
                 (import ./nix/overlays/override.nix channels)
               ];
           };
@@ -90,9 +90,8 @@
         outputsBuilder = channels: {
           # construct packagesBuilder to export all packages defined in overlays
           packages = exportPackages self.overlays channels;
-          devShell = import ./shell { inherit self inputs channels; };
+          devShell = import ./shell { inherit inputs channels; };
         };
-
       } // {
       overlay = final: prev: {
         jupyterlab-env = prev.callPackage ./nix/jupyterlab-env.nix { };
