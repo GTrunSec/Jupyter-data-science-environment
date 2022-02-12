@@ -4,3 +4,6 @@
 [submodule "packages/julia/Julia-DataFrames-Tutorial"]
 	path = packages/julia/Julia-DataFrames-Tutorial
 	url = https://github.com/bkamins/Julia-DataFrames-Tutorial.git
+[submodule "packages/julia/lightgraphs_workshop"]
+	path = packages/julia/lightgraphs_workshop
+	url = https://github.com/matbesancon/lightgraphs_workshop.git

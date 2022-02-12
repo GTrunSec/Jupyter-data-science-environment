@@ -1,10 +1,10 @@
 { pkgs
-, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/Julia-DataFrames-Tutorial")
+, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/lightgraphs_workshop")
 }:
 with pkgs;
 let
   python-custom = pkgs.machlib.mkPython rec {
-    python = "python38";
+    python = "python3";
     requirements = builtins.readFile ../packages/python-packages.txt;
   };
 
@@ -56,7 +56,6 @@ let
       #directory = "./.jupyterlab";
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
-        python-custom.python.pkgs."jupyter-server-proxy"
       ];
       extraJupyterPath = p: mapPkgs (lib.attrVals [
         "jupytext"
