@@ -5,7 +5,7 @@ result
 *.log
 tmp/
 julia_depot
-.jupyterlab
+jupyterlab
 .jupyterlab-ci
 julia2nix
 3rdParty

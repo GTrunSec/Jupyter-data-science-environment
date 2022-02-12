@@ -6,7 +6,7 @@ packages = ["nixpkgs-fmt", "julia_16-bin"]
 name = "pluto"
 category = "Julia Package"
 command = '''
-        eval $(echo "nix develop --impure -c -- julia -L $$PRJ_ROOT/packages/julia/$1/startup.jl -e 'using Pluto; Pluto.run(host=\"$2\", port=$3)'")
+        eval $(echo "nix develop --impure -c -- julia -L $PRJ_ROOT/$1/startup.jl -e 'using Pluto; Pluto.run(host=\"$2\", port=$3)'")
         '''
 help = "launch pluto server: pluto <juliaPackageDir> <ip> <port> | Example: pluto default 10.220.170.112 8889"
 
@@ -17,13 +17,13 @@ category = "jupyter"
 command = '''
         set +u
         if [[ ! -z "$3" ]]; then
-        sed -i "s|/packages/julia/.*.|/packages/julia/$3\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
+        sed -i "s|/packages/julia/.*.|$3\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
         else
         sed -i "s|/packages/julia/.*.|/packages/julia/default\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
         fi
         nix develop .#jupyterlab-env --impure -c -- jupyter-lab --ip $1 --port $2 --config $PRJ_ROOT/jupyter_notebook_config.py
 '''
-help = "jupyterEnv <juliaPackageDir> <IP> <PORT> | Example: jupyterlab-env 10.220.170.112 8888 <Julia Activate DirName>"
+help = "jupyterEnv <IP> <PORT> <juliaPackageDir> | Example: jupyterlab-env 10.220.170.112 8888 <Julia Activate DirName>"
 
 [[commands]]
 name = "juliaStartup"
@@ -39,6 +39,6 @@ help = "juliaStartup <JuliaTutorial/default> | run julia with Startup.jl"
 name = "jupyterlab-jupytext"
 category = "extensions"
 command = '''
-        nix develop .#jupyterlab-env --impure -c -- sudo -E jupyter labextension install "jupyterlab-jupytext"
+        nix develop .#jupyterlab-env --impure -c generate-directory jupyterlab-jupytext
         '''
 help = "Install jupytext"

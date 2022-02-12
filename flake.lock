@@ -251,11 +251,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1644267287,
-        "narHash": "sha256-hCKhQ7nP8bG10wsmTbD0CdnY1aVwEJRmq2SgBrU7MpU=",
+        "lastModified": 1644480972,
+        "narHash": "sha256-icMKYJeMTMjgymOV+Ttv4VlJ98KTmYHGGdoJs7Sia1g=",
         "owner": "tweag",
         "repo": "jupyterWith",
-        "rev": "9d9e85584e476aa1e461876f282e6bab261acd6f",
+        "rev": "8f01b75bdcaa6f6af3e64ddb003478abcbe49a51",
         "type": "github"
       },
       "original": {

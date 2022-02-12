@@ -1,5 +1,5 @@
 { pkgs
-, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/lightgraphs_workshop")
+, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "packages/julia/default")
 }:
 with pkgs;
 let
@@ -53,7 +53,7 @@ let
     in
     jupyterWith.jupyterlabWith rec {
       kernels = [ iPython iHaskell iJulia iNix ];
-      #directory = "./.jupyterlab";
+      directory = "./jupyterlab";
       extraPackages = p: with p;[
         python-custom.python.pkgs."jupytext"
       ];
@@ -69,17 +69,13 @@ pkgs.mkShell rec {
     jupyterEnvironment
     iJulia.runtimePackages
     iPython.runtimePackages
-    nodejs
-  ];
+  ] ++ jupyterEnvironment.env.buildInputs;
 
   JULIA_DEPOT_PATH = julia_depot_path + "/julia_depot";
 
   PYTHON = "${python-custom}/bin/python";
 
   shellHook = ''
-    if [ -d "$PRJ_ROOT/.jupyterlab" ]; then
-       jupyter lab build
-    fi
     # ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
     # ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
     # ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink

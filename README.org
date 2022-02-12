@@ -13,6 +13,10 @@
 nix develop or nix-shell
 #+end_src
 
+- Exampel
+  #+begin_quote
+   jupyterlab 10.220.170.112 8888 packages/julia/Julia-DataFrames-Tutorial
+  #+end_quote
 
 #+begin_src sh :async t :exports both :results output
 nix develop .#jupyterEnv --impure --command -- jupyter-lab --ip <Ip> --port <port> --config jupyter_notebook_config.py

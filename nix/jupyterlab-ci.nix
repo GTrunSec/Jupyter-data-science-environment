@@ -41,7 +41,7 @@ let
   jupyterEnvironment =
     jupyterWith.jupyterlabWith {
       kernels = [ iPython iHaskell iJulia iNix ];
-      directory = "./.jupyterlab-ci";
+      directory = "./jupyterlab";
     };
 in
 pkgs.mkShell rec {
@@ -55,11 +55,5 @@ pkgs.mkShell rec {
   JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
 
   shellHook = ''
-    if [ ! -d "$PRJ_ROOT/.jupyterlab-ci" ]; then
-       jupyter lab build
-    else
-      rm -rf  $PRJ_ROOT/.jupyterlab-ci
-      jupyter lab build
-    fi
   '';
 }
