@@ -1,5 +1,5 @@
 [devshell]
-packages = ["nixpkgs-fmt", "julia_16-bin"]
+packages = ["nixpkgs-fmt", "julia_17-bin"]
 #startup.julia.text = "export JULIA_DEPOT_PATH"
 
 [[commands]]
@@ -17,7 +17,7 @@ category = "jupyter"
 command = '''
         set +u
         if [[ ! -z "$3" ]]; then
-        sed -i "s|/packages/julia/.*.|$3\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
+        sed -i "s|/packages/julia/.*.|/$3\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
         else
         sed -i "s|/packages/julia/.*.|/packages/julia/default\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
         fi
@@ -29,7 +29,6 @@ help = "jupyterEnv <IP> <PORT> <juliaPackageDir> | Example: jupyterlab-env 10.22
 name = "juliaStartup"
 category = "julia"
 command = '''
-        sed -i "s|/packages/julia/.*.|/packages/julia/$@\"\)|" $PRJ_ROOT/nix/jupyterlab-env.nix
         nix develop .#jupyterlab-env --impure --command -- juliaStartup
         '''
 help = "juliaStartup <JuliaTutorial/default> | run julia with Startup.jl"

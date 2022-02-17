@@ -1,7 +1,7 @@
 { pkgs }:
 with pkgs;
 let
-  python-custom = pkgs.machlib.mkPython rec {
+  python-custom = pkgs.mach-nix.mkPython rec {
     python = "python3";
     requirements = ''
       numpy

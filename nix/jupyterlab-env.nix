@@ -1,11 +1,15 @@
 { pkgs
-, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "packages/julia/default")
+, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial")
 }:
 with pkgs;
 let
-  python-custom = pkgs.machlib.mkPython rec {
+  python-custom = pkgs.mach-nix.mkPython rec {
     python = "python3";
     requirements = builtins.readFile ../packages/python-packages.txt;
+    # providers = {
+    #   cffi = "nixpkgs";
+    #   pycparser= "nixpkgs";
+    # };
   };
 
   iPython = jupyterWith.kernels.iPythonWith {
@@ -31,6 +35,7 @@ let
 
   iJulia = jupyterWith.kernels.iJuliaWith {
     name = "Julia-data-env";
+    package = pkgs.julia_17-bin;
     #Project.toml directory
     activateDir = julia_depot_path;
     # JuliaPackages directory
@@ -55,11 +60,11 @@ let
       kernels = [ iPython iHaskell iJulia iNix ];
       directory = "./jupyterlab";
       extraPackages = p: with p;[
-        python-custom.python.pkgs."jupytext"
+        # python-custom.python.pkgs."jupytext"
       ];
       extraJupyterPath = p: mapPkgs (lib.attrVals [
-        "jupytext"
-        #"jupyter-server-proxy"
+        # "jupytext"
+        # "jupyter-server-proxy"
       ]
         python-custom.python.pkgs);
     };

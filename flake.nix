@@ -4,15 +4,13 @@
     flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
   };
   inputs = {
-    mach-nix = { inputs.nixpkgs.follows = "nixpkgs"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
+    mach-nix = { inputs.nixpkgs.follows = "nixpkgs-unstable"; inputs.pypi-deps-db.follows = "pypi-deps-db"; };
     flake-compat.flake = false;
-    pypi-deps-db = {
-      # url = "github:DavHau/pypi-deps-db";
-      flake = false;
-    };
+    pypi-deps-db = { url = "github:DavHau/pypi-deps-db"; flake = false; };
     jupyterWith = {
       url = "github:tweag/jupyterWith";
       #url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     funflowSrc = { url = "github:tweag/funflow"; flake = false; };
     #haskTorch = { url = "github:hasktorch/hasktorch"; };
@@ -20,7 +18,7 @@
 
   outputs =
     inputs@{ self
-    , nixpkgs
+    , nixpkgs-unstable
     , latest
     , mach-nix
     , pypi-deps-db
@@ -47,7 +45,7 @@
         };
         channels = {
           nixpkgs = {
-            input = nixpkgs;
+            input = nixpkgs-unstable;
             overlaysBuilder = channels:
               [
                 devshell.overlay
@@ -56,7 +54,9 @@
           };
           latest = {
             input = latest;
-            overlaysBuilder = channels: [ ];
+            overlaysBuilder = channels: [
+
+              ];
           };
         };
 
@@ -66,10 +66,7 @@
             {
               __dontExport = true;
               #python
-              machlib = import mach-nix {
-                pkgs = final;
-                pypiData = pypi-deps-db;
-              };
+              mach-nix = inputs.mach-nix.lib."${prev.stdenv.hostPlatform.system}";
               haskellPackages = prev.haskellPackages.override
                 (old: {
                   overrides = prev.lib.composeExtensions (old.overrides or (_: _: { })) (hfinal: hprev:
@@ -81,7 +78,7 @@
                     });
                 });
             })
-        ] ++ (nixpkgs.lib.attrValues jupyterWith.overlays);
+        ] ++ (nixpkgs-unstable.lib.attrValues jupyterWith.overlays);
 
         overlays = exportOverlays {
           inherit (self) pkgs inputs;
