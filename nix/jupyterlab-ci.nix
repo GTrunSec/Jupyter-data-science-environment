@@ -1,6 +1,5 @@
 { pkgs }:
-with pkgs;
-let
+with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
     python = "python3";
     requirements = ''
@@ -15,7 +14,6 @@ let
     packages = python-custom.python.pkgs.selectPkgs;
     ignoreCollisions = true;
   };
-
 
   iHaskell = jupyterWith.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
@@ -32,7 +30,6 @@ let
     extraEnv = { PYTHON = "${python-custom}/bin/python"; };
   };
 
-
   iNix = jupyterWith.kernels.iNixKernel {
     name = "nix-kernel";
     nix = pkgs.nixFlakes;
@@ -40,20 +37,20 @@ let
 
   jupyterEnvironment =
     jupyterWith.jupyterlabWith {
-      kernels = [ iPython iHaskell iJulia iNix ];
+      kernels = [iPython iHaskell iJulia iNix];
       directory = "./jupyterlab";
     };
 in
-pkgs.mkShell rec {
-  buildInputs = [
-    jupyterEnvironment
-    iJulia.runtimePackages
-    iPython.runtimePackages
-    nodejs
-  ];
+  pkgs.mkShell rec {
+    buildInputs = [
+      jupyterEnvironment
+      iJulia.runtimePackages
+      iPython.runtimePackages
+      nodejs
+    ];
 
-  JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
+    JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
 
-  shellHook = ''
-  '';
-}
+    shellHook = ''
+    '';
+  }

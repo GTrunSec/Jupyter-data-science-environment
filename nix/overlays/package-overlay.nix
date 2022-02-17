@@ -1,5 +1,4 @@
-final: prev:
-{
+final: prev: {
   R = prev.R.override {
     blas = prev.blas.override {
       blasProvider = prev.lapack-reference;

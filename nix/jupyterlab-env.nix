@@ -1,8 +1,8 @@
-{ pkgs
-, julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial")
+{
+  pkgs,
+  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial"),
 }:
-with pkgs;
-let
+with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
     python = "python3";
     requirements = builtins.readFile ../packages/python-packages.txt;
@@ -19,7 +19,6 @@ let
     ignoreCollisions = true;
   };
 
-
   iHaskell = jupyterWith.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
@@ -31,7 +30,6 @@ let
       Matrix = true;
     };
   };
-
 
   iJulia = jupyterWith.kernels.iJuliaWith {
     name = "Julia-data-env";
@@ -56,34 +54,38 @@ let
     let
       mapPkgs = v: "${lib.concatImapStringsSep ":" (pos: x: x + "/${pkgs.python3.sitePackages}") v}";
     in
-    jupyterWith.jupyterlabWith rec {
-      kernels = [ iPython iHaskell iJulia iNix ];
-      directory = "./jupyterlab";
-      extraPackages = p: with p;[
-        # python-custom.python.pkgs."jupytext"
-      ];
-      extraJupyterPath = p: mapPkgs (lib.attrVals [
-        # "jupytext"
-        # "jupyter-server-proxy"
-      ]
-        python-custom.python.pkgs);
-    };
+      jupyterWith.jupyterlabWith rec {
+        kernels = [iPython iHaskell iJulia iNix];
+        directory = "./jupyterlab";
+        extraPackages = p:
+          with p; [
+            # python-custom.python.pkgs."jupytext"
+          ];
+        extraJupyterPath = p:
+          mapPkgs (lib.attrVals [
+            # "jupytext"
+            # "jupyter-server-proxy"
+          ]
+          python-custom.python.pkgs);
+      };
 in
-pkgs.mkShell rec {
-  buildInputs = [
-    jupyterEnvironment
-    iJulia.runtimePackages
-    iPython.runtimePackages
-  ] ++ jupyterEnvironment.env.buildInputs;
+  pkgs.mkShell rec {
+    buildInputs =
+      [
+        jupyterEnvironment
+        iJulia.runtimePackages
+        iPython.runtimePackages
+      ]
+      ++ jupyterEnvironment.env.buildInputs;
 
-  JULIA_DEPOT_PATH = julia_depot_path + "/julia_depot";
+    JULIA_DEPOT_PATH = julia_depot_path + "/julia_depot";
 
-  PYTHON = "${python-custom}/bin/python";
+    PYTHON = "${python-custom}/bin/python";
 
-  shellHook = ''
-    # ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
-    # ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
-    # ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
-    # ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
-  '';
-}
+    shellHook = ''
+      # ln -sfT ${iPython.spec}/kernels/ipython_Python-data-env ~/.local/share/jupyter/kernels/ipython_Symlink
+      # ln -sfT ${iHaskell.spec}/kernels/ihaskell_ihaskell-flake ~/.local/share/jupyter/kernels/iHaskell-Symlink
+      # ln -sfT ${iJulia.spec}/kernels/julia_Julia-data-env ~/.local/share/jupyter/kernels/iJulia-Symlink
+      # ln -sfT ${iNix.spec}/kernels/inix_nix-kernel/  ~/.local/share/jupyter/kernels/INix-Symlink
+    '';
+  }
