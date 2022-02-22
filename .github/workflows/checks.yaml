@@ -22,4 +22,4 @@ jobs:
         name: gtrunsec
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
-    - run: nix -Lv develop .#jupyterlab-ci --impure
+    - run: nix -Lv develop -c checks

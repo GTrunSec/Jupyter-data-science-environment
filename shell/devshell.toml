@@ -41,3 +41,9 @@ command = '''
         nix develop .#jupyterlab-env --impure -c generate-directory jupyterlab-jupytext
         '''
 help = "Install jupytext"
+
+[[commands]]
+name = "checks"
+category = "CI"
+command = "nix -Lv develop .#jupyterlab-ci --impure -c echo OK"
+help = "run CI check locally"

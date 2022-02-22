@@ -1,5 +1,7 @@
-{pkgs}:
-with pkgs; let
+{
+  pkgs,
+  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial"),
+}: let
   python-custom = pkgs.mach-nix.mkPython rec {
     python = "python3";
     requirements = ''
@@ -8,20 +10,20 @@ with pkgs; let
     '';
   };
 
-  iPython = jupyterWith.kernels.iPythonWith {
+  iPython = pkgs.jupyterWith.kernels.iPythonWith {
     name = "Python-data-env";
     python3 = python-custom.python;
     packages = python-custom.python.pkgs.selectPkgs;
     ignoreCollisions = true;
   };
 
-  iHaskell = jupyterWith.kernels.iHaskellWith {
+  iHaskell = pkgs.jupyterWith.kernels.iHaskellWith {
     extraIHaskellFlags = "--codemirror Haskell"; # for jupyterlab syntax highlighting
     name = "ihaskell-flake";
   };
 
   juliaPackages = builtins.getEnv "PRJ_ROOT" + "/packages/julia/default";
-  iJulia = jupyterWith.kernels.iJuliaWith rec {
+  iJulia = pkgs.jupyterWith.kernels.iJuliaWith rec {
     name = "Julia-data-env";
     #Project.toml directory
     activateDir = juliaPackages;
@@ -30,13 +32,13 @@ with pkgs; let
     extraEnv = {PYTHON = "${python-custom}/bin/python";};
   };
 
-  iNix = jupyterWith.kernels.iNixKernel {
+  iNix = pkgs.jupyterWith.kernels.iNixKernel {
     name = "nix-kernel";
     nix = pkgs.nixFlakes;
   };
 
   jupyterEnvironment =
-    jupyterWith.jupyterlabWith {
+    pkgs.jupyterWith.jupyterlabWith {
       kernels = [iPython iHaskell iJulia iNix];
       directory = "./jupyterlab";
     };
@@ -46,7 +48,6 @@ in
       jupyterEnvironment
       iJulia.runtimePackages
       iPython.runtimePackages
-      nodejs
     ];
 
     JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";

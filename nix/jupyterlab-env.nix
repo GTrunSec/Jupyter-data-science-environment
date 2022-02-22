@@ -1,6 +1,6 @@
 {
   pkgs,
-  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial")
+  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial"),
 }:
 with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
@@ -39,8 +39,6 @@ with pkgs; let
     # JuliaPackages directory
     JULIA_DEPOT_PATH = julia_depot_path + "/julia_depot";
     extraEnv = {
-      #TODO NEXT VERSION or PATCH
-      #https://github.com/JuliaLang/julia/issues/40585#issuecomment-834096490
       PYTHON = "${python-custom}/bin/python";
     };
   };
@@ -56,16 +54,16 @@ with pkgs; let
     jupyterWith.jupyterlabWith rec {
       kernels = [iPython iHaskell iJulia iNix];
       directory = "./jupyterlab";
-      # extraPackages = p:
-      #   with p; [
-      #     python-custom.python.pkgs."jupytext"
-      #   ];
-      # extraJupyterPath = p:
-      #   mapPkgs (lib.attrVals [
-      #     "jupytext"
-      #     # "jupyter-server-proxy"
-      #   ]
-      #   python-custom.python.pkgs);
+      extraPackages = p:
+        with p; [
+          python-custom.python.pkgs."jupytext"
+        ];
+      extraJupyterPath = p:
+        mapPkgs (lib.attrVals [
+          "jupytext"
+          # "jupyter-server-proxy"
+        ]
+        python-custom.python.pkgs);
     };
 in
   pkgs.mkShell rec {
