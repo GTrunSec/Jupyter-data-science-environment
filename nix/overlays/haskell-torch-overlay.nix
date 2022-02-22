@@ -21,10 +21,10 @@
 # assert that the correct cuda versions are used
 assert cudaSupport -> (cudaMajorVersion == "9" || cudaMajorVersion == "10" || cudaMajorVersion == "11"); let
   sources =
-    import ./sources.nix { inherit pkgs; }
+    import ./sources.nix {inherit pkgs;}
     // sourcesOverride;
   iohKNix = import sources.iohk-nix {};
-  haskellNix = (import sources.haskell-nix { inherit system sourcesOverride; }).nixpkgsArgs;
+  haskellNix = (import sources.haskell-nix {inherit system sourcesOverride;}).nixpkgsArgs;
   # use our own nixpkgs if it exist in our sources,
   # otherwise use iohkNix default nixpkgs.
   nixpkgs =
@@ -83,47 +83,48 @@ assert cudaSupport -> (cudaMajorVersion == "9" || cudaMajorVersion == "10" || cu
     # TODO: pull in libGL_driver and cudatoolkit as done in https://github.com/NixOS/nixpkgs/blob/master/pkgs/games/katago/default.nix
     ++ [
       (
-        pkgs: _: with pkgs; let
-          libtorchSrc = callPackage "${sources.pytorch-world}/libtorch/release.nix" {};
-        in
-          if cudaSupport && cudaMajorVersion == "9"
-          then
-            let
-              libtorch = libtorchSrc.libtorch_cudatoolkit_9_2;
-            in {
-              c10 = libtorch;
-              torch = libtorch;
-              torch_cpu = libtorch;
-              torch_cuda = libtorch;
-            }
-          else if cudaSupport && cudaMajorVersion == "10"
-          then
-            let
-              libtorch = libtorchSrc.libtorch_cudatoolkit_10_2;
-            in {
-              c10 = libtorch;
-              torch = libtorch;
-              torch_cpu = libtorch;
-              torch_cuda = libtorch;
-            }
-          else if cudaSupport && cudaMajorVersion == "11"
-          then
-            let
-              libtorch = libtorchSrc.libtorch_cudatoolkit_11_0;
-            in {
-              c10 = libtorch;
-              torch = libtorch;
-              torch_cpu = libtorch;
-              torch_cuda = libtorch;
-            }
-          else
-            let
-              libtorch = libtorchSrc.libtorch_cpu;
-            in {
-              c10 = libtorch;
-              torch = libtorch;
-              torch_cpu = libtorch;
-            }
+        pkgs: _:
+          with pkgs; let
+            libtorchSrc = callPackage "${sources.pytorch-world}/libtorch/release.nix" {};
+          in
+            if cudaSupport && cudaMajorVersion == "9"
+            then
+              let
+                libtorch = libtorchSrc.libtorch_cudatoolkit_9_2;
+              in {
+                c10 = libtorch;
+                torch = libtorch;
+                torch_cpu = libtorch;
+                torch_cuda = libtorch;
+              }
+            else if cudaSupport && cudaMajorVersion == "10"
+            then
+              let
+                libtorch = libtorchSrc.libtorch_cudatoolkit_10_2;
+              in {
+                c10 = libtorch;
+                torch = libtorch;
+                torch_cpu = libtorch;
+                torch_cuda = libtorch;
+              }
+            else if cudaSupport && cudaMajorVersion == "11"
+            then
+              let
+                libtorch = libtorchSrc.libtorch_cudatoolkit_11_0;
+              in {
+                c10 = libtorch;
+                torch = libtorch;
+                torch_cpu = libtorch;
+                torch_cuda = libtorch;
+              }
+            else
+              let
+                libtorch = libtorchSrc.libtorch_cpu;
+              in {
+                c10 = libtorch;
+                torch = libtorch;
+                torch_cpu = libtorch;
+              }
       )
     ]
     # hasktorch overlays:
@@ -136,9 +137,9 @@ assert cudaSupport -> (cudaMajorVersion == "9" || cudaMajorVersion == "10" || cu
           commonLib =
             lib
             // iohkNix
-            // import ./util.nix { inherit haskell-nix; }
+            // import ./util.nix {inherit haskell-nix;}
             # also expose sources, nixpkgs and overlays
-            // { inherit overlays sources nixpkgs; };
+            // {inherit overlays sources nixpkgs;};
         })
       # haskell-nix-ified hasktorch cabal project:
       (import ./pkgs.nix)

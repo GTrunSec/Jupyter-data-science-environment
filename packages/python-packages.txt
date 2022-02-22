@@ -1,6 +1,7 @@
 pandas
 polars
 scikit-learn
+jupytext
 #################
 # Julia Pycall  #
 #################

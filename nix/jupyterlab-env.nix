@@ -1,6 +1,6 @@
 {
   pkgs,
-  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial"),
+  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial")
 }:
 with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
@@ -50,24 +50,23 @@ with pkgs; let
     nix = pkgs.nixFlakes;
   };
 
-  jupyterEnvironment =
-    let
-      mapPkgs = v: "${lib.concatImapStringsSep ":" (pos: x: x + "/${pkgs.python3.sitePackages}") v}";
-    in
-      jupyterWith.jupyterlabWith rec {
-        kernels = [iPython iHaskell iJulia iNix];
-        directory = "./jupyterlab";
-        extraPackages = p:
-          with p; [
-            # python-custom.python.pkgs."jupytext"
-          ];
-        extraJupyterPath = p:
-          mapPkgs (lib.attrVals [
-            # "jupytext"
-            # "jupyter-server-proxy"
-          ]
-          python-custom.python.pkgs);
-      };
+  jupyterEnvironment = let
+    mapPkgs = v: "${lib.concatImapStringsSep ":" (pos: x: x + "/${pkgs.python3.sitePackages}") v}";
+  in
+    jupyterWith.jupyterlabWith rec {
+      kernels = [iPython iHaskell iJulia iNix];
+      directory = "./jupyterlab";
+      # extraPackages = p:
+      #   with p; [
+      #     python-custom.python.pkgs."jupytext"
+      #   ];
+      # extraJupyterPath = p:
+      #   mapPkgs (lib.attrVals [
+      #     "jupytext"
+      #     # "jupyter-server-proxy"
+      #   ]
+      #   python-custom.python.pkgs);
+    };
 in
   pkgs.mkShell rec {
     buildInputs =
@@ -75,6 +74,7 @@ in
         jupyterEnvironment
         iJulia.runtimePackages
         iPython.runtimePackages
+        python-custom.python.pkgs."jupytext"
       ]
       ++ jupyterEnvironment.env.buildInputs;
 

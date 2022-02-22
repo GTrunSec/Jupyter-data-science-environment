@@ -1,4 +1,4 @@
-{ pkgs }:
+{pkgs}:
 with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
     python = "python3";
@@ -27,7 +27,7 @@ with pkgs; let
     activateDir = juliaPackages;
     # JuliaPackages directory
     JULIA_DEPOT_PATH = juliaPackages + "/julia_depot";
-    extraEnv = { PYTHON = "${python-custom}/bin/python"; };
+    extraEnv = {PYTHON = "${python-custom}/bin/python";};
   };
 
   iNix = jupyterWith.kernels.iNixKernel {

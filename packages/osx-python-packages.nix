@@ -1,5 +1,4 @@
-{ pkgs }:
-(with pkgs.python3.withPackages; (p:
+{pkgs}: (with pkgs.python3.withPackages; (p:
   with p; [
     geoip2
     numpy

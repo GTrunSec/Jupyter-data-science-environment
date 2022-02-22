@@ -1,5 +1,4 @@
-{ pkgs }:
-(with pkgs.rWrapper.override; (p:
+{pkgs}: (with pkgs.rWrapper.override; (p:
   with p; [
     summarytools
     doBy
