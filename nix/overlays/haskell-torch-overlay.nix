@@ -1,21 +1,16 @@
 {
   system ? builtins.currentSystem,
-  crossSystem ? null
+  crossSystem ? null,
   # Lets you customise ghc and profiling (see ./haskell.nix):
-  ,
-  config ? {}
+  config ? {},
   # Lets you override niv dependencies of the project without modifications to the source.
-  ,
-  sourcesOverride ? {}
+  sourcesOverride ? {},
   # Version info, to be passed when not building from a git work tree
-  ,
-  gitrev ? null
+  gitrev ? null,
   # Enable CUDA support
-  ,
   cudaSupport ? false,
-  cudaMajorVersion ? null
+  cudaMajorVersion ? null,
   # Add packages on top of the package set derived from cabal resolution
-  ,
   extras ? (_: {}),
 }:
 # assert that the correct cuda versions are used
@@ -50,25 +45,25 @@ assert cudaSupport -> (cudaMajorVersion == "9" || cudaMajorVersion == "10" || cu
               // {
                 haskell-language-server."0.6.0" = args: let
                   project = pkgsOld.haskell-nix.project' (args
-                  // {
-                    src = pkgsOld.evalPackages.fetchgit {
-                      url = "https://github.com/haskell/haskell-language-server.git";
-                      fetchSubmodules = true;
-                      rev = "372a12e797069dc3ac4fa33dcaabe3b992999d7c";
-                      sha256 = "027fq6752024wzzq9izsilm5lkq9gmpxf82rixbimbijw0yk4pwj";
-                    };
-                    projectFileName = "cabal.project";
-                    sha256map = {
-                      "https://github.com/bubba/brittany.git"."c59655f10d5ad295c2481537fc8abf0a297d9d1c" = "1rkk09f8750qykrmkqfqbh44dbx1p8aq1caznxxlw8zqfvx39cxl";
-                      "https://github.com/bubba/hie-bios.git"."cec139a1c3da1632d9a59271acc70156413017e7" = "1iqk55jga4naghmh8zak9q7ssxawk820vw8932dhympb767dfkha";
-                    };
-                    cabalProjectLocal = ''
-                      allow-newer: diagrams-svg:base, monoid-extras:base, svg-builder:base,
-                        diagrams-lib:base, dual-tree:base, active:base, diagrams-core:base,
-                        diagrams-contrib:base, force-layout:base, diagrams-postscript:base,
-                        statestack:base
-                    '';
-                  });
+                    // {
+                      src = pkgsOld.evalPackages.fetchgit {
+                        url = "https://github.com/haskell/haskell-language-server.git";
+                        fetchSubmodules = true;
+                        rev = "372a12e797069dc3ac4fa33dcaabe3b992999d7c";
+                        sha256 = "027fq6752024wzzq9izsilm5lkq9gmpxf82rixbimbijw0yk4pwj";
+                      };
+                      projectFileName = "cabal.project";
+                      sha256map = {
+                        "https://github.com/bubba/brittany.git"."c59655f10d5ad295c2481537fc8abf0a297d9d1c" = "1rkk09f8750qykrmkqfqbh44dbx1p8aq1caznxxlw8zqfvx39cxl";
+                        "https://github.com/bubba/hie-bios.git"."cec139a1c3da1632d9a59271acc70156413017e7" = "1iqk55jga4naghmh8zak9q7ssxawk820vw8932dhympb767dfkha";
+                      };
+                      cabalProjectLocal = ''
+                        allow-newer: diagrams-svg:base, monoid-extras:base, svg-builder:base,
+                          diagrams-lib:base, dual-tree:base, active:base, diagrams-core:base,
+                          diagrams-contrib:base, force-layout:base, diagrams-postscript:base,
+                          statestack:base
+                      '';
+                    });
                 in
                   project.hsPkgs.haskell-language-server.components.exes.haskell-language-server;
               };
@@ -88,43 +83,39 @@ assert cudaSupport -> (cudaMajorVersion == "9" || cudaMajorVersion == "10" || cu
             libtorchSrc = callPackage "${sources.pytorch-world}/libtorch/release.nix" {};
           in
             if cudaSupport && cudaMajorVersion == "9"
-            then
-              let
-                libtorch = libtorchSrc.libtorch_cudatoolkit_9_2;
-              in {
-                c10 = libtorch;
-                torch = libtorch;
-                torch_cpu = libtorch;
-                torch_cuda = libtorch;
-              }
+            then let
+              libtorch = libtorchSrc.libtorch_cudatoolkit_9_2;
+            in {
+              c10 = libtorch;
+              torch = libtorch;
+              torch_cpu = libtorch;
+              torch_cuda = libtorch;
+            }
             else if cudaSupport && cudaMajorVersion == "10"
-            then
-              let
-                libtorch = libtorchSrc.libtorch_cudatoolkit_10_2;
-              in {
-                c10 = libtorch;
-                torch = libtorch;
-                torch_cpu = libtorch;
-                torch_cuda = libtorch;
-              }
+            then let
+              libtorch = libtorchSrc.libtorch_cudatoolkit_10_2;
+            in {
+              c10 = libtorch;
+              torch = libtorch;
+              torch_cpu = libtorch;
+              torch_cuda = libtorch;
+            }
             else if cudaSupport && cudaMajorVersion == "11"
-            then
-              let
-                libtorch = libtorchSrc.libtorch_cudatoolkit_11_0;
-              in {
-                c10 = libtorch;
-                torch = libtorch;
-                torch_cpu = libtorch;
-                torch_cuda = libtorch;
-              }
-            else
-              let
-                libtorch = libtorchSrc.libtorch_cpu;
-              in {
-                c10 = libtorch;
-                torch = libtorch;
-                torch_cpu = libtorch;
-              }
+            then let
+              libtorch = libtorchSrc.libtorch_cudatoolkit_11_0;
+            in {
+              c10 = libtorch;
+              torch = libtorch;
+              torch_cpu = libtorch;
+              torch_cuda = libtorch;
+            }
+            else let
+              libtorch = libtorchSrc.libtorch_cpu;
+            in {
+              c10 = libtorch;
+              torch = libtorch;
+              torch_cpu = libtorch;
+            }
       )
     ]
     # hasktorch overlays:

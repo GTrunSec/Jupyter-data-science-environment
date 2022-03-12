@@ -37,11 +37,10 @@
     nix = pkgs.nixFlakes;
   };
 
-  jupyterEnvironment =
-    pkgs.jupyterWith.jupyterlabWith {
-      kernels = [iPython iHaskell iJulia iNix];
-      directory = "./jupyterlab";
-    };
+  jupyterEnvironment = pkgs.jupyterWith.jupyterlabWith {
+    kernels = [iPython iHaskell iJulia iNix];
+    directory = "./jupyterlab";
+  };
 in
   pkgs.mkShell rec {
     buildInputs = [

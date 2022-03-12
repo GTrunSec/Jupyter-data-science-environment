@@ -1,6 +1,6 @@
 {
   pkgs,
-  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial")
+  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial"),
 }:
 with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
@@ -60,10 +60,10 @@ with pkgs; let
         ];
       extraJupyterPath = p:
         mapPkgs (lib.attrVals [
-          "jupytext"
-          # "jupyter-server-proxy"
-        ]
-        python-custom.python.pkgs);
+            "jupytext"
+            # "jupyter-server-proxy"
+          ]
+          python-custom.python.pkgs);
     };
 in
   pkgs.mkShell rec {

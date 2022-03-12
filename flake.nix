@@ -70,15 +70,18 @@
           (final: prev: {
             __dontExport = true;
             mach-nix = inputs.mach-nix.lib."${prev.stdenv.hostPlatform.system}";
-            haskellPackages = prev.haskellPackages.override
-            (old: {
-              overrides = prev.lib.composeExtensions (old.overrides or (_: _: {})) (hfinal: hprev: {
-                funflow = prev.haskell.lib.overrideCabal
-                (hprev.callCabal2nix "funflow" "${inputs.funflowSrc}/funflow" {});
-                docker-client = prev.haskell.lib.overrideCabal
-                (hprev.callCabal2nix "docker-client" "${inputs.funflowSrc}/docker-client" {});
+            haskellPackages =
+              prev.haskellPackages.override
+              (old: {
+                overrides = prev.lib.composeExtensions (old.overrides or (_: _: {})) (hfinal: hprev: {
+                  funflow =
+                    prev.haskell.lib.overrideCabal
+                    (hprev.callCabal2nix "funflow" "${inputs.funflowSrc}/funflow" {});
+                  docker-client =
+                    prev.haskell.lib.overrideCabal
+                    (hprev.callCabal2nix "docker-client" "${inputs.funflowSrc}/docker-client" {});
+                });
               });
-            });
           })
         ]
         ++ (nixpkgs-unstable.lib.attrValues jupyterWith.overlays);
