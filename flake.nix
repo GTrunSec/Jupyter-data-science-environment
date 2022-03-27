@@ -4,24 +4,21 @@
     flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
   };
   inputs = {
-    mach-nix = {
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.pypi-deps-db.follows = "pypi-deps-db";
-    };
+    mach-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    mach-nix.inputs.pypi-deps-db.follows = "pypi-deps-db";
+
     flake-compat.flake = false;
-    pypi-deps-db = {
-      url = "github:DavHau/pypi-deps-db";
-      flake = false;
-    };
-    jupyterWith = {
+
+    pypi-deps-db.url = "github:DavHau/pypi-deps-db";
+    pypi-deps-db.flake = false;
+
       # url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith/";
-      url = "github:tweag/jupyterWith";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    funflowSrc = {
-      url = "github:tweag/funflow";
-      flake = false;
-    };
+    jupyterWith.url = "github:tweag/jupyterWith";
+    jupyterWith.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
+    funflowSrc.url = "github:tweag/funflow";
+    funflowSrc.flake = false;
+
     #haskTorch = { url = "github:hasktorch/hasktorch"; };
   };
 

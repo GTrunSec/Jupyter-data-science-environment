@@ -1,6 +1,6 @@
 {
   pkgs,
-  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/JuliaTutorial"),
+  julia_depot_path ? (builtins.getEnv "PRJ_ROOT" + "/packages/julia/Julia-DataFrames-Tutorial")
 }:
 with pkgs; let
   python-custom = pkgs.mach-nix.mkPython rec {
