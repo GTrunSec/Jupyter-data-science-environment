@@ -414,17 +414,17 @@
         "flake-utils": "flake-utils_5"
       },
       "locked": {
-        "lastModified": 1654029967,
-        "narHash": "sha256-my3GQ3mQIw/1f6GPV1IhUZrcYQSWh0YJAMPNBjhXJDw=",
-        "ref": "refs/heads/channel-lib",
-        "rev": "6271cf3842ff9c8a9af9e3508c547f86bc77d199",
-        "revCount": 286,
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/gytis-ivaskevicius/flake-utils-plus"
+        "lastModified": 1652704544,
+        "narHash": "sha256-UTKE33tYgCmDszaVyWA33a8mtegM5xfH4fH8w4y6TxA=",
+        "owner": "gytis-ivaskevicius",
+        "repo": "flake-utils-plus",
+        "rev": "f8d6d1f87b6177e3bc674c29f247bdbf897ba274",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gtrun/ghq/github.com/gytis-ivaskevicius/flake-utils-plus"
+        "owner": "gytis-ivaskevicius",
+        "repo": "flake-utils-plus",
+        "type": "github"
       }
     }
   },

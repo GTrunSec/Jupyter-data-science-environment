@@ -4,7 +4,7 @@
     flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
   };
   inputs = {
-    utils.url = "/home/gtrun/ghq/github.com/gytis-ivaskevicius/flake-utils-plus";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     release.url = "github:NixOS/nixpkgs/release-22.05";
