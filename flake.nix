@@ -4,6 +4,11 @@
     flake-registry = "https://github.com/hardenedlinux/flake-registry/raw/main/flake-registry.json";
   };
   inputs = {
+    utils.url = "/home/gtrun/ghq/github.com/gytis-ivaskevicius/flake-utils-plus";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    release.url = "github:NixOS/nixpkgs/release-22.05";
+
     mach-nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
     mach-nix.inputs.pypi-deps-db.follows = "pypi-deps-db";
 
@@ -12,12 +17,9 @@
     pypi-deps-db.url = "github:DavHau/pypi-deps-db";
     pypi-deps-db.flake = false;
 
-      # url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith/";
+    # url = "/home/gtrun/ghq/github.com/GTrunSec/jupyterWith/";
     jupyterWith.url = "github:tweag/jupyterWith";
     jupyterWith.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
-    funflowSrc.url = "github:tweag/funflow";
-    funflowSrc.flake = false;
 
     #haskTorch = { url = "github:hasktorch/hasktorch"; };
   };
@@ -32,7 +34,7 @@
     flake-compat,
     devshell,
     jupyterWith,
-    funflowSrc,
+    ...
   }: let
     inherit (utils.lib) exportOverlays exportPackages exportModules;
   in
@@ -59,26 +61,18 @@
           input = latest;
           overlaysBuilder = channels: [];
         };
+        release = {
+          input = inputs.release;
+          overlaysBuilder = channels: [];
+        };
       };
 
       sharedOverlays =
         [
-          self.overlay
+          self.overlays.default
           (final: prev: {
             __dontExport = true;
             mach-nix = inputs.mach-nix.lib."${prev.stdenv.hostPlatform.system}";
-            haskellPackages =
-              prev.haskellPackages.override
-              (old: {
-                overrides = prev.lib.composeExtensions (old.overrides or (_: _: {})) (hfinal: hprev: {
-                  funflow =
-                    prev.haskell.lib.overrideCabal
-                    (hprev.callCabal2nix "funflow" "${inputs.funflowSrc}/funflow" {});
-                  docker-client =
-                    prev.haskell.lib.overrideCabal
-                    (hprev.callCabal2nix "docker-client" "${inputs.funflowSrc}/docker-client" {});
-                });
-              });
           })
         ]
         ++ (nixpkgs-unstable.lib.attrValues jupyterWith.overlays);
@@ -89,11 +83,11 @@
 
       outputsBuilder = channels: {
         packages = exportPackages self.overlays channels;
-        devShell = import ./shell {inherit inputs channels;};
+        devShells.default = import ./shell {inherit inputs channels;};
       };
     }
     // {
-      overlay = final: prev: {
+      overlays.default = final: prev: {
         jupyterlab-env = prev.callPackage ./nix/jupyterlab-env.nix {};
         jupyterlab-ci = prev.callPackage ./nix/jupyterlab-ci.nix {};
       };
