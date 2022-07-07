@@ -12,7 +12,6 @@
         # hvega
         # formatting
         # hvega
-        funflow
         ihaskell-juicypixels
         statistics
         vector
